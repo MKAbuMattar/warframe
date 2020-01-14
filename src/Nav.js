@@ -4,37 +4,47 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="nav">
-      <Link className="nav-logo" to="/">
-        <h3>Warframe</h3>
-      </Link>
-      <ul className="nav-links">
-        <Link className="nav-link" to="/warframe">
-          <li>Frame</li>
-        </Link>
-        <Link className="nav-link" to="/sentinel">
-          <li>Sentinel</li>
-        </Link>
-        <Link className="nav-link" to="/archwing">
-          <li>Archwing</li>
-        </Link>
-        <Link className="nav-link" to="/primary">
-          <li>Primary Weapons</li>
-        </Link>
-        <Link className="nav-link" to="/secondary">
-          <li>Secondary Weapons</li>
-        </Link>
-        <Link className="nav-link" to="/melee">
-          <li>Melee Weapons</li>
-        </Link>
-        <Link className="nav-link" to="/arch-gun">
-          <li>Arch Gun</li>
-        </Link>
-        <Link className="nav-link" to="/arch-melee">
-          <li>Arch Melee</li>
-        </Link>
-      </ul>
-    </nav>
+    <div className="header">
+      <nav>
+        <ul className="nav">
+          <li className="nav-item slam-left logo">
+            <Link to="/">Warframe</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/warframe">Frame</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/primary">Primary Weapons</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/secondary">Secondary Weapons</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/melee">Melee Weapons</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/arch-gun">Arch Gun</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/sentinel">Sentinel</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/archwing">Archwing</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/arch-melee">Arch Melee</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 }
 
