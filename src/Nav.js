@@ -28,15 +28,15 @@ function Nav() {
           </li>
 
           <li className="nav-item">
-            <Link to="/arch-gun">Arch Gun</Link>
-          </li>
-
-          <li className="nav-item">
             <Link to="/sentinel">Sentinel</Link>
           </li>
 
           <li className="nav-item">
             <Link to="/archwing">Archwing</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/arch-gun">Arch Gun</Link>
           </li>
 
           <li className="nav-item">
