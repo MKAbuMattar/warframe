@@ -14,7 +14,6 @@ function Primarys() {
       "https://raw.githubusercontent.com/WFCD/warframe-items/development/data/json/Primary.json"
     );
     const primarys = await data.json();
-    console.log(primarys);
     setPrimarys(primarys);
   };
   return (
