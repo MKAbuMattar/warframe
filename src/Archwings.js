@@ -14,7 +14,6 @@ function Archwings() {
       "https://raw.githubusercontent.com/WFCD/warframe-items/development/data/json/Archwing.json"
     );
     const frames = await data.json();
-    console.log(frames);
     setFrames(frames);
   };
 
