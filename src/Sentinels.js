@@ -14,7 +14,6 @@ function Sentinels() {
       "https://raw.githubusercontent.com/WFCD/warframe-items/development/data/json/Sentinels.json"
     );
     const frames = await data.json();
-    console.log(frames);
     setFrames(frames);
   };
 
