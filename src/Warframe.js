@@ -14,7 +14,6 @@ function Warframe() {
       "https://raw.githubusercontent.com/WFCD/warframe-items/development/data/json/Warframes.json"
     );
     const frames = await data.json();
-    console.log(frames);
     setFrames(frames);
   };
 
