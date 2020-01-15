@@ -14,7 +14,6 @@ function Secondarys() {
       "https://raw.githubusercontent.com/WFCD/warframe-items/development/data/json/Secondary.json"
     );
     const secondarys = await data.json();
-    console.log(secondarys);
     setSecondary(secondarys);
   };
   return (
