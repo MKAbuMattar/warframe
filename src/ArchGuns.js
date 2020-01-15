@@ -14,7 +14,6 @@ function ArchGuns() {
       "https://raw.githubusercontent.com/WFCD/warframe-items/development/data/json/Arch-Gun.json"
     );
     const primarys = await data.json();
-    console.log(primarys);
     setPrimarys(primarys);
   };
   return (
