@@ -14,7 +14,6 @@ function Melees() {
       "https://raw.githubusercontent.com/WFCD/warframe-items/development/data/json/Melee.json"
     );
     const melees = await data.json();
-    console.log(melees);
     setMelees(melees);
   };
   return (
