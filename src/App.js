@@ -13,6 +13,8 @@ import ArchMelees from "./ArchMelees";
 import Quests from "./Quests";
 import Enemys from "./Enemys";
 import Pets from "./Pets";
+import Relics from "./Relics";
+import Gears from "./Gears";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
           <Route path="/quest" component={Quests} />
           <Route path="/enemy" component={Enemys} />
           <Route path="/pet" component={Pets} />
+          <Route path="/relic" component={Relics} />
+          <Route path="/gear" component={Gears} />
         </Switch>
       </div>
     </BrowserRouter>

@@ -61,6 +61,9 @@ function Nav() {
               <li className="nav-item">
                 <Link to="/pet">Pet</Link>
               </li>
+              <li className="nav-item">
+                <Link to="/gear">Gears</Link>
+              </li>
             </ul>
           </li>
           <li>
@@ -110,6 +113,9 @@ function Nav() {
           </li>
           <li className="nav-item">
             <Link to="/enemy">Enemy</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/relic">Relics</Link>
           </li>
         </ul>
       </nav>
