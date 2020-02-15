@@ -32,11 +32,11 @@ function Nav() {
                 <a href>
                   Weapons
                   <span class="drop-icon">▸</span>
-                  <label title="Toggle Drop-down" class="drop-icon" for="sm2">
+                  <label title="Toggle Drop-down" class="drop-icon" for="sm1">
                     ▾
                   </label>
                 </a>
-                <input type="checkbox" id="sm2" />
+                <input type="checkbox" id="sm1" />
                 <ul class="sub-menu">
                   <li>
                     <Link to="/primary">Primary</Link>
@@ -57,11 +57,11 @@ function Nav() {
             <a href>
               Archwing
               <span class="drop-icon">▾</span>
-              <label title="Toggle Drop-down" class="drop-icon" for="sm1">
+              <label title="Toggle Drop-down" class="drop-icon" for="sm2">
                 ▾
               </label>
             </a>
-            <input type="checkbox" id="sm1" />
+            <input type="checkbox" id="sm2" />
             <ul class="sub-menu">
               <li className="nav-item">
                 <Link to="/archwing">Archwing</Link>
@@ -70,11 +70,11 @@ function Nav() {
                 <a href>
                   Weapons
                   <span class="drop-icon">▸</span>
-                  <label title="Toggle Drop-down" class="drop-icon" for="sm2">
+                  <label title="Toggle Drop-down" class="drop-icon" for="sm3">
                     ▾
                   </label>
                 </a>
-                <input type="checkbox" id="sm2" />
+                <input type="checkbox" id="sm3" />
                 <ul class="sub-menu">
                   <li className="nav-item">
                     <Link to="/arch-gun">Arch Gun</Link>
