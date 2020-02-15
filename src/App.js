@@ -10,6 +10,9 @@ import Melees from "./Melees";
 import Mods from "./Mods";
 import ArchGuns from "./ArchGuns";
 import ArchMelees from "./ArchMelees";
+import Quests from "./Quests";
+import Enemys from "./Enemys";
+import Pets from "./Pets";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -28,6 +31,9 @@ function App() {
           <Route path="/mod" component={Mods} />
           <Route path="/arch-gun" component={ArchGuns} />
           <Route path="/arch-melee" component={ArchMelees} />
+          <Route path="/quest" component={Quests} />
+          <Route path="/enemy" component={Enemys} />
+          <Route path="/pet" component={Pets} />
         </Switch>
       </div>
     </BrowserRouter>
