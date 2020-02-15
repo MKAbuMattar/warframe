@@ -7,7 +7,7 @@ function Nav() {
     <header>
       <nav id="menu">
         <label for="tm" id="toggle-menu">
-          Warframe
+          Menu
           <span class="drop-icon">▾</span>
         </label>
         <input type="checkbox" id="tm" />
