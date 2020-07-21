@@ -13,3 +13,10 @@ I'm using NodeJS, for host and use packages.
   
 For using `Router Dom` package use command in cmd prompt:
 ```npm install react-router-dom```
+
+# Start App
+Clone repo, install, cd into folder and run:
+```git
+npm install
+npm start
+```
