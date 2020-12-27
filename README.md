@@ -1,6 +1,6 @@
 # First ReactJS Project - Warframe API
 
-## [Try Project Warframe API](https://warframe-api.netlify.com/)
+## [Try Project Warframe API](https://warframe-info.netlify.app/)
 This My first Project in `ReactJS after 6h study`.
 
 ## Warframe API [WFCD](https://github.com/WFCD)
