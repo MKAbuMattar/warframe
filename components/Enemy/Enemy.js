@@ -17,7 +17,7 @@ const Enemy = () => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
   const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+    `./warframe/enemy/${src}?w=${width}&q=${quality || 75}`
 
   const { getEnemy, getEnemyLoading, getEnemyError } = useGetEnemy()
 
@@ -85,11 +85,11 @@ const Enemy = () => {
                     <Card key={idx}>
                       <CardImg
                         loader={myLoader}
-                        src={result.imageName}
+                        src={`${result.name}.png`}
                         title={result.name}
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
-                        height={230}
+                        height={300}
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>
