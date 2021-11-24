@@ -10,6 +10,8 @@ import XIcon from '../../Icons/XIcon'
 
 import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
+import DamageIcons from '../DamageIcons/DamageIcons'
+
 import {
   ModalBtnContainer,
   ModalBtn,
@@ -130,7 +132,8 @@ const PrimaryCard = ({ result, idx }) => {
                         ([key, value], idx) => (
                           <Fragment>
                             <ModalInfoSubtite key={idx}>
-                              {Capitalize(key)}: <span>{value}</span>
+                              <DamageIcons damage={key} /> {Capitalize(key)}:{' '}
+                              <span>{value}</span>
                             </ModalInfoSubtite>
                           </Fragment>
                         ),

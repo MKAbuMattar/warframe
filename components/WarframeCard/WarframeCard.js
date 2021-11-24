@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Modal from 'react-modal'
 
 import XIcon from '../../Icons/XIcon'
+import AbilitieIcons from '../AbilitieIcons/AbilitieIcons'
 
 import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 import {
@@ -117,11 +118,16 @@ const WarframeCard = ({ result, idx }) => {
               </ModalInfoSubtite>
               <ModalInfoSubtiteAbilitie>Abilities</ModalInfoSubtiteAbilitie>
               <ModalInfoAbilities>
-                {result.abilities.map((result, idx) => (
+                {result.abilities.map((abilitie, idx) => (
                   <ModalInfoAbilitie key={idx}>
-                    <ModalInfoSubtite>{result.name}</ModalInfoSubtite>
+                    <AbilitieIcons
+                      warframe={result.name}
+                      abilitie={abilitie.name}
+                      description={abilitie.description}
+                    />
+                    <ModalInfoSubtite>{abilitie.name}</ModalInfoSubtite>
                     <ModalInfoSubtite>
-                      <span>{result.description}</span>
+                      <span>{abilitie.description}</span>
                     </ModalInfoSubtite>
                   </ModalInfoAbilitie>
                 ))}
