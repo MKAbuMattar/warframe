@@ -171,7 +171,7 @@ export const SearchInput = styled.input`
     color: #838d99;
   }
   &&:hover {
-    top: 2px;
+    top: 4px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   &&:focus {
@@ -187,6 +187,7 @@ export const PageCounter = styled.h3`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   padding-bottom: 1.5rem;
   font-size: 2rem;
   font-weight: bold;
@@ -218,7 +219,7 @@ export const Card = styled.div`
   transition: all 0.1s ease-in;
 
   &&:hover {
-    top: 2px;
+    top: 4px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 `

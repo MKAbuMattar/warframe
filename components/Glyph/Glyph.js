@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import GlyphIcon from '../../Icons/GlyphIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -64,19 +66,28 @@ const Glyph = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Glyphs: {items.length}</PageCounter>
+                <PageCounter>
+                  <GlyphIcon color="#dddddd" size="50" />
+                  Glyphs: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 1 && (
               <Fragment>
-                <PageCounter>Glyph: {items.length}</PageCounter>
+                <PageCounter>
+                  <GlyphIcon color="#dddddd" size="50" />
+                  Glyph: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Glyph: None</PageCounter>
+                <PageCounter>
+                  <GlyphIcon color="#dddddd" size="50" />
+                  Glyph: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -92,6 +103,7 @@ const Glyph = () => {
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
                         height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{removeGlyph(result.name)}</CardTite>
                       <CardBtn>Info</CardBtn>

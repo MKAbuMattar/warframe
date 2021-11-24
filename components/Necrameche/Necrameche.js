@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import NecramecheIcon from '../../Icons/NecramecheIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -63,13 +65,19 @@ const Necrameche = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Necrameche: {items.length}</PageCounter>
+                <PageCounter>
+                  <NecramecheIcon color="#dddddd" size="50" />
+                  Necrameche: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Necrameche: None</PageCounter>
+                <PageCounter>
+                  <NecramecheIcon color="#dddddd" size="50" />
+                  Necrameche: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -85,6 +93,7 @@ const Necrameche = () => {
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
                         height={230}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

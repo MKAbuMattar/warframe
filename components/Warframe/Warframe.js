@@ -10,6 +10,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import WarframeIcon from '../../Icons/WarframeIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards } from '../../style/Style'
@@ -47,27 +49,31 @@ const Warframe = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <SearchSection id="search">
-            <SearchInput
-              type="text"
-              placeholder="Search"
-              onChange={filterList}
-            />
-          </SearchSection>
-
-          {items.length > 0 && (
-            <Fragment>
-              <PageCounter>Warframe: {items.length}</PageCounter>
-            </Fragment>
-          )}
-
-          {items.length == 0 && (
-            <Fragment>
-              <PageCounter>Warframe: None</PageCounter>
-            </Fragment>
-          )}
-
           <section className="container">
+            <SearchSection id="search">
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
+            </SearchSection>
+
+            {items.length > 0 && (
+              <Fragment>
+                <PageCounter>
+                  <WarframeIcon color="#dddddd" size="50" /> Warframe:{' '}
+                  {items.length}
+                </PageCounter>
+              </Fragment>
+            )}
+
+            {items.length == 0 && (
+              <Fragment>
+                <PageCounter>
+                  <WarframeIcon color="#dddddd" size="50" /> Warframe: None
+                </PageCounter>
+              </Fragment>
+            )}
             <Cards>
               {items.length > 0 ? (
                 <Fragment>

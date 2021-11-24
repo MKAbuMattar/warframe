@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import SentinelIcon from '../../Icons/SentinelIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -62,19 +64,27 @@ const Sentinel = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Sentinels: {items.length}</PageCounter>
+                <PageCounter>
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinels:{' '}
+                  {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 1 && (
               <Fragment>
-                <PageCounter>Sentinel: {items.length}</PageCounter>
+                <PageCounter>
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel:{' '}
+                  {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Sentinel: None</PageCounter>
+                <PageCounter>
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -89,7 +99,8 @@ const Sentinel = () => {
                         title={result.name}
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
-                        height={230}
+                        height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

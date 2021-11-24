@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import GearIcon from '../../Icons/GearIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -62,13 +64,19 @@ const Gear = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Gear: {items.length}</PageCounter>
+                <PageCounter>
+                  <GearIcon color="#dddddd" size="50" />
+                  Gear: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Gear: None</PageCounter>
+                <PageCounter>
+                  <GearIcon color="#dddddd" size="50" />
+                  Gear: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -83,7 +91,8 @@ const Gear = () => {
                         title={result.name}
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
-                        height={230}
+                        height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

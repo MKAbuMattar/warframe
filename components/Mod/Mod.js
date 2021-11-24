@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import ModIcon from '../../Icons/ModIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -62,19 +64,28 @@ const Mod = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Mods: {items.length}</PageCounter>
+                <PageCounter>
+                  <ModIcon color="#dddddd" size="50" />
+                  Mods: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 1 && (
               <Fragment>
-                <PageCounter>Mod: {items.length}</PageCounter>
+                <PageCounter>
+                  <ModIcon color="#dddddd" size="50" />
+                  Mod: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Mod: None</PageCounter>
+                <PageCounter>
+                  <ModIcon color="#dddddd" size="50" />
+                  Mod: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -90,6 +101,7 @@ const Mod = () => {
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
                         height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

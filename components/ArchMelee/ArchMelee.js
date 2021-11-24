@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import ArchMeleeWeaponIcon from '../../Icons/ArchMeleeWeaponIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -63,19 +65,28 @@ const ArchMelee = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>ArchMelee Weapons: {items.length}</PageCounter>
+                <PageCounter>
+                  <ArchMeleeWeaponIcon color="#dddddd" size="50" />
+                  ArchMelee Weapons: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 1 && (
               <Fragment>
-                <PageCounter>ArchMelee Weapon: {items.length}</PageCounter>
+                <PageCounter>
+                  <ArchMeleeWeaponIcon color="#dddddd" size="50" />
+                  ArchMelee Weapon: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>ArchMelee Weapon: None</PageCounter>
+                <PageCounter>
+                  <ArchMeleeWeaponIcon color="#dddddd" size="50" />
+                  ArchMelee Weapon: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -90,7 +101,8 @@ const ArchMelee = () => {
                         title={result.name}
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
-                        height={230}
+                        height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

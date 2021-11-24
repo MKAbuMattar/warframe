@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import ArchwingIcon from '../../Icons/ArchwingIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -62,13 +64,19 @@ const Archwing = () => {
           <section className="container">
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Archwing: {items.length}</PageCounter>
+                <PageCounter>
+                  <ArchwingIcon color="#dddddd" size="50" />
+                  Archwing: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Archwing: None</PageCounter>
+                <PageCounter>
+                  <ArchwingIcon color="#dddddd" size="50" />
+                  Archwing: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -84,6 +92,7 @@ const Archwing = () => {
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
                         height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

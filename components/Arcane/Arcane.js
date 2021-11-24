@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import ArcaneIcon from '../../Icons/WarframeIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -61,19 +63,28 @@ const Arcane = () => {
 
           {items.length > 1 && (
             <Fragment>
-              <PageCounter>Arcanes: {items.length}</PageCounter>
+              <PageCounter>
+                <ArcaneIcon color="#dddddd" size="50" />
+                Arcanes: {items.length}
+              </PageCounter>
             </Fragment>
           )}
 
           {items.length == 1 && (
             <Fragment>
-              <PageCounter>Arcane: {items.length}</PageCounter>
+              <PageCounter>
+                <ArcaneIcon color="#dddddd" size="50" />
+                Arcane: {items.length}
+              </PageCounter>
             </Fragment>
           )}
 
           {items.length == 0 && (
             <Fragment>
-              <PageCounter>Arcane: None</PageCounter>
+              <PageCounter>
+                <ArcaneIcon color="#dddddd" size="50" />
+                Arcane: None
+              </PageCounter>
             </Fragment>
           )}
 
@@ -90,6 +101,7 @@ const Arcane = () => {
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
                         height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

@@ -49,7 +49,8 @@ const SecondaryCard = ({ result, idx }) => {
           title={result.name}
           alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
           width={300}
-          height={230}
+          height={300}
+          objectFit="contain"
         />
         <CardTite>{result.name}</CardTite>
         <CardBtn onClick={openModal}>Info</CardBtn>

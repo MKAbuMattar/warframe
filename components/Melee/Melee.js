@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import MeleeWeaponIcon from '../../Icons/MeleeWeaponIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -62,19 +64,28 @@ const Melee = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Melee Weapons: {items.length}</PageCounter>
+                <PageCounter>
+                  <MeleeWeaponIcon color="#dddddd" size="50" />
+                  Melee Weapons: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 1 && (
               <Fragment>
-                <PageCounter>Melee Weapon: {items.length}</PageCounter>
+                <PageCounter>
+                  <MeleeWeaponIcon color="#dddddd" size="50" />
+                  Melee Weapon: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Melee Weapon: None</PageCounter>
+                <PageCounter>
+                  <MeleeWeaponIcon color="#dddddd" size="50" />
+                  Melee Weapon: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -90,6 +101,7 @@ const Melee = () => {
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
                         height={230}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

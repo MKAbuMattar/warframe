@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import EnemyIcon from '../../Icons/EnemyIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -62,19 +64,28 @@ const Enemy = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Enemys: {items.length}</PageCounter>
+                <PageCounter>
+                  <EnemyIcon color="#dddddd" size="50" />
+                  Enemys: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 1 && (
               <Fragment>
-                <PageCounter>Enemy: {items.length}</PageCounter>
+                <PageCounter>
+                  <EnemyIcon color="#dddddd" size="50" />
+                  Enemy: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Enemy: None</PageCounter>
+                <PageCounter>
+                  <EnemyIcon color="#dddddd" size="50" />
+                  Enemy: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -90,6 +101,7 @@ const Enemy = () => {
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
                         height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import ArchGunWeaponIcon from '../../Icons/ArchGunWeaponIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -61,19 +63,28 @@ const ArchGun = () => {
 
           {items.length > 1 && (
             <Fragment>
-              <PageCounter>ArchGun Weapons: {items.length}</PageCounter>
+              <PageCounter>
+                <ArchGunWeaponIcon color="#dddddd" size="50" />
+                ArchGun Weapons: {items.length}
+              </PageCounter>
             </Fragment>
           )}
 
           {items.length == 1 && (
             <Fragment>
-              <PageCounter>ArchGun Weapon: {items.length}</PageCounter>
+              <PageCounter>
+                <ArchGunWeaponIcon color="#dddddd" size="50" />
+                ArchGun Weapon: {items.length}
+              </PageCounter>
             </Fragment>
           )}
 
           {items.length == 0 && (
             <Fragment>
-              <PageCounter>ArchGun Weapon: None</PageCounter>
+              <PageCounter>
+                <ArchGunWeaponIcon color="#dddddd" size="50" />
+                ArchGun Weapon: None
+              </PageCounter>
             </Fragment>
           )}
 
@@ -89,7 +100,8 @@ const ArchGun = () => {
                         title={result.name}
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
-                        height={230}
+                        height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

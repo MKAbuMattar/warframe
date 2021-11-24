@@ -9,6 +9,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import ResourceIcon from '../../Icons/ResourceIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
@@ -62,19 +64,28 @@ const Resource = () => {
 
             {items.length > 1 && (
               <Fragment>
-                <PageCounter>Resources: {items.length}</PageCounter>
+                <PageCounter>
+                  <ResourceIcon color="#dddddd" size="50" />
+                  Resources: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 1 && (
               <Fragment>
-                <PageCounter>Resource: {items.length}</PageCounter>
+                <PageCounter>
+                  <ResourceIcon color="#dddddd" size="50" />
+                  Resource: {items.length}
+                </PageCounter>
               </Fragment>
             )}
 
             {items.length == 0 && (
               <Fragment>
-                <PageCounter>Resource: None</PageCounter>
+                <PageCounter>
+                  <ResourceIcon color="#dddddd" size="50" />
+                  Resource: None
+                </PageCounter>
               </Fragment>
             )}
 
@@ -89,7 +100,8 @@ const Resource = () => {
                         title={result.name}
                         alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                         width={300}
-                        height={230}
+                        height={300}
+                        objectFit="contain"
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

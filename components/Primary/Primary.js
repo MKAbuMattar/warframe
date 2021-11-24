@@ -10,6 +10,8 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
+import PrimaryWeaponIcon from '../../Icons/PrimaryWeaponIcon'
+
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards } from '../../style/Style'
@@ -47,33 +49,41 @@ const Primary = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <SearchSection id="search">
-            <SearchInput
-              type="text"
-              placeholder="Search"
-              onChange={filterList}
-            />
-          </SearchSection>
-
-          {items.length > 1 && (
-            <Fragment>
-              <PageCounter>Primary Weapons: {items.length}</PageCounter>
-            </Fragment>
-          )}
-
-          {items.length == 1 && (
-            <Fragment>
-              <PageCounter>Primary Weapon: {items.length}</PageCounter>
-            </Fragment>
-          )}
-
-          {items.length == 0 && (
-            <Fragment>
-              <PageCounter>Primary Weapon: None</PageCounter>
-            </Fragment>
-          )}
-
           <section className="container">
+            <SearchSection id="search">
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
+            </SearchSection>
+
+            {items.length > 1 && (
+              <Fragment>
+                <PageCounter>
+                  <PrimaryWeaponIcon color="#dddddd" size="50" />
+                  Primary Weapons: {items.length}
+                </PageCounter>
+              </Fragment>
+            )}
+
+            {items.length == 1 && (
+              <Fragment>
+                <PageCounter>
+                  <PrimaryWeaponIcon color="#dddddd" size="50" />
+                  Primary Weapon: {items.length}
+                </PageCounter>
+              </Fragment>
+            )}
+
+            {items.length == 0 && (
+              <Fragment>
+                <PageCounter>
+                  <PrimaryWeaponIcon color="#dddddd" size="50" />
+                  Primary Weapon: None
+                </PageCounter>
+              </Fragment>
+            )}
             <Cards>
               {items.length > 0 ? (
                 <Fragment>
