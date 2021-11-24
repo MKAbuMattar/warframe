@@ -9,12 +9,16 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
-import { SearchSection, SearchInput } from '../../style/Style'
+import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
 const ArchGun = () => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+
+  const myLoader = ({ src, width, quality }) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+
   const { getArchGun, getArchGunLoading, getArchGunError } = useGetArchGun()
 
   const [items, setItems] = useState([])
@@ -41,16 +45,38 @@ const ArchGun = () => {
       <Background />
       <Navbar />
 
-      <SearchSection id="search">
-        <SearchInput type="text" placeholder="Search" onChange={filterList} />
-      </SearchSection>
-
       {getArchGunLoading ? (
         <Fragment>
           <Loader />
         </Fragment>
       ) : (
         <Fragment>
+          <SearchSection id="search">
+            <SearchInput
+              type="text"
+              placeholder="Search"
+              onChange={filterList}
+            />
+          </SearchSection>
+
+          {items.length > 1 && (
+            <Fragment>
+              <PageCounter>ArchGun Weapons: {items.length}</PageCounter>
+            </Fragment>
+          )}
+
+          {items.length == 1 && (
+            <Fragment>
+              <PageCounter>ArchGun Weapon: {items.length}</PageCounter>
+            </Fragment>
+          )}
+
+          {items.length == 0 && (
+            <Fragment>
+              <PageCounter>ArchGun Weapon: None</PageCounter>
+            </Fragment>
+          )}
+
           <section className="container">
             <Cards>
               {items.length > 0 ? (
@@ -58,9 +84,12 @@ const ArchGun = () => {
                   {items.map((result, idx) => (
                     <Card key={idx}>
                       <CardImg
-                        src={`${CDN_IMG_URL}${result.imageName}`}
-                        alt={result.name}
+                        loader={myLoader}
+                        src={result.imageName}
                         title={result.name}
+                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+                        width={300}
+                        height={230}
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

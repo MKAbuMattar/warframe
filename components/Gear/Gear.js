@@ -9,14 +9,15 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
-import { SearchSection, SearchInput } from '../../style/Style'
+import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
-import { imgURL } from '../../util/Regex/Regex'
-
 const Gear = () => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+
+  const myLoader = ({ src, width, quality }) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
 
   const { getGear, getGearLoading, getGearError } = useGetGear()
 
@@ -44,10 +45,6 @@ const Gear = () => {
       <Background />
       <Navbar />
 
-      <SearchSection id="search">
-        <SearchInput type="text" placeholder="Search" onChange={filterList} />
-      </SearchSection>
-
       {getGearLoading ? (
         <Fragment>
           <Loader />
@@ -55,15 +52,38 @@ const Gear = () => {
       ) : (
         <Fragment>
           <section className="container">
+            <SearchSection id="search">
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
+            </SearchSection>
+
+            {items.length > 1 && (
+              <Fragment>
+                <PageCounter>Gear: {items.length}</PageCounter>
+              </Fragment>
+            )}
+
+            {items.length == 0 && (
+              <Fragment>
+                <PageCounter>Gear: None</PageCounter>
+              </Fragment>
+            )}
+
             <Cards>
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
                     <Card key={idx}>
                       <CardImg
-                        src={`${CDN_IMG_URL}${result.imageName}`}
-                        alt={result.name}
+                        loader={myLoader}
+                        src={result.imageName}
                         title={result.name}
+                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+                        width={300}
+                        height={230}
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

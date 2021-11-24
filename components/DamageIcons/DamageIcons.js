@@ -29,7 +29,7 @@ const DamageIcons = ({ damage }) => {
       {damage.toLowerCase() === 'Corrosive'.toLowerCase() && (
         <CorrosiveIcon color="#ffffff" size="15" />
       )}
-      {damage.toLowerCase() === 'Electrcity'.toLowerCase() && (
+      {damage.toLowerCase() === 'Electricity'.toLowerCase() && (
         <ElectrcityIcon color="#ffffff" size="15" />
       )}
       {damage.toLowerCase() === 'Gas'.toLowerCase() && (

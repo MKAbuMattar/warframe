@@ -59,7 +59,7 @@ const Fish = () => {
                   {items.map((result, idx) => (
                     <Card key={idx}>
                       <CardImg
-                        src={`${CDN_IMG_URL}${result.imageName}`}
+                        src={`${CDN_IMG_URL}/${result.imageName}`}
                         alt={result.name}
                         title={result.name}
                       />

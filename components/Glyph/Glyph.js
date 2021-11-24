@@ -9,7 +9,7 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
-import { SearchSection, SearchInput } from '../../style/Style'
+import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
@@ -17,6 +17,9 @@ import { removeGlyph } from '../../util/Regex/Regex'
 
 const Glyph = () => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+
+  const myLoader = ({ src, width, quality }) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
 
   const { getGlyph, getGlyphLoading, getGlyphError } = useGetGlyph()
 
@@ -44,10 +47,6 @@ const Glyph = () => {
       <Background />
       <Navbar />
 
-      <SearchSection id="search">
-        <SearchInput type="text" placeholder="Search" onChange={filterList} />
-      </SearchSection>
-
       {getGlyphLoading ? (
         <Fragment>
           <Loader />
@@ -55,15 +54,44 @@ const Glyph = () => {
       ) : (
         <Fragment>
           <section className="container">
+            <SearchSection id="search">
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
+            </SearchSection>
+
+            {items.length > 1 && (
+              <Fragment>
+                <PageCounter>Glyphs: {items.length}</PageCounter>
+              </Fragment>
+            )}
+
+            {items.length == 1 && (
+              <Fragment>
+                <PageCounter>Glyph: {items.length}</PageCounter>
+              </Fragment>
+            )}
+
+            {items.length == 0 && (
+              <Fragment>
+                <PageCounter>Glyph: None</PageCounter>
+              </Fragment>
+            )}
+
             <Cards>
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
                     <Card key={idx}>
                       <CardImg
-                        src={`${CDN_IMG_URL}${result.imageName}`}
-                        alt={result.name}
+                        loader={myLoader}
+                        src={result.imageName}
                         title={result.name}
+                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+                        width={300}
+                        height={300}
                       />
                       <CardTite>{removeGlyph(result.name)}</CardTite>
                       <CardBtn>Info</CardBtn>

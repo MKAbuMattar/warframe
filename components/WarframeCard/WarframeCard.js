@@ -25,6 +25,9 @@ import {
 const WarframeCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
+  const myLoader = ({ src, width, quality }) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+
   const [modalIsOpen, setIsOpen] = useState(false)
 
   const openModal = () => {
@@ -39,9 +42,12 @@ const WarframeCard = ({ result, idx }) => {
     <Fragment>
       <Card key={idx}>
         <CardImg
-          src={`${CDN_IMG_URL}${result.imageName}`}
-          alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+          loader={myLoader}
+          src={result.imageName}
           title={result.name}
+          alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+          width={300}
+          height={230}
         />
         <CardTite>{result.name}</CardTite>
         <CardBtn onClick={openModal}>Info</CardBtn>
@@ -61,7 +67,7 @@ const WarframeCard = ({ result, idx }) => {
             </ModalBtnContainer>
             <ModalInfoContainer>
               <ModalInfoImg
-                src={`${CDN_IMG_URL}${result.imageName}`}
+                src={`${CDN_IMG_URL}/${result.imageName}`}
                 alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                 title={result.name}
               />

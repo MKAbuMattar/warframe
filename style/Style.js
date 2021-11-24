@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
+import Image from 'next/image'
+
 export const GlobalStyle = createGlobalStyle`
 
 :root {
@@ -221,7 +223,7 @@ export const Card = styled.div`
   }
 `
 
-export const CardImg = styled.img`
+export const CardImg = styled(Image)`
   width: 20rem;
   height: 15rem;
   background-size: cover;

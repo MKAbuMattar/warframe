@@ -9,13 +9,16 @@ import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
-import { SearchSection, SearchInput } from '../../style/Style'
+import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
-import { imgURL } from '../../util/Regex/Regex'
-
 const Arcane = () => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+
+  const myLoader = ({ src, width, quality }) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+
   const { getArcane, getArcaneLoading, getArcaneError } = useGetArcane()
 
   const [items, setItems] = useState([])
@@ -42,16 +45,38 @@ const Arcane = () => {
       <Background />
       <Navbar />
 
-      <SearchSection id="search">
-        <SearchInput type="text" placeholder="Search" onChange={filterList} />
-      </SearchSection>
-
       {getArcaneLoading ? (
         <Fragment>
           <Loader />
         </Fragment>
       ) : (
         <Fragment>
+          <SearchSection id="search">
+            <SearchInput
+              type="text"
+              placeholder="Search"
+              onChange={filterList}
+            />
+          </SearchSection>
+
+          {items.length > 1 && (
+            <Fragment>
+              <PageCounter>Arcanes: {items.length}</PageCounter>
+            </Fragment>
+          )}
+
+          {items.length == 1 && (
+            <Fragment>
+              <PageCounter>Arcane: {items.length}</PageCounter>
+            </Fragment>
+          )}
+
+          {items.length == 0 && (
+            <Fragment>
+              <PageCounter>Arcane: None</PageCounter>
+            </Fragment>
+          )}
+
           <section className="container">
             <Cards>
               {items.length > 0 ? (
@@ -59,13 +84,12 @@ const Arcane = () => {
                   {items.map((result, idx) => (
                     <Card key={idx}>
                       <CardImg
-                        src={
-                          imgURL(result.wikiaThumbnail) !== ''
-                            ? imgURL(result.wikiaThumbnail)
-                            : result.img
-                        }
-                        alt={result.name}
+                        loader={myLoader}
+                        src={result.imageName}
                         title={result.name}
+                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+                        width={300}
+                        height={300}
                       />
                       <CardTite>{result.name}</CardTite>
                       <CardBtn>Info</CardBtn>

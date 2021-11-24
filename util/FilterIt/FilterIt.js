@@ -1,5 +1,5 @@
 const filterIt = (terms, arr) => {
-  if ('' === terms || terms.length < 1) {
+  if ('' === terms || terms.length < 2) {
     return arr
   }
 

@@ -50,7 +50,8 @@ const useGetMod = () => {
     })
       .then((res) => {
         res.data.forEach((result) => {
-          formatData.push(new Mod(result))
+          if (result.name.toLowerCase() !== 'Do Not Use'.toLowerCase())
+            formatData.push(new Mod(result))
         })
 
         setGetMod(
