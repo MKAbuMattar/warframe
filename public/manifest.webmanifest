@@ -1,8 +1,7 @@
 {
-  "short_name": "Warframe Info",
-  "name": "Warframe Info",
-  "description": "",
-
+  "short_name": "Warframe Info.",
+  "name": "Warframe Info.",
+  "description": "Warframe Info.",
   "icons": [
     {
       "src": "/icon/favicon.ico",
@@ -10,22 +9,34 @@
       "type": "image/x-icon",
       "purpose": "any maskable"
     },
-
     {
       "src": "/icon/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
-
     {
       "src": "/icon/logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://warframe-info.netlify.app",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "scope": "/"
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Warframe Info.",
+      "short_name": "Warframe Info.",
+      "description": "Warframe Info.",
+      "url": ".",
+      "icons": [
+        {
+          "src": "/icon/logo192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
