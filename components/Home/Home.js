@@ -5,6 +5,7 @@ import Navbar from '../Navbar/Navbar'
 import WarframeCard from '../WarframeCard/WarframeCard'
 import PrimaryCard from '../PrimaryCard/PrimaryCard'
 import SecondaryCard from '../SecondaryCard/SecondaryCard'
+import MeleeCard from '../MeleeCard/MeleeCard'
 
 import useGetWarframe from '../../hooks/useGetWarframe'
 import useGetPrimary from '../../hooks/useGetPrimary'
@@ -14,7 +15,7 @@ import useGetMelee from '../../hooks/useGetMelee'
 import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
-import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import { Cards } from '../../style/Style'
 
 import { Container, SubTitle } from './Style'
 
@@ -97,15 +98,9 @@ const Home = () => {
                   <Fragment>
                     {getMelee.map((result, idx) =>
                       result.name.toLowerCase() === ``.toLowerCase() ? (
-                        <Card key={idx}>
-                          <CardImg
-                            src={`${CDN_IMG_URL}/${result.imageName}`}
-                            alt={result.name}
-                            title={result.name}
-                          />
-                          <CardTite>{result.name}</CardTite>
-                          <CardBtn>Info</CardBtn>
-                        </Card>
+                        <Fragment>
+                          <MeleeCard result={result} idx={idx} key={idx} />
+                        </Fragment>
                       ) : (
                         <Fragment key={idx}></Fragment>
                       ),
@@ -175,15 +170,9 @@ const Home = () => {
                   <Fragment>
                     {getMelee.map((result, idx) =>
                       result.name.toLowerCase() === ``.toLowerCase() ? (
-                        <Card key={idx}>
-                          <CardImg
-                            src={`${CDN_IMG_URL}/${result.imageName}`}
-                            alt={result.name}
-                            title={result.name}
-                          />
-                          <CardTite>{result.name}</CardTite>
-                          <CardBtn>Info</CardBtn>
-                        </Card>
+                        <Fragment>
+                          <MeleeCard result={result} idx={idx} key={idx} />
+                        </Fragment>
                       ) : (
                         <Fragment key={idx}></Fragment>
                       ),

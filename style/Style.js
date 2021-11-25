@@ -213,7 +213,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 20rem;
+  width: 18rem;
   min-height: 300px;
   position: relative;
   top: 0;

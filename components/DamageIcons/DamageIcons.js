@@ -19,7 +19,6 @@ import {
 const DamageIcons = ({ damage }) => {
   return (
     <Fragment>
-      {console.log(damage)}
       {damage.toLowerCase() === 'Blast'.toLowerCase() && (
         <BlastIcon color="#ffffff" size="15" />
       )}
