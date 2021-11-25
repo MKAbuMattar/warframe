@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
 import Navbar from '../Navbar/Navbar'
+import EnemyCard from '../EnemyCard/EnemyCard'
 
 import useGetEnemy from '../../hooks/useGetEnemy'
 
@@ -13,8 +14,7 @@ import EnemyIcon from '../../Icons/EnemyIcon'
 
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
-import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-import EnemyCard from '../EnemyCard/EnemyCard'
+import { Cards } from '../../style/Style'
 
 const Enemy = () => {
   const { getEnemy, getEnemyLoading, getEnemyError } = useGetEnemy()

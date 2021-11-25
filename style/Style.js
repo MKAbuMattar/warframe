@@ -308,6 +308,7 @@ export const ModalInfoAbilitie = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
 `
 
 export const ModalInfoTite = styled.h3`

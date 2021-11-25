@@ -5,9 +5,9 @@ import Link from 'next/link'
 import Modal from 'react-modal'
 
 import XIcon from '../../Icons/XIcon'
-import AbilitieIcons from '../AbilitieIcons/AbilitieIcons'
 
 import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+
 import {
   ModalBtnContainer,
   ModalBtn,
@@ -16,6 +16,7 @@ import {
   ModalInfoAbilities,
   ModalInfoAbilitie,
 } from '../../style/Style'
+
 import {
   ModalInfoSubtiteAbilitie,
   ModalInfoTite,

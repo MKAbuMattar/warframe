@@ -1,7 +1,5 @@
 import { Fragment, useState } from 'react'
 
-import Link from 'next/link'
-
 import Modal from 'react-modal'
 
 import XIcon from '../../Icons/XIcon'
@@ -16,6 +14,7 @@ import {
   ModalInfoAbilities,
   ModalInfoAbilitie,
 } from '../../style/Style'
+
 import {
   ModalInfoSubtiteAbilitie,
   ModalInfoTite,
@@ -106,15 +105,6 @@ const ArchwingCard = ({ result, idx }) => {
               <ModalInfoSubtite>
                 Speed: <span>{result.sprintSpeed}</span>
               </ModalInfoSubtite>
-
-              {/* <ModalInfoSubtite>
-                Polarities:{' '}
-                <span>
-                  {result.polarities.map((result, idx) => (
-                    <i key={idx}>{result} </i>
-                  ))}{' '}
-                </span>
-              </ModalInfoSubtite> */}
 
               <ModalInfoSubtite>
                 Description: <span>{result.description}</span>

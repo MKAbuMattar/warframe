@@ -1,16 +1,10 @@
 import { Fragment, useState } from 'react'
 
-import Link from 'next/link'
-
 import Modal from 'react-modal'
-
-import { Capitalize } from '../../util/Capitalize/Capitalize'
 
 import XIcon from '../../Icons/XIcon'
 
 import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-
-import DamageIcons from '../DamageIcons/DamageIcons'
 
 import {
   ModalBtnContainer,
@@ -18,11 +12,8 @@ import {
   ModalInfoContainer,
   ModalInfoImg,
 } from '../../style/Style'
-import {
-  ModalInfoTite,
-  ModalInfoSubtite,
-  ModalInfoAttackSubtite,
-} from '../../style/Style'
+
+import { ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
 
 const PetCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL

@@ -17,8 +17,6 @@ import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 import { Cards } from '../../style/Style'
 
 const Secondary = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
   const { getSecondary, getSecondaryLoading, getSecondaryError } =
     useGetSecondary()
 

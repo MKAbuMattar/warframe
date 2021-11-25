@@ -20,8 +20,6 @@ import { Cards } from '../../style/Style'
 import { Container, SubTitle } from './Style'
 
 const Home = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
   const { getWarframe, getWarframeLoading, getWarframeError } = useGetWarframe()
   const { getPrimary, getPrimaryLoading, getPrimaryError } = useGetPrimary()
   const { getSecondary, getSecondaryLoading, getSecondaryError } =

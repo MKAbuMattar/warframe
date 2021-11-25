@@ -18,6 +18,7 @@ import {
   ModalInfoContainer,
   ModalInfoImg,
 } from '../../style/Style'
+
 import {
   ModalInfoTite,
   ModalInfoSubtite,

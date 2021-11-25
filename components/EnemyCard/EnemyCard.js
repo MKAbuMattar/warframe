@@ -1,10 +1,6 @@
 import { Fragment, useState } from 'react'
 
-import Link from 'next/link'
-
 import Modal from 'react-modal'
-
-import { Capitalize } from '../../util/Capitalize/Capitalize'
 
 import XIcon from '../../Icons/XIcon'
 
@@ -16,12 +12,11 @@ import {
   ModalBtnContainer,
   ModalBtn,
   ModalInfoContainer,
-  ModalInfoImg,
 } from '../../style/Style'
+
 import {
   ModalInfoTite,
   ModalInfoSubtite,
-  ModalInfoAttackSubtite,
   ModalInfoSubtiteAbilitie,
   ModalInfoAbilities,
   ModalInfoAbilitie,

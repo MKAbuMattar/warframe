@@ -7,10 +7,9 @@ import Modal from 'react-modal'
 import { Capitalize } from '../../util/Capitalize/Capitalize'
 
 import XIcon from '../../Icons/XIcon'
+import DamageIcons from '../DamageIcons/DamageIcons'
 
 import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-
-import DamageIcons from '../DamageIcons/DamageIcons'
 
 import {
   ModalBtnContainer,
@@ -18,6 +17,7 @@ import {
   ModalInfoContainer,
   ModalInfoImg,
 } from '../../style/Style'
+
 import {
   ModalInfoTite,
   ModalInfoSubtite,

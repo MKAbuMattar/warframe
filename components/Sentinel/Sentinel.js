@@ -13,15 +13,10 @@ import SentinelIcon from '../../Icons/SentinelIcon'
 
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
-import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import { Cards } from '../../style/Style'
 import SentinelCard from '../SentinelCard/SentinelCard'
 
 const Sentinel = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
-
   const { getSentinel, getSentinelLoading, getSentinelError } = useGetSentinel()
 
   const [items, setItems] = useState([])

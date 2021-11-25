@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
 import Navbar from '../Navbar/Navbar'
+import ModCard from '../ModCard/ModCard'
 
 import useGetMod from '../../hooks/useGetMod'
 
@@ -14,7 +15,6 @@ import ModIcon from '../../Icons/ModIcon'
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards } from '../../style/Style'
-import ModCard from '../ModCard/ModCard'
 
 const Mod = () => {
   const { getMod, getModLoading, getModError } = useGetMod()
