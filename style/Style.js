@@ -309,6 +309,10 @@ export const ModalInfoAbilitie = styled.div`
   flex-direction: column;
   align-items: center;
   width: 40%;
+
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+  }
 `
 
 export const ModalInfoTite = styled.h3`
