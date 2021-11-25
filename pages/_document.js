@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
       <>
         <Html lang="en">
           <Head>
-            <link rel="manifest" href="/manifest.webmanifest" />
+            <link rel="manifest" href="/manifest.json" />
             <link rel="apple-touch-icon" href="/icon/logo192.png" />
             <link rel="icon" href="/icon/favicon.ico" />
             <meta name="theme-color" content="#000000" />
