@@ -6,7 +6,7 @@ module.exports = withPWA({
     dest: 'public',
     register: true,
     skipWaiting: true,
-    scope: '/app',
+    scope: '/',
     sw: 'sw.js',
     runtimeCaching,
   },
