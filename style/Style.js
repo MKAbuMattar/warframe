@@ -212,7 +212,8 @@ export const Card = styled.div`
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  max-width: 20rem;
+  justify-content: space-between;
+  width: 20rem;
   min-height: 300px;
   position: relative;
   top: 0;
