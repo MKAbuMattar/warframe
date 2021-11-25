@@ -24,19 +24,5 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "scope": "/",
-  "shortcuts": [
-    {
-      "name": "Warframe Info.",
-      "short_name": "Warframe Info.",
-      "description": "Warframe Info.",
-      "url": ".",
-      "icons": [
-        {
-          "src": "/icon/logo192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
-  ]
+  "scope": "/"
 }
