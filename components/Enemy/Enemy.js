@@ -14,13 +14,9 @@ import EnemyIcon from '../../Icons/EnemyIcon'
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import EnemyCard from '../EnemyCard/EnemyCard'
 
 const Enemy = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
-  const myLoader = ({ src, width, quality }) =>
-    `./warframe/enemy/${src}?w=${width}&q=${quality || 75}`
-
   const { getEnemy, getEnemyLoading, getEnemyError } = useGetEnemy()
 
   const [items, setItems] = useState([])
@@ -93,19 +89,7 @@ const Enemy = () => {
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
-                    <Card key={idx}>
-                      <CardImg
-                        loader={myLoader}
-                        src={`${result.name}.png`}
-                        title={result.name}
-                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-                        width={300}
-                        height={300}
-                        objectFit="contain"
-                      />
-                      <CardTite>{result.name}</CardTite>
-                      <CardBtn>Info</CardBtn>
-                    </Card>
+                    <EnemyCard result={result} idx={idx} key={idx} />
                   ))}
                 </Fragment>
               ) : (

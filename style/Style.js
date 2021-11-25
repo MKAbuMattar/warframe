@@ -296,9 +296,12 @@ export const ModalInfoImg = styled.img`
 `
 
 export const ModalInfoAbilities = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 `
 
 export const ModalInfoAbilitie = styled.div`
