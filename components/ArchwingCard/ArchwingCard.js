@@ -22,7 +22,7 @@ import {
   ModalInfoSubtite,
 } from '../../style/Style'
 
-const WarframeCard = ({ result, idx }) => {
+const ArchwingCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
   const myLoader = ({ src, width, quality }) =>
@@ -73,54 +73,59 @@ const WarframeCard = ({ result, idx }) => {
                 title={result.name}
               />
               <ModalInfoTite>{result.name}</ModalInfoTite>
+
               <ModalInfoSubtite>
                 Mastery Rank: <span>{result.masteryReq}</span>
               </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Gender: <span>{result.sex}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Aura: <span>{result.aura}</span>
-              </ModalInfoSubtite>
+
               <ModalInfoSubtite>
                 Health:{' '}
                 <span>
                   {result.health} ({Number(result.health) * 3} at R30)
                 </span>
               </ModalInfoSubtite>
+
               <ModalInfoSubtite>
                 Shield:{' '}
                 <span>
                   {result.shield} ({Number(result.shield) * 3} at R30)
                 </span>
               </ModalInfoSubtite>
+
               <ModalInfoSubtite>
                 Armor: <span>{result.armor}</span>
               </ModalInfoSubtite>
+
               <ModalInfoSubtite>
                 Energy:{' '}
                 <span>
                   {result.power} ({Number(result.power) * Number(1.5)} at R30)
                 </span>
               </ModalInfoSubtite>
+
               <ModalInfoSubtite>
-                Speed: <span>{result.sprint}</span>
+                Speed: <span>{result.sprintSpeed}</span>
               </ModalInfoSubtite>
-              <ModalInfoSubtite>
+
+              {/* <ModalInfoSubtite>
                 Polarities:{' '}
                 <span>
                   {result.polarities.map((result, idx) => (
                     <i key={idx}>{result} </i>
                   ))}{' '}
                 </span>
-              </ModalInfoSubtite>
+              </ModalInfoSubtite> */}
 
               <ModalInfoSubtite>
                 Description: <span>{result.description}</span>
               </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Passive: <span>{result.passiveDescription}</span>
-              </ModalInfoSubtite>
+
+              {result.passiveDescription !== undefined && (
+                <ModalInfoSubtite>
+                  Passive: <span>{result.passiveDescription}</span>
+                </ModalInfoSubtite>
+              )}
+
               <ModalInfoSubtiteAbilitie>Abilities</ModalInfoSubtiteAbilitie>
               <ModalInfoAbilities>
                 {result.abilities.map((abilitie, idx) => (
@@ -138,9 +143,11 @@ const WarframeCard = ({ result, idx }) => {
                 ))}
               </ModalInfoAbilities>
 
-              <ModalInfoSubtite>
-                Release Date: <span>{result.releaseDate}</span>
-              </ModalInfoSubtite>
+              {result.releaseDate !== undefined && (
+                <ModalInfoSubtite>
+                  Release Date: <span>{result.releaseDate}</span>
+                </ModalInfoSubtite>
+              )}
 
               {result.vaultDate !== 'n/a' && result.vaultDate !== undefined && (
                 <Fragment>
@@ -158,27 +165,13 @@ const WarframeCard = ({ result, idx }) => {
                   </ModalInfoSubtite>
                 </Fragment>
               )}
-
-              <ModalInfoSubtite>
-                Introduced:{' '}
-                <Link href={result.introduced.url}>
-                  <a target="__blank">
-                    {result.introduced.name} / Date: {result.introduced.date}
-                  </a>
-                </Link>
-              </ModalInfoSubtite>
-
-              <ModalInfoSubtite>
-                <Link href={result.wikiaUrl}>
-                  <a target="__blank">Wiki Link</a>
-                </Link>
-              </ModalInfoSubtite>
             </ModalInfoContainer>
           </Fragment>
         </Modal>
       </Card>
+      {/* {console.log(result)} */}
     </Fragment>
   )
 }
 
-export default WarframeCard
+export default ArchwingCard

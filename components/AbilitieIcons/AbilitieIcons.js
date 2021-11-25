@@ -6,7 +6,7 @@ import { removeSpaces, removePrime } from '../../util/Regex/Regex'
 
 const AbilitieIcons = ({ warframe, abilitie, description }) => {
   const myLoader = ({ src, width, quality }) =>
-    `./warframe/abilities/${removePrime(
+    `/warframe/abilities/${removePrime(
       warframe.toLowerCase(),
     )}/${src}?w=${width}&q=${quality || 75}`
 

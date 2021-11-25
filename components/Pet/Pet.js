@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
 import Navbar from '../Navbar/Navbar'
+import PetCard from '../PetCard/PetCard'
 
 import useGetPet from '../../hooks/useGetPet'
 
@@ -13,14 +14,9 @@ import CompanionIcon from '../../Icons/CompanionIcon'
 
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
-import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import { Cards } from '../../style/Style'
 
 const Pet = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
-
   const { getPet, getPetLoading, getPetError } = useGetPet()
 
   const [items, setItems] = useState([])
@@ -93,19 +89,7 @@ const Pet = () => {
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
-                    <Card key={idx}>
-                      <CardImg
-                        loader={myLoader}
-                        src={result.imageName}
-                        title={result.name}
-                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-                        width={300}
-                        height={230}
-                        objectFit="contain"
-                      />
-                      <CardTite>{result.name}</CardTite>
-                      <CardBtn>Info</CardBtn>
-                    </Card>
+                    <PetCard result={result} idx={idx} key={idx} />
                   ))}
                 </Fragment>
               ) : (

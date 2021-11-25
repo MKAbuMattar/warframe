@@ -4,25 +4,27 @@ import Link from 'next/link'
 
 import Modal from 'react-modal'
 
+import { Capitalize } from '../../util/Capitalize/Capitalize'
+
 import XIcon from '../../Icons/XIcon'
-import AbilitieIcons from '../AbilitieIcons/AbilitieIcons'
 
 import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+
+import DamageIcons from '../DamageIcons/DamageIcons'
+
 import {
   ModalBtnContainer,
   ModalBtn,
   ModalInfoContainer,
   ModalInfoImg,
-  ModalInfoAbilities,
-  ModalInfoAbilitie,
 } from '../../style/Style'
 import {
-  ModalInfoSubtiteAbilitie,
   ModalInfoTite,
   ModalInfoSubtite,
+  ModalInfoAttackSubtite,
 } from '../../style/Style'
 
-const WarframeCard = ({ result, idx }) => {
+const ArchGunCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
   const myLoader = ({ src, width, quality }) =>
@@ -77,67 +79,82 @@ const WarframeCard = ({ result, idx }) => {
                 Mastery Rank: <span>{result.masteryReq}</span>
               </ModalInfoSubtite>
               <ModalInfoSubtite>
-                Gender: <span>{result.sex}</span>
+                Weapon: <span>{result.tags[0]}</span>
               </ModalInfoSubtite>
               <ModalInfoSubtite>
-                Aura: <span>{result.aura}</span>
+                Weapon type: <span>{result.type}</span>
               </ModalInfoSubtite>
               <ModalInfoSubtite>
-                Health:{' '}
-                <span>
-                  {result.health} ({Number(result.health) * 3} at R30)
-                </span>
+                Weapon Description: <span>{result.description}</span>
               </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Shield:{' '}
-                <span>
-                  {result.shield} ({Number(result.shield) * 3} at R30)
-                </span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Armor: <span>{result.armor}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Energy:{' '}
-                <span>
-                  {result.power} ({Number(result.power) * Number(1.5)} at R30)
-                </span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Speed: <span>{result.sprint}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Polarities:{' '}
-                <span>
-                  {result.polarities.map((result, idx) => (
-                    <i key={idx}>{result} </i>
-                  ))}{' '}
-                </span>
-              </ModalInfoSubtite>
+              {result.attacks.map((element, idx) => (
+                <Fragment>
+                  <div key={idx}>
+                    {result.attacks.length > 1 && (
+                      <ModalInfoAttackSubtite>
+                        Attack Name: <span>{element.name}</span>
+                      </ModalInfoAttackSubtite>
+                    )}
 
-              <ModalInfoSubtite>
-                Description: <span>{result.description}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Passive: <span>{result.passiveDescription}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtiteAbilitie>Abilities</ModalInfoSubtiteAbilitie>
-              <ModalInfoAbilities>
-                {result.abilities.map((abilitie, idx) => (
-                  <ModalInfoAbilitie key={idx}>
-                    <AbilitieIcons
-                      warframe={result.name}
-                      abilitie={abilitie.name}
-                      description={abilitie.description}
-                    />
-                    <ModalInfoSubtite>{abilitie.name}</ModalInfoSubtite>
                     <ModalInfoSubtite>
-                      <span>{abilitie.description}</span>
+                      Accuracy: <span>{result.accuracy.toFixed(1)}</span>
                     </ModalInfoSubtite>
-                  </ModalInfoAbilitie>
-                ))}
-              </ModalInfoAbilities>
+                    <ModalInfoSubtite>
+                      Critical Chance <span>{element.crit_chance}%</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Critical Multiplier <span>{element.crit_mult}x</span>
+                    </ModalInfoSubtite>
 
+                    <ModalInfoSubtite>
+                      Fire Rate: <span>{element.speed}</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Magazine:{' '}
+                      <span>
+                        {result.magazineSize}
+                        {result.ammo > 0 && (
+                          <Fragment> / {result.ammo}</Fragment>
+                        )}
+                      </span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Multishot: <span>{result.multishot}</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Noise: <span>{result.noise}</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Reload: <span>{result.reloadTime}</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Riven Disposition: <span>{result.disposition}</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Status Chance: <span>{element.status_chance}%</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>Damage</ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      {Object.entries(element.damage).map(
+                        ([key, value], idx) => (
+                          <Fragment>
+                            <ModalInfoSubtite key={idx}>
+                              <DamageIcons damage={key} /> {Capitalize(key)}:{' '}
+                              <span>{value}</span>
+                            </ModalInfoSubtite>
+                          </Fragment>
+                        ),
+                      )}
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Trigger: <span>{result.trigger}</span>
+                    </ModalInfoSubtite>
+                    <ModalInfoSubtite>
+                      Total Damage: <span>{result.totalDamage}</span>
+                    </ModalInfoSubtite>
+                  </div>
+                </Fragment>
+              ))}
               <ModalInfoSubtite>
                 Release Date: <span>{result.releaseDate}</span>
               </ModalInfoSubtite>
@@ -177,8 +194,9 @@ const WarframeCard = ({ result, idx }) => {
           </Fragment>
         </Modal>
       </Card>
+      {/* {console.log(result)} */}
     </Fragment>
   )
 }
 
-export default WarframeCard
+export default ArchGunCard

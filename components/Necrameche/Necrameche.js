@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
 import Navbar from '../Navbar/Navbar'
+import NecramecheCard from '../NecramecheCard/NecramecheCard'
 
 import useGetNecrameche from '../../hooks/useGetNecrameche'
 
@@ -13,14 +14,9 @@ import NecramecheIcon from '../../Icons/NecramecheIcon'
 
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
-import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import { Cards } from '../../style/Style'
 
 const Necrameche = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
-
   const { getNecrameche, getNecramecheLoading, getNecramecheError } =
     useGetNecrameche()
 
@@ -85,19 +81,7 @@ const Necrameche = () => {
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
-                    <Card key={idx}>
-                      <CardImg
-                        loader={myLoader}
-                        src={result.imageName}
-                        title={result.name}
-                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-                        width={300}
-                        height={230}
-                        objectFit="contain"
-                      />
-                      <CardTite>{result.name}</CardTite>
-                      <CardBtn>Info</CardBtn>
-                    </Card>
+                    <NecramecheCard result={result} idx={idx} key={idx} />
                   ))}
                 </Fragment>
               ) : (

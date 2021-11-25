@@ -17,6 +17,7 @@ class Sentinel {
     this.estimatedVaultDate = data.estimatedVaultDate
     this.health = data.health
     this.imageName = data.imageName
+    this.masteryReq = data.masteryReq
     this.name = data.name
     this.power = data.power
     this.productCategory = data.productCategory

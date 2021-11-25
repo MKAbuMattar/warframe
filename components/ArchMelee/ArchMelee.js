@@ -14,6 +14,7 @@ import ArchMeleeWeaponIcon from '../../Icons/ArchMeleeWeaponIcon'
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import ArchMeleeCard from '../ArchMeleeCard/ArchMeleeCard'
 
 const ArchMelee = () => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
@@ -94,19 +95,7 @@ const ArchMelee = () => {
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
-                    <Card key={idx}>
-                      <CardImg
-                        loader={myLoader}
-                        src={result.imageName}
-                        title={result.name}
-                        alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-                        width={300}
-                        height={300}
-                        objectFit="contain"
-                      />
-                      <CardTite>{result.name}</CardTite>
-                      <CardBtn>Info</CardBtn>
-                    </Card>
+                    <ArchMeleeCard result={result} idx={idx} key={idx} />
                   ))}
                 </Fragment>
               ) : (
