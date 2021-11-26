@@ -4,10 +4,12 @@ import Nav from './Nav'
 import NavItem from './NavItem'
 import DropdownMenu from './DropdownMenu'
 
+import InstallPWA from '../../util/InstallPWA/InstallPWA'
+
 import LogoIcon from '../../Icons/LogoIcon'
 import WarframeLogoIcon from '../../Icons/WarframeLogoIcon'
 
-import { LogoLink } from './Style'
+import { LogoLink, RightSide } from './Style'
 
 const Navbar = () => {
   return (
@@ -20,9 +22,12 @@ const Navbar = () => {
           Warframe Info.
         </LogoLink>
       </Link>
-      <NavItem icon={<WarframeLogoIcon color="#ffffff" />}>
-        <DropdownMenu></DropdownMenu>
-      </NavItem>
+      <RightSide>
+        <NavItem icon={<WarframeLogoIcon color="#ffffff" />}>
+          <DropdownMenu />
+        </NavItem>
+        <InstallPWA />
+      </RightSide>
     </Nav>
   )
 }

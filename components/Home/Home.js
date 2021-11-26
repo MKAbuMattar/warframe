@@ -30,6 +30,7 @@ const Home = () => {
     <Fragment>
       <Background />
       <Navbar />
+
       {getWarframeLoading &
       getPrimaryLoading &
       getSecondaryLoading &

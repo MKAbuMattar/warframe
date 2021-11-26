@@ -17,6 +17,13 @@ export const Navbar = styled.nav`
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `
 
+export const RightSide = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+`
+
 export const NavItems = styled.ul`
   max-width: 100%;
   height: 100%;
