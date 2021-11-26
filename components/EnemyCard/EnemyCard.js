@@ -23,8 +23,10 @@ import {
 } from '../../style/Style'
 
 const EnemyCard = ({ result, idx }) => {
+  const IMG_URL = process.env.NEXT_PUBLIC_IMG_URL
+
   const myLoader = ({ src, width, quality }) =>
-    `/warframe/enemy/${src}?w=${width}&q=${quality || 75}`
+    `${IMG_URL}/warframe/enemy/${src}?w=${width}&q=${quality || 75}`
 
   const [modalIsOpen, setIsOpen] = useState(false)
 
