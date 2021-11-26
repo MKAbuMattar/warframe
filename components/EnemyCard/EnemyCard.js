@@ -12,6 +12,7 @@ import {
   ModalBtnContainer,
   ModalBtn,
   ModalInfoContainer,
+  ModalInfoImg,
 } from '../../style/Style'
 
 import {
@@ -67,14 +68,10 @@ const EnemyCard = ({ result, idx }) => {
               </ModalBtn>
             </ModalBtnContainer>
             <ModalInfoContainer>
-              <CardImg
-                loader={myLoader}
-                src={`${result.name}.png`}
-                title={result.name}
+              <ModalInfoImg
+                src={`${IMG_URL}/warframe/enemy/${result.name}.png`}
                 alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-                width={300}
-                height={300}
-                objectFit="contain"
+                title={result.name}
               />
 
               <ModalInfoTite>{result.name}</ModalInfoTite>
