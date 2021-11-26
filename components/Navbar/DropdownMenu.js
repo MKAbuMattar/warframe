@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Fragment } from 'react'
 import Link from 'next/link'
 
 import { CSSTransition } from 'react-transition-group'
@@ -56,15 +56,17 @@ const DropdownMenu = () => {
 
   const DropdownItem = (props) => {
     return (
-      <Link href={props.url || '#'}>
-        <MenuItem
-          onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
-        >
-          <IconLeft>{props.leftIcon}</IconLeft>
-          {props.children}
-          <IconRight>{props.rightIcon}</IconRight>
-        </MenuItem>
-      </Link>
+      <Fragment>
+        <Link href={props.url || '#'}>
+          <MenuItem
+            onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
+          >
+            <IconLeft>{props.leftIcon}</IconLeft>
+            {props.children}
+            <IconRight>{props.rightIcon}</IconRight>
+          </MenuItem>
+        </Link>
+      </Fragment>
     )
   }
 

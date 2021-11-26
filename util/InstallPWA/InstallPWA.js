@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
 
+import InstallIcon from '../../Icons/InstallIcon'
+
+import { IconBtn } from './Style'
+
 const InstallPWA = () => {
   const [supportsPWA, setSupportsPWA] = useState(false)
   const [promptInstall, setPromptInstall] = useState(null)
@@ -27,15 +31,14 @@ const InstallPWA = () => {
     return null
   }
   return (
-    <button
-      className="link-button"
+    <IconBtn
       id="setup_button"
       aria-label="Install app"
       title="Install app"
       onClick={onClick}
     >
-      Install
-    </button>
+      <InstallIcon color="#ffffff" />
+    </IconBtn>
   )
 }
 
