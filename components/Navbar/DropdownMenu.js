@@ -57,15 +57,29 @@ const DropdownMenu = () => {
   const DropdownItem = (props) => {
     return (
       <Fragment>
-        <Link href={props.url || '#'}>
-          <MenuItem
-            onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
-          >
-            <IconLeft>{props.leftIcon}</IconLeft>
-            {props.children}
-            <IconRight>{props.rightIcon}</IconRight>
-          </MenuItem>
-        </Link>
+        {props.url !== undefined ? (
+          <Fragment>
+            <Link href={props.url}>
+              <MenuItem
+                onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
+              >
+                <IconLeft>{props.leftIcon}</IconLeft>
+                {props.children}
+                <IconRight>{props.rightIcon}</IconRight>
+              </MenuItem>
+            </Link>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <MenuItem
+              onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
+            >
+              <IconLeft>{props.leftIcon}</IconLeft>
+              {props.children}
+              <IconRight>{props.rightIcon}</IconRight>
+            </MenuItem>
+          </Fragment>
+        )}
       </Fragment>
     )
   }

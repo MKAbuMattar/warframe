@@ -17,7 +17,7 @@ export const Navbar = styled.nav`
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `
 
-export const RightSide = styled.div`
+export const RightSide = styled.ul`
   display: flex;
   gap: 0.5rem;
   align-items: center;

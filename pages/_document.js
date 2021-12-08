@@ -1,4 +1,6 @@
+import { Fragment } from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -30,17 +32,13 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <>
+      <Fragment>
         <Html lang="en">
           <Head>
             <link rel="manifest" href="/manifest.webmanifest" />
             <link rel="apple-touch-icon" href="/icon/logo192.png" />
             <link rel="icon" href="/icon/favicon.ico" />
             <meta name="theme-color" content="#000000" />
-            <meta
-              name="viewport"
-              content="width=device-width,initial-scale=1"
-            />
 
             {/* Global Site Tag (gtag.js) - Google Analytics */}
             <script
@@ -65,7 +63,7 @@ export default class MyDocument extends Document {
             <NextScript />
           </body>
         </Html>
-      </>
+      </Fragment>
     )
   }
 }
