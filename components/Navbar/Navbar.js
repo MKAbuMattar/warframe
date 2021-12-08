@@ -4,7 +4,7 @@ import Nav from './Nav'
 import NavItem from './NavItem'
 import DropdownMenu from './DropdownMenu'
 
-import InstallPWA from '../../util/InstallPWA/InstallPWA'
+import InstallPWA from '../../util/useInstallPWA/useInstallPWA'
 
 import LogoIcon from '../../Icons/LogoIcon'
 import WarframeLogoIcon from '../../Icons/WarframeLogoIcon'
@@ -16,7 +16,7 @@ const Navbar = () => {
     <Nav>
       <Link href="/">
         <LogoLink>
-          <i>
+          <i style={{ display: 'flex' }}>
             <LogoIcon size="35" />
           </i>
           Warframe Info.
@@ -26,7 +26,7 @@ const Navbar = () => {
         <NavItem icon={<WarframeLogoIcon color="#ffffff" />}>
           <DropdownMenu />
         </NavItem>
-        <InstallPWA />
+        <InstallPWA initSupportsPWA={false} initPromptInstall={null} />
       </RightSide>
     </Nav>
   )

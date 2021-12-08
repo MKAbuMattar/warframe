@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 import Link from 'next/link'
 
@@ -9,9 +9,17 @@ const NavItem = (props) => {
 
   return (
     <NavbarItem>
-      <Link href={props.url || '#'}>
-        <IconBtn onClick={() => setOpen(!open)}>{props.icon}</IconBtn>
-      </Link>
+      {props.url !== undefined ? (
+        <Fragment>
+          <Link href={props.url}>
+            <IconBtn onClick={() => setOpen(!open)}>{props.icon}</IconBtn>
+          </Link>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <IconBtn onClick={() => setOpen(!open)}>{props.icon}</IconBtn>
+        </Fragment>
+      )}
 
       {open && props.children}
     </NavbarItem>
