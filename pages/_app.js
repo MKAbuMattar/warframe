@@ -8,6 +8,7 @@ import SEO from './../next-seo.config'
 import { GlobalStyle } from '../style/Style'
 
 import '../style/normalize.css'
+import Footer from '../components/Footer/Footer'
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -19,6 +20,8 @@ const App = ({ Component, pageProps }) => {
       <DefaultSeo {...SEO} />
       <GlobalStyle />
       <Component {...pageProps} />
+
+      <Footer />
     </Fragment>
   )
 }
