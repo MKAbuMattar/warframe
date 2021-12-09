@@ -1,41 +1,42 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
 import Navbar from '../Navbar/Navbar'
-import ArcaneCard from '../ArcaneCard/ArcaneCard'
+import MiscellaneousCard from '../MiscellaneousCard/MiscellaneousCard'
 
-import useGetArcane from '../../hooks/useGetArcane'
+import useGetMiscellaneous from '../../hooks/useGetMiscellaneous'
 
 import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
 
-import ArcaneIcon from '../../Icons/ArcaneIcon'
+import MiscellaneousIcon from '../../Icons/MiscellaneousIcon'
 
 import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 
 import { Cards } from '../../style/Style'
 
-const Arcane = () => {
-  const { getArcane, getArcaneLoading, getArcaneError } = useGetArcane()
+const Miscellaneous = () => {
+  const { getMiscellaneous, getMiscellaneousLoading, getMiscellaneousError } =
+    useGetMiscellaneous()
 
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    if (!getArcaneLoading) {
-      setItems(getArcane)
+    if (!getMiscellaneousLoading) {
+      setItems(getMiscellaneous)
     }
-  }, [getArcaneLoading])
+  }, [getMiscellaneousLoading])
 
   const filterList = useCallback(
     ({ target }) => {
-      if (getArcane.length > 0) {
+      if (getMiscellaneous.length > 0) {
         const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getArcane)
+        const updatedList = FilterIt(searchQuery, getMiscellaneous)
         setItems(updatedList)
       }
     },
-    [getArcaneLoading],
+    [getMiscellaneousLoading],
   )
 
   return (
@@ -43,7 +44,7 @@ const Arcane = () => {
       <Background />
       <Navbar />
 
-      {getArcaneLoading ? (
+      {getMiscellaneousLoading ? (
         <Fragment>
           <Loader />
         </Fragment>
@@ -60,8 +61,8 @@ const Arcane = () => {
           {items.length > 1 && (
             <Fragment>
               <PageCounter>
-                <ArcaneIcon color="#dddddd" size="50" />
-                Arcanes: {items.length}
+                <MiscellaneousIcon color="#dddddd" size="50" />
+                Miscellaneouss: {items.length}
               </PageCounter>
             </Fragment>
           )}
@@ -69,8 +70,8 @@ const Arcane = () => {
           {items.length == 1 && (
             <Fragment>
               <PageCounter>
-                <ArcaneIcon color="#dddddd" size="50" />
-                Arcane: {items.length}
+                <MiscellaneousIcon color="#dddddd" size="50" />
+                Miscellaneous: {items.length}
               </PageCounter>
             </Fragment>
           )}
@@ -78,8 +79,8 @@ const Arcane = () => {
           {items.length == 0 && (
             <Fragment>
               <PageCounter>
-                <ArcaneIcon color="#dddddd" size="50" />
-                Arcane: None
+                <MiscellaneousIcon color="#dddddd" size="50" />
+                Miscellaneous: None
               </PageCounter>
             </Fragment>
           )}
@@ -89,7 +90,7 @@ const Arcane = () => {
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
-                    <ArcaneCard result={result} idx={idx} key={idx} />
+                    <MiscellaneousCard result={result} idx={idx} key={idx} />
                   ))}
                 </Fragment>
               ) : (
@@ -103,4 +104,4 @@ const Arcane = () => {
   )
 }
 
-export default Arcane
+export default Miscellaneous

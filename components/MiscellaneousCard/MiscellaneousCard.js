@@ -21,7 +21,7 @@ import {
   ModalInfoSubtite,
 } from '../../style/Style'
 
-const ArcaneCard = ({ result, idx }) => {
+const MiscellaneousCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
   const myLoader = ({ src, width, quality }) =>
@@ -74,56 +74,24 @@ const ArcaneCard = ({ result, idx }) => {
 
               <ModalInfoTite>{result.name}</ModalInfoTite>
 
-              <ModalInfoSubtite>
-                Rarity: <span>{result.rarity}</span>
-              </ModalInfoSubtite>
-
-              {result.levelStats !== undefined && (
-                <Fragment>
-                  <ModalInfoSubtiteAbilitie>
-                    Mod Level Stats
-                  </ModalInfoSubtiteAbilitie>
-                  <ModalInfoAbilities>
-                    {result.levelStats.map((element, idx) => (
-                      <ModalInfoAbilitie key={idx}>
-                        <ModalInfoSubtite>{element.stats[0]}</ModalInfoSubtite>
-                      </ModalInfoAbilitie>
-                    ))}
-                  </ModalInfoAbilities>
-                </Fragment>
-              )}
-
-              {result.releaseDate !== undefined && (
+              {result.type !== undefined && (
                 <ModalInfoSubtite>
-                  Release Date: <span>{result.releaseDate}</span>
+                  Type: <span>{result.type}</span>
                 </ModalInfoSubtite>
               )}
 
-              {result.introduced !== undefined && (
+              {result.description !== undefined && result.description !== '' && (
                 <ModalInfoSubtite>
-                  Introduced:{' '}
-                  <Link href={result.introduced.url}>
-                    <a target="__blank">
-                      {result.introduced.name} / Date: {result.introduced.date}
-                    </a>
-                  </Link>
-                </ModalInfoSubtite>
-              )}
-
-              {result.wikiaUrl !== undefined && (
-                <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl}>
-                    <a target="__blank">Wiki Link</a>
-                  </Link>
+                  Description: <span>{result.description}</span>
                 </ModalInfoSubtite>
               )}
             </ModalInfoContainer>
           </Fragment>
         </Modal>
       </Card>
-      {/* {console.log(result)} */}
+      {console.log(result)}
     </Fragment>
   )
 }
 
-export default ArcaneCard
+export default MiscellaneousCard

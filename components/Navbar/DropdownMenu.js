@@ -22,11 +22,13 @@ import SentinelIcon from '../../Icons/SentinelIcon'
 
 import NecramecheIcon from '../../Icons/NecramecheIcon'
 
+import ArcaneIcon from '../../Icons/ArcaneIcon'
 import ModIcon from '../../Icons/ModIcon'
 
 import EnemyIcon from '../../Icons/EnemyIcon'
 
 import ResourceIcon from '../../Icons/ResourceIcon'
+import MiscellaneousIcon from '../../Icons/MiscellaneousIcon'
 
 import QuestIcon from '../../Icons/QuestIcon'
 
@@ -137,7 +139,7 @@ const DropdownMenu = () => {
             Mod
           </DropdownItem>
           <DropdownItem
-            leftIcon={<ModIcon color="#ffffff" />}
+            leftIcon={<ArcaneIcon color="#ffffff" />}
             url="/warframe/arcane"
           >
             Arcane
@@ -147,6 +149,12 @@ const DropdownMenu = () => {
           </DropdownItem>
           <DropdownItem leftIcon={<EnemyIcon color="#ffffff" />} url="/enemy">
             Enemy
+          </DropdownItem>
+          <DropdownItem
+            leftIcon={<MiscellaneousIcon color="#ffffff" />}
+            url="/miscellaneous"
+          >
+            Miscellaneous
           </DropdownItem>
           <DropdownItem
             leftIcon={<ResourceIcon color="#ffffff" />}
