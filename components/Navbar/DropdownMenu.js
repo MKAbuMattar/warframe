@@ -98,49 +98,6 @@ const DropdownMenu = () => {
             Home
           </DropdownItem>
           <DropdownItem
-            leftIcon={<WarframeLogoIcon color="#ffffff" />}
-            rightIcon={<RightIcon color="#ffffff" />}
-            goToMenu="warframe"
-          >
-            Warframe
-          </DropdownItem>
-          <DropdownItem leftIcon={<QuestIcon color="#ffffff" />} url="/quest">
-            Quest
-          </DropdownItem>
-          <DropdownItem leftIcon={<EnemyIcon color="#ffffff" />} url="/enemy">
-            Enemy
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<ResourceIcon color="#ffffff" />}
-            url="/resource"
-          >
-            Resource
-          </DropdownItem>
-          <DropdownItem leftIcon={<GearIcon color="#ffffff" />} url="/gear">
-            Gear
-          </DropdownItem>
-          <DropdownItem leftIcon={<GlyphIcon color="#ffffff" />} url="/glyph">
-            Glyph
-          </DropdownItem>
-        </Menu>
-      </CSSTransition>
-
-      <CSSTransition
-        in={activeMenu === 'warframe'}
-        timeout={500}
-        classNames="menu-secondary"
-        unmountOnExit
-        onEnter={calcHeight}
-      >
-        <Menu>
-          <DropdownItem
-            goToMenu="main"
-            leftIcon={<WarframeLogoIcon color="#ffffff" />}
-            rightIcon={<LeftIcon color="#ffffff" />}
-          >
-            <h2>Warframe</h2>
-          </DropdownItem>
-          <DropdownItem
             leftIcon={<WarframeIcon color="#ffffff" />}
             url="/warframe"
           >
@@ -185,6 +142,24 @@ const DropdownMenu = () => {
           >
             Arcane
           </DropdownItem>
+          <DropdownItem leftIcon={<QuestIcon color="#ffffff" />} url="/quest">
+            Quest
+          </DropdownItem>
+          <DropdownItem leftIcon={<EnemyIcon color="#ffffff" />} url="/enemy">
+            Enemy
+          </DropdownItem>
+          <DropdownItem
+            leftIcon={<ResourceIcon color="#ffffff" />}
+            url="/resource"
+          >
+            Resource
+          </DropdownItem>
+          <DropdownItem leftIcon={<GearIcon color="#ffffff" />} url="/gear">
+            Gear
+          </DropdownItem>
+          <DropdownItem leftIcon={<GlyphIcon color="#ffffff" />} url="/glyph">
+            Glyph
+          </DropdownItem>
         </Menu>
       </CSSTransition>
 
@@ -197,7 +172,7 @@ const DropdownMenu = () => {
       >
         <Menu>
           <DropdownItem
-            goToMenu="warframe"
+            goToMenu="main"
             leftIcon={<WeaponIcon color="#ffffff" />}
             rightIcon={<LeftIcon color="#ffffff" />}
           >
@@ -233,7 +208,7 @@ const DropdownMenu = () => {
       >
         <Menu>
           <DropdownItem
-            goToMenu="warframe"
+            goToMenu="main"
             leftIcon={<ArchwingIcon color="#ffffff" />}
             rightIcon={<LeftIcon color="#ffffff" />}
           >
@@ -294,7 +269,7 @@ const DropdownMenu = () => {
       >
         <Menu>
           <DropdownItem
-            goToMenu="warframe"
+            goToMenu="main"
             leftIcon={<CompanionIcon color="#ffffff" />}
             rightIcon={<LeftIcon color="#ffffff" />}
           >

@@ -15,6 +15,7 @@ export const Navbar = styled.nav`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  user-select: none;
 `
 
 export const RightSide = styled.ul`
@@ -111,7 +112,7 @@ export const IconRight = styled.span`
 export const Dropdown = styled.div`
   position: absolute;
   top: 58px;
-  width: 300px;
+  width: 17.5rem;
   transform: translateX(-45%);
   background-color: var(--bg);
   /* border: var(--border); */
@@ -122,6 +123,8 @@ export const Dropdown = styled.div`
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
+  overflow: auto;
+  max-height: 20rem;
 `
 
 export const Menu = styled.div`
