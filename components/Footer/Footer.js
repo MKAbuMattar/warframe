@@ -15,7 +15,7 @@ const Footer = () => {
         {getYear() >= '2019' ? `2019 - ${getYear()}` : getYear()}, Made With ❤ &
         a lot ☕ By &nbsp;
         <Link href="https://mkabumattar.github.io/">
-          <a target="__blank">Mohammad Khaled Abu Mattar</a>
+          <a target="__blank">Mohammad Abu Mattar</a>
         </Link>
       </FooterSection>
     </Fragment>
