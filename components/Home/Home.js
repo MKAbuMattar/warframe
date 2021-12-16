@@ -15,6 +15,9 @@ import useGetMelee from '../../hooks/useGetMelee'
 import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
+import { newWarframe, newWarframePrime } from '../../util/TheList/TheList'
+import { newPrimary, newSecondary, newMelee } from '../../util/TheList/TheList'
+
 import { Cards } from '../../style/Style'
 
 import { Container, SubTitle } from './Style'
@@ -42,13 +45,14 @@ const Home = () => {
         <Fragment>
           <section className="container">
             <Container>
-              <SubTitle>Last Warframe Added</SubTitle>
+              <SubTitle>Last Warframe Added And Signature Weapon</SubTitle>
               <Cards>
                 {getWarframe.length > 0 ? (
                   <Fragment>
                     {getWarframe.map((result, idx) =>
-                      result.name.toLowerCase() === `Caliban`.toLowerCase() ? (
-                        <Fragment>
+                      result.name.toLowerCase() ===
+                      `${newWarframe.warframe}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <WarframeCard result={result} key={idx} idx={idx} />
                         </Fragment>
                       ) : (
@@ -63,8 +67,9 @@ const Home = () => {
                 {getPrimary.length > 0 ? (
                   <Fragment>
                     {getPrimary.map((result, idx) =>
-                      result.name.toLowerCase() === ``.toLowerCase() ? (
-                        <Fragment>
+                      result.name.toLowerCase() ===
+                      `${newWarframe.primary}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <PrimaryCard result={result} key={idx} idx={idx} />
                         </Fragment>
                       ) : (
@@ -79,8 +84,9 @@ const Home = () => {
                 {getSecondary.length > 0 ? (
                   <Fragment>
                     {getSecondary.map((result, idx) =>
-                      result.name.toLowerCase() === ``.toLowerCase() ? (
-                        <Fragment>
+                      result.name.toLowerCase() ===
+                      `${newWarframe.secondary}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <SecondaryCard result={result} key={idx} idx={idx} />
                         </Fragment>
                       ) : (
@@ -95,8 +101,9 @@ const Home = () => {
                 {getMelee.length > 0 ? (
                   <Fragment>
                     {getMelee.map((result, idx) =>
-                      result.name.toLowerCase() === `Venato`.toLowerCase() ? (
-                        <Fragment>
+                      result.name.toLowerCase() ===
+                      `${newWarframe.melee}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <MeleeCard result={result} idx={idx} key={idx} />
                         </Fragment>
                       ) : (
@@ -111,14 +118,16 @@ const Home = () => {
             </Container>
 
             <Container>
-              <SubTitle>Last Warframe Prime Added</SubTitle>
+              <SubTitle>
+                Last Warframe Prime Added And Signature Weapon
+              </SubTitle>
               <Cards>
                 {getWarframe.length > 0 ? (
                   <Fragment>
                     {getWarframe.map((result, idx) =>
                       result.name.toLowerCase() ===
-                      `Harrow Prime`.toLowerCase() ? (
-                        <Fragment>
+                      `${newWarframePrime.warframe}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <WarframeCard result={result} key={idx} idx={idx} />
                         </Fragment>
                       ) : (
@@ -134,8 +143,8 @@ const Home = () => {
                   <Fragment>
                     {getPrimary.map((result, idx) =>
                       result.name.toLowerCase() ===
-                      `Scourge Prime`.toLowerCase() ? (
-                        <Fragment>
+                      `${newWarframePrime.primary}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <PrimaryCard result={result} key={idx} idx={idx} />
                         </Fragment>
                       ) : (
@@ -151,8 +160,8 @@ const Home = () => {
                   <Fragment>
                     {getSecondary.map((result, idx) =>
                       result.name.toLowerCase() ===
-                      `Knell Prime`.toLowerCase() ? (
-                        <Fragment>
+                      `${newWarframePrime.secondary}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <SecondaryCard result={result} key={idx} idx={idx} />
                         </Fragment>
                       ) : (
@@ -167,8 +176,9 @@ const Home = () => {
                 {getMelee.length > 0 ? (
                   <Fragment>
                     {getMelee.map((result, idx) =>
-                      result.name.toLowerCase() === ``.toLowerCase() ? (
-                        <Fragment>
+                      result.name.toLowerCase() ===
+                      `${newWarframePrime.melee}`.toLowerCase() ? (
+                        <Fragment key={idx}>
                           <MeleeCard result={result} idx={idx} key={idx} />
                         </Fragment>
                       ) : (
@@ -178,6 +188,93 @@ const Home = () => {
                   </Fragment>
                 ) : (
                   <Fragment> </Fragment>
+                )}
+              </Cards>
+            </Container>
+            <Container>
+              {newPrimary.length > 0 && (
+                <SubTitle>Last Primary Weapons Added</SubTitle>
+              )}
+              <Cards>
+                {getPrimary.length > 0 ? (
+                  <Fragment>
+                    {getPrimary.map((result, idx) =>
+                      newPrimary.map((name) => (
+                        <Fragment>
+                          {result.name.toLowerCase() ===
+                          `${name}`.toLowerCase() ? (
+                            <Fragment key={idx}>
+                              <PrimaryCard
+                                result={result}
+                                key={idx}
+                                idx={idx}
+                              />
+                            </Fragment>
+                          ) : (
+                            <Fragment key={idx}></Fragment>
+                          )}
+                        </Fragment>
+                      )),
+                    )}
+                  </Fragment>
+                ) : (
+                  <Fragment></Fragment>
+                )}
+              </Cards>
+
+              {newSecondary.length > 0 && (
+                <SubTitle>Last Secondary Weapons Added</SubTitle>
+              )}
+              <Cards>
+                {getSecondary.length > 0 ? (
+                  <Fragment>
+                    {getSecondary.map((result, idx) =>
+                      newSecondary.map((name) => (
+                        <Fragment>
+                          {result.name.toLowerCase() ===
+                          `${name}`.toLowerCase() ? (
+                            <Fragment key={idx}>
+                              <SecondaryCard
+                                result={result}
+                                key={idx}
+                                idx={idx}
+                              />
+                            </Fragment>
+                          ) : (
+                            <Fragment key={idx}></Fragment>
+                          )}
+                        </Fragment>
+                      )),
+                    )}
+                  </Fragment>
+                ) : (
+                  <Fragment></Fragment>
+                )}
+              </Cards>
+
+              {newMelee.length > 0 && (
+                <SubTitle>Last Melee Weapons Added</SubTitle>
+              )}
+              <Cards>
+                {getMelee.length > 0 ? (
+                  <Fragment>
+                    {getMelee.map((result, idx) =>
+                      newMelee.map((name) => (
+                        <Fragment>
+                          {result.name.toLowerCase() ===
+                          `${name}`.toLowerCase() ? (
+                            <Fragment key={idx}>
+                              <MeleeCard result={result} key={idx} idx={idx} />
+                            </Fragment>
+                          ) : (
+                            <Fragment key={idx}></Fragment>
+                          )}
+                        </Fragment>
+                      )),
+                    )}
+                  </Fragment>
+                ) : (
+                  <Fragment></Fragment>
                 )}
               </Cards>
             </Container>
