@@ -1,5 +1,7 @@
 import { Fragment } from 'react'
 
+import { removeGlyph } from '../../util/Regex/Regex'
+
 import { Card, CardImg, CardTite } from '../../style/Style'
 
 const GlyphCard = ({ result, idx }) => {
@@ -14,13 +16,13 @@ const GlyphCard = ({ result, idx }) => {
         <CardImg
           loader={myLoader}
           src={result.imageName}
-          title={result.name}
+          title={removeGlyph(result.name)}
           alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
           width={300}
           height={300}
           objectFit="contain"
         />
-        <CardTite>{result.name}</CardTite>
+        <CardTite>{removeGlyph(result.name)}</CardTite>
       </Card>
     </Fragment>
   )

@@ -75,19 +75,34 @@ const PrimaryCard = ({ result, idx }) => {
                 alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
                 title={result.name}
               />
-              <ModalInfoTite>{result.name}</ModalInfoTite>
-              <ModalInfoSubtite>
-                Mastery Rank: <span>{result.masteryReq}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Weapon: <span>{result.tags[0]}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Weapon type: <span>{result.type}</span>
-              </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Weapon Description: <span>{result.description}</span>
-              </ModalInfoSubtite>
+
+              {result.name !== undefined && (
+                <ModalInfoTite>{result.name}</ModalInfoTite>
+              )}
+
+              {result.masteryReq !== undefined && (
+                <ModalInfoSubtite>
+                  Mastery Rank: <span>{result.masteryReq}</span>
+                </ModalInfoSubtite>
+              )}
+
+              {result.tags[0] !== undefined && (
+                <ModalInfoSubtite>
+                  Weapon: <span>{result.tags[0]}</span>
+                </ModalInfoSubtite>
+              )}
+
+              {result.type !== undefined && (
+                <ModalInfoSubtite>
+                  Weapon type: <span>{result.type}</span>
+                </ModalInfoSubtite>
+              )}
+
+              {result.description !== undefined && (
+                <ModalInfoSubtite>
+                  Weapon Description: <span>{result.description}</span>
+                </ModalInfoSubtite>
+              )}
               {result.attacks.map((element, idx) => (
                 <Fragment>
                   <div key={idx}>
@@ -97,43 +112,74 @@ const PrimaryCard = ({ result, idx }) => {
                       </ModalInfoAttackSubtite>
                     )}
 
-                    <ModalInfoSubtite>
-                      Accuracy: <span>{result.accuracy.toFixed(1)}</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Critical Chance <span>{element.crit_chance}%</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Critical Multiplier <span>{element.crit_mult}x</span>
-                    </ModalInfoSubtite>
+                    {result.accuracy !== undefined && (
+                      <ModalInfoSubtite>
+                        Accuracy: <span>{result.accuracy.toFixed(1)}</span>
+                      </ModalInfoSubtite>
+                    )}
 
-                    <ModalInfoSubtite>
-                      Fire Rate: <span>{element.speed}</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Magazine:{' '}
-                      <span>
-                        {result.magazineSize}
-                        {result.ammo > 0 && (
-                          <Fragment> / {result.ammo}</Fragment>
-                        )}
-                      </span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Multishot: <span>{result.multishot}</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Noise: <span>{result.noise}</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Reload: <span>{result.reloadTime}</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Riven Disposition: <span>{result.disposition}</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Status Chance: <span>{element.status_chance}%</span>
-                    </ModalInfoSubtite>
+                    {element.crit_chance !== undefined && (
+                      <ModalInfoSubtite>
+                        Critical Chance <span>{element.crit_chance}%</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {element.crit_mult !== undefined && (
+                      <ModalInfoSubtite>
+                        Critical Multiplier <span>{element.crit_mult}x</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {element.speed !== undefined && (
+                      <ModalInfoSubtite>
+                        Fire Rate: <span>{element.speed}</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {result.magazineSize !== undefined && result.ammo > 0 && (
+                      <ModalInfoSubtite>
+                        Magazine:{' '}
+                        <span>
+                          {result.magazineSize !== undefined && (
+                            <Fragment>{result.magazineSize}</Fragment>
+                          )}
+
+                          {result.ammo > 0 && (
+                            <Fragment> / {result.ammo}</Fragment>
+                          )}
+                        </span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {result.multishot !== undefined && (
+                      <ModalInfoSubtite>
+                        Multishot: <span>{result.multishot}</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {result.noise !== undefined && (
+                      <ModalInfoSubtite>
+                        Noise: <span>{result.noise}</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {result.reloadTime !== undefined && (
+                      <ModalInfoSubtite>
+                        Reload: <span>{result.reloadTime}</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {result.disposition !== undefined && (
+                      <ModalInfoSubtite>
+                        Riven Disposition: <span>{result.disposition}</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {element.status_chance !== undefined && (
+                      <ModalInfoSubtite>
+                        Status Chance: <span>{element.status_chance}%</span>
+                      </ModalInfoSubtite>
+                    )}
                     <ModalInfoSubtite>Damage</ModalInfoSubtite>
                     <ModalInfoSubtite>
                       {Object.entries(element.damage).map(
@@ -147,18 +193,27 @@ const PrimaryCard = ({ result, idx }) => {
                         ),
                       )}
                     </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Trigger: <span>{result.trigger}</span>
-                    </ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      Total Damage: <span>{result.totalDamage}</span>
-                    </ModalInfoSubtite>
+
+                    {result.trigger !== undefined && (
+                      <ModalInfoSubtite>
+                        Trigger: <span>{result.trigger}</span>
+                      </ModalInfoSubtite>
+                    )}
+
+                    {result.totalDamage !== undefined && (
+                      <ModalInfoSubtite>
+                        Total Damage: <span>{result.totalDamage}</span>
+                      </ModalInfoSubtite>
+                    )}
                   </div>
                 </Fragment>
               ))}
-              <ModalInfoSubtite>
-                Release Date: <span>{result.releaseDate}</span>
-              </ModalInfoSubtite>
+
+              {result.releaseDate !== undefined && (
+                <ModalInfoSubtite>
+                  Release Date: <span>{result.releaseDate}</span>
+                </ModalInfoSubtite>
+              )}
 
               {result.vaultDate !== 'n/a' && result.vaultDate !== undefined && (
                 <Fragment>
@@ -177,20 +232,24 @@ const PrimaryCard = ({ result, idx }) => {
                 </Fragment>
               )}
 
-              <ModalInfoSubtite>
-                Introduced:{' '}
-                <Link href={result.introduced.url}>
-                  <a target="__blank">
-                    {result.introduced.name} / Date: {result.introduced.date}
-                  </a>
-                </Link>
-              </ModalInfoSubtite>
+              {result.introduced !== undefined && (
+                <ModalInfoSubtite>
+                  Introduced:{' '}
+                  <Link href={result.introduced.url}>
+                    <a target="__blank">
+                      {result.introduced.name} / Date: {result.introduced.date}
+                    </a>
+                  </Link>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                <Link href={result.wikiaUrl}>
-                  <a target="__blank">Wiki Link</a>
-                </Link>
-              </ModalInfoSubtite>
+              {result.wikiaUrl !== undefined && (
+                <ModalInfoSubtite>
+                  <Link href={result.wikiaUrl}>
+                    <a target="__blank">Wiki Link</a>
+                  </Link>
+                </ModalInfoSubtite>
+              )}
             </ModalInfoContainer>
           </Fragment>
         </Modal>
