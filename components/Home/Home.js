@@ -47,7 +47,7 @@ const Home = () => {
                 {getWarframe.length > 0 ? (
                   <Fragment>
                     {getWarframe.map((result, idx) =>
-                      result.name.toLowerCase() === `Yareli`.toLowerCase() ? (
+                      result.name.toLowerCase() === `Caliban`.toLowerCase() ? (
                         <Fragment>
                           <WarframeCard result={result} key={idx} idx={idx} />
                         </Fragment>
@@ -79,8 +79,7 @@ const Home = () => {
                 {getSecondary.length > 0 ? (
                   <Fragment>
                     {getSecondary.map((result, idx) =>
-                      result.name.toLowerCase() ===
-                      `Kompressa`.toLowerCase() ? (
+                      result.name.toLowerCase() === ``.toLowerCase() ? (
                         <Fragment>
                           <SecondaryCard result={result} key={idx} idx={idx} />
                         </Fragment>
@@ -96,7 +95,7 @@ const Home = () => {
                 {getMelee.length > 0 ? (
                   <Fragment>
                     {getMelee.map((result, idx) =>
-                      result.name.toLowerCase() === ``.toLowerCase() ? (
+                      result.name.toLowerCase() === `Venato`.toLowerCase() ? (
                         <Fragment>
                           <MeleeCard result={result} idx={idx} key={idx} />
                         </Fragment>
@@ -118,7 +117,7 @@ const Home = () => {
                   <Fragment>
                     {getWarframe.map((result, idx) =>
                       result.name.toLowerCase() ===
-                      `Nidus Prime`.toLowerCase() ? (
+                      `Harrow Prime`.toLowerCase() ? (
                         <Fragment>
                           <WarframeCard result={result} key={idx} idx={idx} />
                         </Fragment>
@@ -135,7 +134,7 @@ const Home = () => {
                   <Fragment>
                     {getPrimary.map((result, idx) =>
                       result.name.toLowerCase() ===
-                      `Strun Prime`.toLowerCase() ? (
+                      `Scourge Prime`.toLowerCase() ? (
                         <Fragment>
                           <PrimaryCard result={result} key={idx} idx={idx} />
                         </Fragment>
@@ -152,7 +151,7 @@ const Home = () => {
                   <Fragment>
                     {getSecondary.map((result, idx) =>
                       result.name.toLowerCase() ===
-                      `Magnus Prime`.toLowerCase() ? (
+                      `Knell Prime`.toLowerCase() ? (
                         <Fragment>
                           <SecondaryCard result={result} key={idx} idx={idx} />
                         </Fragment>
