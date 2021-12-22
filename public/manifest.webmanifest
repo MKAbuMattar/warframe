@@ -1,7 +1,7 @@
 {
   "short_name": "Warframe Info.",
   "name": "Warframe Info.",
-  "description": "Warframe Info.",
+  "description": "Information on WARFRAME. Our goal is to build the most comprehensive database regarding the game, including everything from gameplay descriptions, weapon statistics, and battle mechanics to the eponymous Warframes and the WARFRAME universe's underlying mythology.",
   "icons": [
     {
       "src": "/icon/favicon.ico",

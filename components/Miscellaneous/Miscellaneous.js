@@ -62,7 +62,7 @@ const Miscellaneous = () => {
             <Fragment>
               <PageCounter>
                 <MiscellaneousIcon color="#dddddd" size="50" />
-                Miscellaneouss: {items.length}
+                Miscellaneous: {items.length}
               </PageCounter>
             </Fragment>
           )}
