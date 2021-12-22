@@ -2,26 +2,10 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import Pet from '../models/Pet.model'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
-
-class Pet {
-  constructor(data) {
-    this.armor = data.armor
-    this.category = data.category
-    this.description = data.description
-    this.health = data.health
-    this.imageName = data.imageName
-    this.name = data.name
-    this.power = data.power
-    this.productCategory = data.productCategory
-    this.shield = data.shield
-    this.stamina = data.stamina
-    this.tradable = data.tradable
-    this.type = data.type
-    this.uniqueName = data.uniqueName
-  }
-}
 
 const useGetPet = () => {
   const url = `${API_URL}Pets${API_FORMAT}`
