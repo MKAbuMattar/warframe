@@ -63,7 +63,7 @@ const Necrameche = () => {
               <Fragment>
                 <PageCounter>
                   <NecramecheIcon color="#dddddd" size="50" />
-                  Necrameche: {items.length}
+                  Necramech: {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -72,7 +72,7 @@ const Necrameche = () => {
               <Fragment>
                 <PageCounter>
                   <NecramecheIcon color="#dddddd" size="50" />
-                  Necrameche: None
+                  Necramech: None
                 </PageCounter>
               </Fragment>
             )}
