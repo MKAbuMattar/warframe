@@ -2,31 +2,10 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import Mod from '../models/Mod.model'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
-
-class Mod {
-  constructor(data) {
-    this.baseDrain = data.baseDrain
-    this.category = data.category
-    this.compatName = data.compatName
-    this.fusionLimit = data.fusionLimit
-    this.imageName = data.imageName
-    this.introduced = data.introduced
-    this.isAugment = data.isAugment
-    this.levelStats = data.levelStats
-    this.name = data.name
-    this.polarity = data.polarity
-    this.rarity = data.rarity
-    this.releaseDate = data.releaseDate
-    this.tradable = data.tradable
-    this.transmutable = data.transmutable
-    this.type = data.type
-    this.uniqueName = data.uniqueName
-    this.wikiaThumbnail = data.wikiaThumbnail
-    this.wikiaUrl = data.wikiaUrl
-  }
-}
 
 const useGetMod = () => {
   const url = `${API_URL}Mods${API_FORMAT}`

@@ -2,20 +2,10 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import Glyph from '../models/Glyph.model'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
-
-class Glyph {
-  constructor(data) {
-    this.category = data.category
-    this.description = data.description
-    this.imageName = data.imageName
-    this.name = data.name
-    this.tradable = data.tradable
-    this.type = data.type
-    this.uniqueName = data.uniqueName
-  }
-}
 
 const useGetGlyph = () => {
   const url = `${API_URL}Glyphs${API_FORMAT}`

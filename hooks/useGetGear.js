@@ -2,25 +2,10 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import Gear from '../models/Gear.model'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
-
-class Gear {
-  constructor(data) {
-    this.buildPrice = data.buildPrice
-    this.buildQuantity = data.buildQuantity
-    this.buildTime = data.buildTime
-    this.category = data.category
-    this.consumeOnBuild = data.consumeOnBuild
-    this.description = data.description
-    this.imageName = data.imageName
-    this.name = data.name
-    this.skipBuildTimePrice = data.skipBuildTimePrice
-    this.tradable = data.tradable
-    this.type = data.type
-    this.uniqueName = data.uniqueName
-  }
-}
 
 const useGetGear = () => {
   const url = `${API_URL}Gear${API_FORMAT}`

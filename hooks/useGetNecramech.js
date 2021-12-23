@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
-import ArchGun from '../models/ArchGun.model'
+import Necramech from '../models/Necramech.model'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
 
-const useGetArchGun = () => {
-  const url = `${API_URL}Arch-Gun${API_FORMAT}`
+const useGetNecramech = () => {
+  const url = `${API_URL}Warframes${API_FORMAT}`
 
-  const [getArchGunLoading, setLoading] = useState(true)
-  const [getArchGunError, setError] = useState(false)
-  const [getArchGun, setGetArchGun] = useState([])
+  const [getNecramechLoading, setLoading] = useState(true)
+  const [getNecramechError, setError] = useState(false)
+  const [getNecramech, setGetNecramech] = useState([])
 
   let formatData = []
 
@@ -29,10 +29,12 @@ const useGetArchGun = () => {
     })
       .then((res) => {
         res.data.forEach((result) => {
-          formatData.push(new ArchGun(result))
+          if (result.stamina > 180) {
+            formatData.push(new Necramech(result))
+          }
         })
 
-        setGetArchGun(
+        setGetNecramech(
           [...new Set(formatData)].reduce((unique, o) => {
             if (!unique.some((obj) => obj.name === o.name)) {
               unique.push(o)
@@ -49,7 +51,7 @@ const useGetArchGun = () => {
     return () => cansle()
   }, [])
 
-  return { getArchGun, getArchGunLoading, getArchGunError }
+  return { getNecramech, getNecramechLoading, getNecramechError }
 }
 
-export default useGetArchGun
+export default useGetNecramech

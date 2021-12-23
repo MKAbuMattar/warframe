@@ -2,27 +2,10 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import Resource from '../models/Resource.model'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
-
-class Resource {
-  constructor(data) {
-    this.buildPrice = data.buildPrice
-    this.buildQuantity = data.buildQuantity
-    this.buildTime = data.buildTime
-    this.category = data.category
-    this.consumeOnBuild = data.consumeOnBuild
-    this.description = data.description
-    this.imageName = data.imageName
-    this.itemCount = data.itemCount
-    this.name = data.name
-    this.parents = data.parents
-    this.skipBuildTimePrice = data.skipBuildTimePrice
-    this.tradable = data.tradable
-    this.type = data.type
-    this.uniqueName = data.uniqueName
-  }
-}
 
 const useGetResource = () => {
   const url = `${API_URL}Resources${API_FORMAT}`

@@ -2,19 +2,10 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import Arcane from '../models/Arcane.model'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
-
-class Arcane {
-  constructor(data) {
-    this.imageName = data.imageName
-    this.levelStats = data.levelStats
-    this.name = data.name
-    this.rarity = data.rarity
-    this.tradable = data.tradable
-    this.uniqueName = data.uniqueName
-  }
-}
 
 const useGetArcane = () => {
   const url = `${API_URL}Arcanes${API_FORMAT}`

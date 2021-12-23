@@ -20,7 +20,7 @@ import ArchMeleeWeaponIcon from '../../Icons/ArchMeleeWeaponIcon'
 import CompanionIcon from '../../Icons/CompanionIcon'
 import SentinelIcon from '../../Icons/SentinelIcon'
 
-import NecramecheIcon from '../../Icons/NecramecheIcon'
+import NecramechIcon from '../../Icons/NecramechIcon'
 
 import ArcaneIcon from '../../Icons/ArcaneIcon'
 import ModIcon from '../../Icons/ModIcon'
@@ -127,10 +127,10 @@ const DropdownMenu = () => {
             Archwing
           </DropdownItem>
           <DropdownItem
-            leftIcon={<NecramecheIcon color="#ffffff" />}
-            url="/warframe/necrameche"
+            leftIcon={<NecramechIcon color="#ffffff" />}
+            url="/warframe/necramech"
           >
-            Necrameche
+            Necramech
           </DropdownItem>
           <DropdownItem
             leftIcon={<ModIcon color="#ffffff" />}
