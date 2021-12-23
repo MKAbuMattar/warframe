@@ -4,12 +4,13 @@ import Navbar from '../Navbar/Navbar'
 
 import Background from '../../util/Background/Background'
 
-import TabItem from '../TabItem/TabItem'
-import Tabs from '../Tabs/Tabs'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 
 import V1 from '../API/V1/index'
 
 import { PageCounter } from '../../style/Style'
+
+import { TabListCounter, TabCounter } from './Style'
 
 const WarframeAPI = () => {
   return (
@@ -18,7 +19,19 @@ const WarframeAPI = () => {
       <Background />
       <PageCounter>Warframe API</PageCounter>
 
-      <V1 />
+      <Tabs className={'container'}>
+        <TabListCounter>
+          <TabCounter>API V1</TabCounter>
+          <TabCounter>API V2</TabCounter>
+        </TabListCounter>
+
+        <TabPanel>
+          <V1 />
+        </TabPanel>
+        <TabPanel>
+          <p>work in progress</p>
+        </TabPanel>
+      </Tabs>
     </Fragment>
   )
 }

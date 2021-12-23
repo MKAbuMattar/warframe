@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
-import CodeHighlight from '../../CodeHighlight/CodeHighlight'
 
-import TabItem from '../../TabItem/TabItem'
-import ResponseTabs from '../../ResponseTabs/ResponseTabs'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+
+import CodeHighlight from '../../CodeHighlight/CodeHighlight'
 
 import {
   ModResponseSample200,
@@ -16,6 +16,8 @@ import {
   ResponseCodeContainer,
   ResponseBox,
   SubTitle,
+  TabListResponseCounter,
+  TabResponseCounter,
 } from './Style'
 
 const Mod = ({ icon }) => {
@@ -33,8 +35,15 @@ const Mod = ({ icon }) => {
         <ResponseBox>
           <p>Response sample</p>
 
-          <ResponseTabs defaultIndex="1" key="1">
-            <TabItem label="200" labelColor="green" index="1" key="1">
+          <Tabs>
+            <TabListResponseCounter>
+              <TabResponseCounter className={'green'}>200</TabResponseCounter>
+              <TabResponseCounter className={'red'}>400</TabResponseCounter>
+              <TabResponseCounter className={'red'}>404</TabResponseCounter>
+              <TabResponseCounter className={'red'}>500</TabResponseCounter>
+            </TabListResponseCounter>
+
+            <TabPanel>
               <ResponseCodeContainer>
                 <CodeHighlight
                   key={'0'}
@@ -47,8 +56,8 @@ const Mod = ({ icon }) => {
                   language={'language-json'}
                 />
               </ResponseCodeContainer>
-            </TabItem>
-            <TabItem label="400" labelColor="red" index="2" key="2">
+            </TabPanel>
+            <TabPanel>
               <ResponseCodeContainer>
                 <CodeHighlight
                   key={'0'}
@@ -61,8 +70,8 @@ const Mod = ({ icon }) => {
                   language={'language-json'}
                 />
               </ResponseCodeContainer>
-            </TabItem>
-            <TabItem label="404" labelColor="red" index="3" key="3">
+            </TabPanel>
+            <TabPanel>
               <ResponseCodeContainer>
                 <CodeHighlight
                   key={'0'}
@@ -75,8 +84,8 @@ const Mod = ({ icon }) => {
                   language={'language-json'}
                 />
               </ResponseCodeContainer>
-            </TabItem>
-            <TabItem label="500" labelColor="red" index="4" key="4">
+            </TabPanel>
+            <TabPanel>
               <ResponseCodeContainer>
                 <CodeHighlight
                   key={'0'}
@@ -89,8 +98,8 @@ const Mod = ({ icon }) => {
                   language={'language-json'}
                 />
               </ResponseCodeContainer>
-            </TabItem>
-          </ResponseTabs>
+            </TabPanel>
+          </Tabs>
         </ResponseBox>
       </ResponseContainer>
     </Fragment>
