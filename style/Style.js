@@ -146,6 +146,168 @@ a {
   z-index: 999;
 }
 
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: .5em;
+  background: rgba(40, 42, 54, 0.6);
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+  max-height: 30rem;
+}
+.hljs-keyword,
+.hljs-link,
+.hljs-literal,
+.hljs-section,
+.hljs-selector-tag {
+  color: #8be9fd
+}
+.hljs-function .hljs-keyword {
+  color: #ff79c6
+}
+.hljs,
+.hljs-subst {
+  color: #f8f8f2
+}
+.hljs-addition,
+.hljs-attribute,
+.hljs-bullet,
+.hljs-name,
+.hljs-string,
+.hljs-symbol,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-title,
+.hljs-type,
+.hljs-variable {
+  color: #f1fa8c
+}
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta,
+.hljs-quote {
+  color: #6272a4
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-literal,
+.hljs-name,
+.hljs-section,
+.hljs-selector-tag,
+.hljs-strong,
+.hljs-title,
+.hljs-type {
+  font-weight: 700
+}
+.hljs-emphasis {
+  font-style: italic
+}
+
+.response-tab-menu{
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.response-tab-menu >  button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: rgb(32 33 40);
+  color: rgba(221,221,221,01);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+  outline: none;
+}
+.response-tab-menu > button.focus {
+  background: rgba(221,221,221,01);
+  outline: none;
+}
+.response-tab-menu > button:hover {
+  background: rgba(221,221,221,01);
+  outline: none;
+}
+
+.green{
+  color: rgb(29, 129, 39)  !important;
+}
+
+.red{
+  color: rgba(213,33,40,0.7)  !important;
+}
+
+.get-tab-menu{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.get-tab-menu > button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 16px;
+  border: 0;
+  border: 2px solid transparent;
+  background: rgba(0,0,0,0.4);
+  color: rgba(221,221,221,01);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+  width: 6rem;
+  height: 6rem;
+  flex-direction: column;
+}
+.get-tab-menu > button.focus {
+  border: 2px solid rgb(213,33,40,0.7); 
+  outline: none;
+}
+.get-tab-menu > button:hover {
+  border: 2px solid rgba(213,0,0,1);
+}
+
+.tab-view_item{
+  background: rgba(0,0,0,0.4);
+  color: rgba(221,221,221,01);
+  box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+  border-radius: 0.5rem;
+}
+
+.tab-menu{
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tab-menu > button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: rgba(0,0,0,0.4);
+  color: rgba(221,221,221,01);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+}
+.tab-menu > button.focus {
+  border-bottom: 2px solid rgb(213,33,40,0.7); 
+  outline: none;
+}
+.tab-menu > button:hover {
+  border-bottom: 2px solid rgba(213,0,0,1);
+}
+
+.tab-view_item{
+  background: rgba(0,0,0,0.4);
+  color: rgba(221,221,221,01);
+  box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+  border-radius: 0.5rem;
+}
+
 `
 
 export const SearchSection = styled.div`

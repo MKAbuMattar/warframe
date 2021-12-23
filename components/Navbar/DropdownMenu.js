@@ -168,6 +168,7 @@ const DropdownMenu = () => {
           <DropdownItem leftIcon={<GlyphIcon color="#ffffff" />} url="/glyph">
             Glyph
           </DropdownItem>
+          <DropdownItem url="/warframe-api">API</DropdownItem>
         </Menu>
       </CSSTransition>
 
