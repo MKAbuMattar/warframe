@@ -1,8 +1,5 @@
 import { Fragment } from 'react'
 
-import TabItem from '../../TabItem/TabItem'
-import GetTabs from '../../GetTabs/GetTabs'
-
 import Warframe from './Warframe'
 
 import PrimaryWeapon from './PrimaryWeapon'
@@ -57,170 +54,29 @@ import GlyphIcon from '../../../Icons/GlyphIcon'
 const index = () => {
   return (
     <Fragment>
-      <GetTabs defaultIndex="1" key="1">
-        <TabItem
-          label="Warframe"
-          icon={<WarframeIcon color="#ffffff" size={20} />}
-          index="1"
-          key="1"
-        >
-          <Warframe icon={<WarframeIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Primary Weapon"
-          icon={<PrimaryWeaponIcon color="#ffffff" size={20} />}
-          index="2"
-          key="2"
-        >
-          <PrimaryWeapon
-            icon={<PrimaryWeaponIcon color="#ffffff" size={50} />}
-          />
-        </TabItem>
-        <TabItem
-          label="Secondary Weapon"
-          icon={<SecondaryWeaponIcon color="#ffffff" size={20} />}
-          index="3"
-          key="3"
-        >
-          <SecondaryWeapon
-            icon={<SecondaryWeaponIcon color="#ffffff" size={50} />}
-          />
-        </TabItem>
-        <TabItem
-          label="Melee Weapon"
-          icon={<MeleeWeaponIcon color="#ffffff" size={20} />}
-          index="4"
-          key="4"
-        >
-          <MeleeWeapon icon={<MeleeWeaponIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Pet"
-          icon={<CompanionIcon color="#ffffff" size={20} />}
-          index="5"
-          key="5"
-        >
-          <Pet icon={<CompanionIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Sentinel"
-          icon={<SentinelIcon color="#ffffff" size={20} />}
-          index="6"
-          key="6"
-        >
-          <Sentinel icon={<SentinelIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Sentinel Weapon"
-          icon={<SentinelIcon color="#ffffff" size={20} />}
-          index="7"
-          key="7"
-        >
-          <SentinelWeapon icon={<SentinelIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Archwing"
-          icon={<ArchwingIcon color="#ffffff" size={20} />}
-          index="8"
-          key="8"
-        >
-          <Archwing icon={<ArchwingIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="ArchGun Weapon"
-          icon={<ArchGunWeaponIcon color="#ffffff" size={20} />}
-          index="9"
-          key="9"
-        >
-          <ArchGunWeapon
-            icon={<ArchGunWeaponIcon color="#ffffff" size={50} />}
-          />
-        </TabItem>
-        <TabItem
-          label="ArchMelee Weapon"
-          icon={<ArchMeleeWeaponIcon color="#ffffff" size={20} />}
-          index="10"
-          key="10"
-        >
-          <ArchMeleeWeapon
-            icon={<ArchMeleeWeaponIcon color="#ffffff" size={50} />}
-          />
-        </TabItem>
-        <TabItem
-          label="Necramech"
-          icon={<NecramechIcon color="#ffffff" size={20} />}
-          index="11"
-          key="11"
-        >
-          <Necramech icon={<NecramechIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Mod"
-          icon={<ModIcon color="#ffffff" size={20} />}
-          index="12"
-          key="12"
-        >
-          <Mod icon={<ModIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Arcane"
-          icon={<ArcaneIcon color="#ffffff" size={20} />}
-          index="13"
-          key="13"
-        >
-          <Arcane icon={<ArcaneIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Quest"
-          icon={<QuestIcon color="#ffffff" size={20} />}
-          index="14"
-          key="14"
-        >
-          <Quest icon={<QuestIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Enemy"
-          icon={<EnemyIcon color="#ffffff" size={20} />}
-          index="15"
-          key="15"
-        >
-          <Enemy icon={<EnemyIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Miscellaneous"
-          icon={<MiscellaneousIcon color="#ffffff" size={20} />}
-          index="16"
-          key="16"
-        >
-          <Miscellaneous
-            icon={<MiscellaneousIcon color="#ffffff" size={50} />}
-          />
-        </TabItem>
-        <TabItem
-          label="Resources"
-          icon={<ResourceIcon color="#ffffff" size={20} />}
-          index="17"
-          key="17"
-        >
-          <Resources icon={<ResourceIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Gear"
-          icon={<GearIcon color="#ffffff" size={20} />}
-          index="18"
-          key="18"
-        >
-          <Gear icon={<GearIcon color="#ffffff" size={50} />} />
-        </TabItem>
-        <TabItem
-          label="Glyph"
-          icon={<GlyphIcon color="#ffffff" size={20} />}
-          index="19"
-          key="19"
-        >
-          <Glyph icon={<GlyphIcon color="#ffffff" size={50} />} />
-        </TabItem>
-      </GetTabs>
+      <Warframe icon={<WarframeIcon color="#ffffff" size={50} />} />
+      <PrimaryWeapon icon={<PrimaryWeaponIcon color="#ffffff" size={50} />} />
+      <SecondaryWeapon
+        icon={<SecondaryWeaponIcon color="#ffffff" size={50} />}
+      />
+      <MeleeWeapon icon={<MeleeWeaponIcon color="#ffffff" size={50} />} />
+      <Pet icon={<CompanionIcon color="#ffffff" size={50} />} />
+      <Sentinel icon={<SentinelIcon color="#ffffff" size={50} />} />
+      <SentinelWeapon icon={<SentinelIcon color="#ffffff" size={50} />} />
+      <Archwing icon={<ArchwingIcon color="#ffffff" size={50} />} />
+      <ArchGunWeapon icon={<ArchGunWeaponIcon color="#ffffff" size={50} />} />
+      <ArchMeleeWeapon
+        icon={<ArchMeleeWeaponIcon color="#ffffff" size={50} />}
+      />
+      <Necramech icon={<NecramechIcon color="#ffffff" size={50} />} />
+      <Mod icon={<ModIcon color="#ffffff" size={50} />} />
+      <Quest icon={<QuestIcon color="#ffffff" size={50} />} />
+      <Arcane icon={<ArcaneIcon color="#ffffff" size={50} />} />
+      <Enemy icon={<EnemyIcon color="#ffffff" size={50} />} />
+      <Miscellaneous icon={<MiscellaneousIcon color="#ffffff" size={50} />} />
+      <Resources icon={<ResourceIcon color="#ffffff" size={50} />} />
+      <Gear icon={<GearIcon color="#ffffff" size={50} />} />
+      <Glyph icon={<GlyphIcon color="#ffffff" size={50} />} />
     </Fragment>
   )
 }
