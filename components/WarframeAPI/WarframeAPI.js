@@ -18,14 +18,7 @@ const WarframeAPI = () => {
       <Background />
       <PageCounter>Warframe API</PageCounter>
 
-      <Tabs defaultIndex="1" key="1">
-        <TabItem label="API V1" index="1" key="1">
-          <V1 />
-        </TabItem>
-        <TabItem label="API V2" index="2" key="2">
-          Dolor sit amet
-        </TabItem>
-      </Tabs>
+      <V1 />
     </Fragment>
   )
 }
