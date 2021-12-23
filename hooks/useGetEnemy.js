@@ -2,25 +2,10 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
+import Enemy from '../models/Enemy.model'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
-
-class Enemy {
-  constructor(data) {
-    this.armor = data.armor
-    this.category = data.category
-    this.description = data.description
-    this.drops = data.drops
-    this.health = data.health
-    this.imageName = data.imageName
-    this.name = data.name
-    this.regionBits = data.regionBits
-    this.resistances = data.resistances
-    this.shield = data.shield
-    this.type = data.type
-    this.uniqueName = data.uniqueName
-  }
-}
 
 const useGetEnemy = () => {
   const url = `${API_URL}Enemy${API_FORMAT}`
