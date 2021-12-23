@@ -214,7 +214,7 @@ const index = () => {
         </TabItem>
         <TabItem
           label="Glyph"
-          icon={<GearIcon color="#ffffff" size={20} />}
+          icon={<GlyphIcon color="#ffffff" size={20} />}
           index="19"
           key="19"
         >
