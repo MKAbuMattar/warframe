@@ -118,3 +118,8 @@ export const GlyphPage = {
   description:
     'Glyphs are pin-table style icons that can be placed on surfaces during missions to display a pre-selected image and also serve as player icons/avatars in the game.',
 }
+
+export const WarframeInfoAPI = {
+  title: `Warframe API | ${WebTitle}`,
+  description: 'Warframe Info. API provides access to all Warframe items.',
+}
