@@ -19,6 +19,7 @@ export const TabCounter = styled(Tab)`
   color: rgba(221, 221, 221, 01);
   border-radius: 0.5rem;
   box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
+  user-select: none;
 
   &&.react-tabs__tab--selected {
     border-bottom: 2px solid rgb(213, 33, 40, 0.7);

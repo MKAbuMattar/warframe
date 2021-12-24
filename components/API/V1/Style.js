@@ -63,6 +63,7 @@ export const TabCounter = styled(Tab)`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   padding: 8px 16px;
@@ -74,7 +75,7 @@ export const TabCounter = styled(Tab)`
   box-shadow: 0 4px 5px rgb(0 0 0 / 20%);
   width: 6rem;
   height: 6rem;
-  flex-direction: column;
+  user-select: none;
 
   &&.react-tabs__tab--selected {
     border: 2px solid rgb(213, 33, 40, 0.7);
