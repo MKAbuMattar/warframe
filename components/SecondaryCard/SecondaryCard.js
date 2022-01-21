@@ -79,7 +79,7 @@ const SecondaryCard = ({ result, idx }) => {
                 Mastery Rank: <span>{result.masteryReq}</span>
               </ModalInfoSubtite>
               <ModalInfoSubtite>
-                Weapon: <span>{result.tags[0]}</span>
+                {/* Weapon: <span>{result.tags[0]}</span> */}
               </ModalInfoSubtite>
               <ModalInfoSubtite>
                 Weapon type: <span>{result.type}</span>
@@ -87,7 +87,7 @@ const SecondaryCard = ({ result, idx }) => {
               <ModalInfoSubtite>
                 Weapon Description: <span>{result.description}</span>
               </ModalInfoSubtite>
-              {result.attacks.map((element, idx) => (
+              {/* {result.attacks.map((element, idx) => (
                 <Fragment>
                   <div key={idx}>
                     {result.attacks.length > 1 && (
@@ -154,7 +154,7 @@ const SecondaryCard = ({ result, idx }) => {
                     </ModalInfoSubtite>
                   </div>
                 </Fragment>
-              ))}
+              ))} */}
               <ModalInfoSubtite>
                 Release Date: <span>{result.releaseDate}</span>
               </ModalInfoSubtite>
@@ -176,14 +176,14 @@ const SecondaryCard = ({ result, idx }) => {
                 </Fragment>
               )}
 
-              <ModalInfoSubtite>
+              {/* <ModalInfoSubtite>
                 Introduced:{' '}
                 <Link href={result.introduced.url}>
                   <a target="__blank">
                     {result.introduced.name} / Date: {result.introduced.date}
                   </a>
                 </Link>
-              </ModalInfoSubtite>
+              </ModalInfoSubtite> */}
 
               <ModalInfoSubtite>
                 <Link href={result.wikiaUrl}>
