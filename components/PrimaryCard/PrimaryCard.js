@@ -86,11 +86,11 @@ const PrimaryCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {/* {result.tags[0] !== undefined && (
+              {result.tags[0] !== undefined && (
                 <ModalInfoSubtite>
                   Weapon: <span>{result.tags[0]}</span>
                 </ModalInfoSubtite>
-              )} */}
+              )}
 
               {result.type !== undefined && (
                 <ModalInfoSubtite>
@@ -104,7 +104,7 @@ const PrimaryCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {/* {result.attacks.map((element, idx) => (
+              {result.attacks.map((element, idx) => (
                 <Fragment>
                   <div key={idx}>
                     {result.attacks.length > 1 && (
@@ -208,7 +208,7 @@ const PrimaryCard = ({ result, idx }) => {
                     )}
                   </div>
                 </Fragment>
-              ))} */}
+              ))}
 
               {result.releaseDate !== undefined && (
                 <ModalInfoSubtite>
