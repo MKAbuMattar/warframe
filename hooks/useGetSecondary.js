@@ -28,14 +28,14 @@ const useGetSecondary = () => {
       cancelToken: new axios.CancelToken((c) => (cansle = c)),
     })
       .then((res) => {
-        console.log({ result: res.data })
+        // console.log({ result: res.data })
         res.data.forEach((result) => {
           if (result.type !== '') {
             formatData.push(new Secondary(result))
           }
         })
         let uniq = [...new Set(formatData)]
-        console.log({ uniq })
+        // console.log({ uniq })
         setGetSecondary(uniq)
         setLoading(false)
       })

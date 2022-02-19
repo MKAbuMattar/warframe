@@ -22,15 +22,15 @@ const WarframeAPI = () => {
       <Tabs className={'container'}>
         <TabListCounter>
           <TabCounter>API V1</TabCounter>
-          <TabCounter>API V2</TabCounter>
+          {/* <TabCounter>API V2</TabCounter> */}
         </TabListCounter>
 
         <TabPanel>
           <V1 />
         </TabPanel>
-        <TabPanel>
+        {/* <TabPanel>
           <p>work in progress</p>
-        </TabPanel>
+        </TabPanel> */}
       </Tabs>
     </Fragment>
   )

@@ -402,7 +402,7 @@ export const CardTite = styled.h3`
 
 export const CardBtn = styled.button`
   width: 8rem;
-  margin: 0px auto -0.7rem;
+  margin: 1rem auto;
   border: 1px solid rgb(213, 33, 40, 0.5);
   padding: 0.4rem;
   background: rgba(0, 0, 0, 0.4);
