@@ -1,17 +1,11 @@
 const fs = require('fs')
 const Logger = require('../util/Logger')
 
-const { NODE_ENV } = require('../config/env.config')
+const { NODE_ENV, HOST } = require('../config/env.config')
 
-Logger.debug(NODE_ENV)
+const crawlableRobotsTxt = `Sitemap: ${HOST}/api/sitemap.xml
 
-if (typeof window !== 'undefined') {
-  console.log(window.location.origin)
-}
-
-const crawlableRobotsTxt = `Sitemap: https://warframe-info.vercel.app/api/sitemap.xml
-
-# Block all crawlers for /accounts
+# Block all crawlers for /api
 User-agent: *
 Disallow: /api/*
 
@@ -19,7 +13,7 @@ Disallow: /api/*
 User-agent: *
 Allow: /`
 
-const uncrawlableRobotsTxt = `# Block all crawlers for /accounts
+const uncrawlableRobotsTxt = `# Block all crawlers for /api
 User-agent: *
 Disallow: /*`
 
