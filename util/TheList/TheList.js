@@ -1,5 +1,6 @@
 export const newWarframe = {
   warframe: 'Caliban',
+  archwing: '',
   primary: '',
   secondary: '',
   melee: 'Venato',
@@ -10,6 +11,7 @@ export const newWarframe = {
 
 export const newWarframePrime = {
   warframe: 'Harrow Prime',
+  archwing: '',
   primary: 'Scourge Prime',
   secondary: 'Knell Prime',
   melee: '',
@@ -24,8 +26,10 @@ export const newSecondary = [].sort()
 
 export const newMelee = ['nepheri', 'verdilac', 'korumm', 'rumblejack'].sort()
 
-export const newArchGun = [].sort()
-
 export const newSentinel = [].sort()
 
 export const newSentinelWeapon = [].sort()
+
+export const newArchwing = [].sort()
+
+export const newArchGun = [].sort()

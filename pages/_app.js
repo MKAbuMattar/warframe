@@ -14,6 +14,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <Fragment>
       <Head>
+        <meta name="robots" content="all" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
       </Head>
 
