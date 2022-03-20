@@ -1,10 +1,11 @@
-require('dotenv').config()
 const fs = require('fs')
 const Logger = require('../util/Logger')
 
-const crawlableRobotsTxt = `Sitemap: https://warframe-info.vercel.app/api/pages-sitemap
+const { NODE_ENV, HOST } = require('../config/env.config')
 
-# Block all crawlers for /accounts
+const crawlableRobotsTxt = `Sitemap: ${HOST}/api/sitemap.xml
+
+# Block all crawlers for /api
 User-agent: *
 Disallow: /api/*
 
@@ -12,28 +13,19 @@ Disallow: /api/*
 User-agent: *
 Allow: /`
 
-const uncrawlableRobotsTxt = `Sitemap: https://warframe-info.vercel.app/api/pages-sitemap
-
-# Block all crawlers for /accounts
+const uncrawlableRobotsTxt = `# Block all crawlers for /api
 User-agent: *
-Disallow: /api/*
-
-# Allow all crawlers
-User-agent: *
-Allow: /`
+Disallow: /*`
 
 function generateRobotsTxt() {
   // Create a non-crawlable robots.txt in non-production environments
-  const robotsTxt =
-    process.env.NODE_ENV === 'production' ? crawlableRobotsTxt : uncrawlableRobotsTxt
+  const robotsTxt = NODE_ENV === 'production' ? crawlableRobotsTxt : uncrawlableRobotsTxt
 
   // Create robots.txt file
   fs.writeFileSync('public/robots.txt', robotsTxt)
 
   Logger.info(
-    `Generated a ${
-      process.env.NODE_ENV === 'production' ? 'crawlable' : 'non-crawlable'
-    } public/robots.txt`,
+    `Generated a ${NODE_ENV === 'production' ? 'crawlable' : 'non-crawlable'} public/robots.txt`,
   )
 }
 

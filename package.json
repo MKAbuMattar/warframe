@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
     "highlight.js": "^11.5.0",
     "lodash": "^4.17.21",
     "next": "12.1.0",

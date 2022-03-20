@@ -1,4 +1,5 @@
 const winston = require('winston')
+const { NODE_ENV } = require('../../config/env.config')
 
 const levels = {
   error: 0,
@@ -9,7 +10,7 @@ const levels = {
 }
 
 const level = () => {
-  const env = process.env.NODE_ENV || 'development'
+  const env = NODE_ENV || 'development'
   const isDevelopment = env === 'development'
   return isDevelopment ? 'debug' : 'warn'
 }
