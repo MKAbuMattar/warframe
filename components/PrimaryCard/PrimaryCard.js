@@ -16,8 +16,6 @@ import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '.
 
 import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
 
-import { newWarframePrime } from '../../util/TheList/TheList'
-
 const PrimaryCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
@@ -95,7 +93,7 @@ const PrimaryCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {result.name !== newWarframePrime.primary && (
+              {result.attacks && (
                 <Fragment>
                   {result.attacks.map((element, idx) => (
                     <Fragment>

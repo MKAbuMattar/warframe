@@ -12,8 +12,6 @@ import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
 import DamageIcons from '../DamageIcons/DamageIcons'
 
-import { newWarframePrime } from '../../util/TheList/TheList'
-
 import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
 import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
 
@@ -91,7 +89,7 @@ const ArchGunCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {result.name !== newWarframePrime.archGun && (
+              {result.attacks && (
                 <Fragment>
                   {result.attacks.map((element, idx) => (
                     <Fragment>
