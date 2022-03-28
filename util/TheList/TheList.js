@@ -10,12 +10,12 @@ export const newWarframe = {
 }
 
 export const newWarframePrime = {
-  warframe: 'Harrow Prime',
+  warframe: 'Garuda Prime',
   archwing: '',
-  primary: 'Scourge Prime',
-  secondary: 'Knell Prime',
+  primary: 'Nagantaka Prime',
+  secondary: '',
   melee: '',
-  archGun: '',
+  archGun: 'Corvas Prime',
   sentinel: '',
   sentinelWeapon: '',
 }

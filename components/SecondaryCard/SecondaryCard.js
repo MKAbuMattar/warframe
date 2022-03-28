@@ -12,17 +12,8 @@ import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
 import DamageIcons from '../DamageIcons/DamageIcons'
 
-import {
-  ModalBtnContainer,
-  ModalBtn,
-  ModalInfoContainer,
-  ModalInfoImg,
-} from '../../style/Style'
-import {
-  ModalInfoTite,
-  ModalInfoSubtite,
-  ModalInfoAttackSubtite,
-} from '../../style/Style'
+import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
+import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
 
 const SecondaryCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
@@ -78,9 +69,13 @@ const SecondaryCard = ({ result, idx }) => {
               <ModalInfoSubtite>
                 Mastery Rank: <span>{result.masteryReq}</span>
               </ModalInfoSubtite>
-              <ModalInfoSubtite>
-                Weapon: <span>{result.tags[0]}</span>
-              </ModalInfoSubtite>
+
+              {result.tags && (
+                <ModalInfoSubtite>
+                  Weapon: <span>{result.tags[0]}</span>
+                </ModalInfoSubtite>
+              )}
+
               <ModalInfoSubtite>
                 Weapon type: <span>{result.type}</span>
               </ModalInfoSubtite>
@@ -113,9 +108,7 @@ const SecondaryCard = ({ result, idx }) => {
                       Magazine:{' '}
                       <span>
                         {result.magazineSize}
-                        {result.ammo > 0 && (
-                          <Fragment> / {result.ammo}</Fragment>
-                        )}
+                        {result.ammo > 0 && <Fragment> / {result.ammo}</Fragment>}
                       </span>
                     </ModalInfoSubtite>
                     <ModalInfoSubtite>
@@ -135,16 +128,13 @@ const SecondaryCard = ({ result, idx }) => {
                     </ModalInfoSubtite>
                     <ModalInfoSubtite>Damage</ModalInfoSubtite>
                     <ModalInfoSubtite>
-                      {Object.entries(element.damage).map(
-                        ([key, value], idx) => (
-                          <Fragment>
-                            <ModalInfoSubtite key={idx}>
-                              <DamageIcons damage={key} /> {Capitalize(key)}:{' '}
-                              <span>{value}</span>
-                            </ModalInfoSubtite>
-                          </Fragment>
-                        ),
-                      )}
+                      {Object.entries(element.damage).map(([key, value], idx) => (
+                        <Fragment>
+                          <ModalInfoSubtite key={idx}>
+                            <DamageIcons damage={key} /> {Capitalize(key)}: <span>{value}</span>
+                          </ModalInfoSubtite>
+                        </Fragment>
+                      ))}
                     </ModalInfoSubtite>
                     <ModalInfoSubtite>
                       Trigger: <span>{result.trigger}</span>
@@ -170,26 +160,29 @@ const SecondaryCard = ({ result, idx }) => {
               {result.vaultDate === 'n/a' && (
                 <Fragment>
                   <ModalInfoSubtite>
-                    Estimated Vault Date:{' '}
-                    <span>{result.estimatedVaultDate}</span>
+                    Estimated Vault Date: <span>{result.estimatedVaultDate}</span>
                   </ModalInfoSubtite>
                 </Fragment>
               )}
 
-              <ModalInfoSubtite>
-                Introduced:{' '}
-                <Link href={result.introduced.url}>
-                  <a target="__blank">
-                    {result.introduced.name} / Date: {result.introduced.date}
-                  </a>
-                </Link>
-              </ModalInfoSubtite>
+              {result.introduced && (
+                <ModalInfoSubtite>
+                  Introduced:{' '}
+                  <Link href={result.introduced.url}>
+                    <a target="__blank">
+                      {result.introduced.name} / Date: {result.introduced.date}
+                    </a>
+                  </Link>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                <Link href={result.wikiaUrl}>
-                  <a target="__blank">Wiki Link</a>
-                </Link>
-              </ModalInfoSubtite>
+              {result.wikiaUrl && (
+                <ModalInfoSubtite>
+                  <Link href={result.wikiaUrl}>
+                    <a target="__blank">Wiki Link</a>
+                  </Link>
+                </ModalInfoSubtite>
+              )}
             </ModalInfoContainer>
           </Fragment>
         </Modal>
