@@ -12,18 +12,11 @@ import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
 import DamageIcons from '../DamageIcons/DamageIcons'
 
-import {
-  ModalBtnContainer,
-  ModalBtn,
-  ModalInfoContainer,
-  ModalInfoImg,
-} from '../../style/Style'
+import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
 
-import {
-  ModalInfoTite,
-  ModalInfoSubtite,
-  ModalInfoAttackSubtite,
-} from '../../style/Style'
+import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
+
+import { newWarframePrime } from '../../util/TheList/TheList'
 
 const PrimaryCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
@@ -76,9 +69,7 @@ const PrimaryCard = ({ result, idx }) => {
                 title={result.name}
               />
 
-              {result.name !== undefined && (
-                <ModalInfoTite>{result.name}</ModalInfoTite>
-              )}
+              {result.name !== undefined && <ModalInfoTite>{result.name}</ModalInfoTite>}
 
               {result.masteryReq !== undefined && (
                 <ModalInfoSubtite>
@@ -86,7 +77,7 @@ const PrimaryCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {result.tags[0] !== undefined && (
+              {result.tags && (
                 <ModalInfoSubtite>
                   Weapon: <span>{result.tags[0]}</span>
                 </ModalInfoSubtite>
@@ -104,111 +95,110 @@ const PrimaryCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {result.attacks.map((element, idx) => (
+              {result.name !== newWarframePrime.primary && (
                 <Fragment>
-                  <div key={idx}>
-                    {result.attacks.length > 1 && (
-                      <ModalInfoAttackSubtite>
-                        Attack Name: <span>{element.name}</span>
-                      </ModalInfoAttackSubtite>
-                    )}
+                  {result.attacks.map((element, idx) => (
+                    <Fragment>
+                      <div key={idx}>
+                        {result.attacks.length > 1 && (
+                          <ModalInfoAttackSubtite>
+                            Attack Name: <span>{element.name}</span>
+                          </ModalInfoAttackSubtite>
+                        )}
 
-                    {result.accuracy !== undefined && (
-                      <ModalInfoSubtite>
-                        Accuracy: <span>{result.accuracy.toFixed(1)}</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {result.accuracy !== undefined && (
+                          <ModalInfoSubtite>
+                            Accuracy: <span>{result.accuracy.toFixed(1)}</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {element.crit_chance !== undefined && (
-                      <ModalInfoSubtite>
-                        Critical Chance <span>{element.crit_chance}%</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {element.crit_chance !== undefined && (
+                          <ModalInfoSubtite>
+                            Critical Chance <span>{element.crit_chance}%</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {element.crit_mult !== undefined && (
-                      <ModalInfoSubtite>
-                        Critical Multiplier <span>{element.crit_mult}x</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {element.crit_mult !== undefined && (
+                          <ModalInfoSubtite>
+                            Critical Multiplier <span>{element.crit_mult}x</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {element.speed !== undefined && (
-                      <ModalInfoSubtite>
-                        Fire Rate: <span>{element.speed}</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {element.speed !== undefined && (
+                          <ModalInfoSubtite>
+                            Fire Rate: <span>{element.speed}</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {result.magazineSize !== undefined && result.ammo > 0 && (
-                      <ModalInfoSubtite>
-                        Magazine:{' '}
-                        <span>
-                          {result.magazineSize !== undefined && (
-                            <Fragment>{result.magazineSize}</Fragment>
-                          )}
+                        {result.magazineSize !== undefined && result.ammo > 0 && (
+                          <ModalInfoSubtite>
+                            Magazine:{' '}
+                            <span>
+                              {result.magazineSize !== undefined && (
+                                <Fragment>{result.magazineSize}</Fragment>
+                              )}
 
-                          {result.ammo > 0 && (
-                            <Fragment> / {result.ammo}</Fragment>
-                          )}
-                        </span>
-                      </ModalInfoSubtite>
-                    )}
+                              {result.ammo > 0 && <Fragment> / {result.ammo}</Fragment>}
+                            </span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {result.multishot !== undefined && (
-                      <ModalInfoSubtite>
-                        Multishot: <span>{result.multishot}</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {result.multishot !== undefined && (
+                          <ModalInfoSubtite>
+                            Multishot: <span>{result.multishot}</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {result.noise !== undefined && (
-                      <ModalInfoSubtite>
-                        Noise: <span>{result.noise}</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {result.noise !== undefined && (
+                          <ModalInfoSubtite>
+                            Noise: <span>{result.noise}</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {result.reloadTime !== undefined && (
-                      <ModalInfoSubtite>
-                        Reload: <span>{result.reloadTime}</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {result.reloadTime !== undefined && (
+                          <ModalInfoSubtite>
+                            Reload: <span>{result.reloadTime}</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {result.disposition !== undefined && (
-                      <ModalInfoSubtite>
-                        Riven Disposition: <span>{result.disposition}</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {result.disposition !== undefined && (
+                          <ModalInfoSubtite>
+                            Riven Disposition: <span>{result.disposition}</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {element.status_chance !== undefined && (
-                      <ModalInfoSubtite>
-                        Status Chance: <span>{element.status_chance}%</span>
-                      </ModalInfoSubtite>
-                    )}
-                    <ModalInfoSubtite>Damage</ModalInfoSubtite>
-                    <ModalInfoSubtite>
-                      {Object.entries(element.damage).map(
-                        ([key, value], idx) => (
-                          <Fragment>
-                            <ModalInfoSubtite key={idx}>
-                              <DamageIcons damage={key} /> {Capitalize(key)}:{' '}
-                              <span>{value}</span>
-                            </ModalInfoSubtite>
-                          </Fragment>
-                        ),
-                      )}
-                    </ModalInfoSubtite>
+                        {element.status_chance !== undefined && (
+                          <ModalInfoSubtite>
+                            Status Chance: <span>{element.status_chance}%</span>
+                          </ModalInfoSubtite>
+                        )}
+                        <ModalInfoSubtite>Damage</ModalInfoSubtite>
+                        <ModalInfoSubtite>
+                          {Object.entries(element.damage).map(([key, value], idx) => (
+                            <Fragment>
+                              <ModalInfoSubtite key={idx}>
+                                <DamageIcons damage={key} /> {Capitalize(key)}: <span>{value}</span>
+                              </ModalInfoSubtite>
+                            </Fragment>
+                          ))}
+                        </ModalInfoSubtite>
 
-                    {result.trigger !== undefined && (
-                      <ModalInfoSubtite>
-                        Trigger: <span>{result.trigger}</span>
-                      </ModalInfoSubtite>
-                    )}
+                        {result.trigger !== undefined && (
+                          <ModalInfoSubtite>
+                            Trigger: <span>{result.trigger}</span>
+                          </ModalInfoSubtite>
+                        )}
 
-                    {result.totalDamage !== undefined && (
-                      <ModalInfoSubtite>
-                        Total Damage: <span>{result.totalDamage}</span>
-                      </ModalInfoSubtite>
-                    )}
-                  </div>
+                        {result.totalDamage !== undefined && (
+                          <ModalInfoSubtite>
+                            Total Damage: <span>{result.totalDamage}</span>
+                          </ModalInfoSubtite>
+                        )}
+                      </div>
+                    </Fragment>
+                  ))}
                 </Fragment>
-              ))}
+              )}
 
               {result.releaseDate !== undefined && (
                 <ModalInfoSubtite>
@@ -227,13 +217,12 @@ const PrimaryCard = ({ result, idx }) => {
               {result.vaultDate === 'n/a' && (
                 <Fragment>
                   <ModalInfoSubtite>
-                    Estimated Vault Date:{' '}
-                    <span>{result.estimatedVaultDate}</span>
+                    Estimated Vault Date: <span>{result.estimatedVaultDate}</span>
                   </ModalInfoSubtite>
                 </Fragment>
               )}
 
-              {result.introduced !== undefined && (
+              {result.introduced && (
                 <ModalInfoSubtite>
                   Introduced:{' '}
                   <Link href={result.introduced.url}>
@@ -244,7 +233,7 @@ const PrimaryCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {result.wikiaUrl !== undefined && (
+              {result.wikiaUrl && (
                 <ModalInfoSubtite>
                   <Link href={result.wikiaUrl}>
                     <a target="__blank">Wiki Link</a>

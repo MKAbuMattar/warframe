@@ -18,11 +18,7 @@ import {
   ModalInfoAbilitie,
 } from '../../style/Style'
 
-import {
-  ModalInfoSubtiteAbilitie,
-  ModalInfoTite,
-  ModalInfoSubtite,
-} from '../../style/Style'
+import { ModalInfoSubtiteAbilitie, ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
 
 const WarframeCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
@@ -81,20 +77,26 @@ const WarframeCard = ({ result, idx }) => {
                 Mastery Rank: <span>{result.masteryReq}</span>
               </ModalInfoSubtite>
 
-              <ModalInfoSubtite>
-                Gender: <span>{result.sex}</span>
-              </ModalInfoSubtite>
+              {result.sex && (
+                <ModalInfoSubtite>
+                  Gender: <span>{result.sex}</span>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                Aura: <span>{result.aura}</span>
-              </ModalInfoSubtite>
+              {result.aura && (
+                <ModalInfoSubtite>
+                  Aura: <span>{result.aura}</span>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                Health:{' '}
-                <span>
-                  {result.health} ({Number(result.health) * 3} at R30)
-                </span>
-              </ModalInfoSubtite>
+              {result.health && (
+                <ModalInfoSubtite>
+                  Health:{' '}
+                  <span>
+                    {result.health} ({Number(result.health) * 3} at R30)
+                  </span>
+                </ModalInfoSubtite>
+              )}
 
               <ModalInfoSubtite>
                 Shield:{' '}
@@ -103,37 +105,48 @@ const WarframeCard = ({ result, idx }) => {
                 </span>
               </ModalInfoSubtite>
 
-              <ModalInfoSubtite>
-                Armor: <span>{result.armor}</span>
-              </ModalInfoSubtite>
+              {result.armor && (
+                <ModalInfoSubtite>
+                  Armor: <span>{result.armor}</span>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                Energy:{' '}
-                <span>
-                  {result.power} ({Number(result.power) * Number(1.5)} at R30)
-                </span>
-              </ModalInfoSubtite>
+              {result.power && (
+                <ModalInfoSubtite>
+                  Energy:{' '}
+                  <span>
+                    {result.power} ({Number(result.power) * Number(1.5)} at R30)
+                  </span>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                Speed: <span>{result.sprint}</span>
-              </ModalInfoSubtite>
+              {result.sprint && (
+                <ModalInfoSubtite>
+                  Speed: <span>{result.sprint}</span>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                Polarities:{' '}
-                <span>
-                  {result.polarities.map((result, idx) => (
-                    <i key={idx}>{result} </i>
-                  ))}{' '}
-                </span>
-              </ModalInfoSubtite>
+              {result.polarities && (
+                <ModalInfoSubtite>
+                  Polarities:{' '}
+                  <span>
+                    {result.polarities &&
+                      result.polarities.map((result, idx) => <i key={idx}>{result} </i>)}{' '}
+                  </span>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                Description: <span>{result.description}</span>
-              </ModalInfoSubtite>
+              {result.description && (
+                <ModalInfoSubtite>
+                  Description: <span>{result.description}</span>
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                Passive: <span>{result.passiveDescription}</span>
-              </ModalInfoSubtite>
+              {result.passiveDescription && (
+                <ModalInfoSubtite>
+                  Passive: <span>{result.passiveDescription}</span>
+                </ModalInfoSubtite>
+              )}
 
               <ModalInfoSubtiteAbilitie>Abilities</ModalInfoSubtiteAbilitie>
               <ModalInfoAbilities>
@@ -152,9 +165,11 @@ const WarframeCard = ({ result, idx }) => {
                 ))}
               </ModalInfoAbilities>
 
-              <ModalInfoSubtite>
-                Release Date: <span>{result.releaseDate}</span>
-              </ModalInfoSubtite>
+              {result.releaseDate && (
+                <ModalInfoSubtite>
+                  Release Date: <span>{result.releaseDate}</span>
+                </ModalInfoSubtite>
+              )}
 
               {result.vaultDate !== 'n/a' && result.vaultDate !== undefined && (
                 <Fragment>
@@ -167,26 +182,33 @@ const WarframeCard = ({ result, idx }) => {
               {result.vaultDate === 'n/a' && (
                 <Fragment>
                   <ModalInfoSubtite>
-                    Estimated Vault Date:{' '}
-                    <span>{result.estimatedVaultDate}</span>
+                    Estimated Vault Date: <span>{result.estimatedVaultDate}</span>
                   </ModalInfoSubtite>
                 </Fragment>
               )}
 
-              <ModalInfoSubtite>
-                Introduced:{' '}
-                <Link href={result.introduced.url}>
-                  <a target="__blank">
-                    {result.introduced.name} / Date: {result.introduced.date}
-                  </a>
-                </Link>
-              </ModalInfoSubtite>
+              {result.introduced && (
+                <ModalInfoSubtite>
+                  {result.introduced.url === undefined && (
+                    <Fragment>
+                      Introduced:{' '}
+                      <Link href={result.introduced.url}>
+                        <a target="__blank">
+                          {result.introduced.name} / Date: {result.introduced.date}
+                        </a>
+                      </Link>
+                    </Fragment>
+                  )}
+                </ModalInfoSubtite>
+              )}
 
-              <ModalInfoSubtite>
-                <Link href={result.wikiaUrl}>
-                  <a target="__blank">Wiki Link</a>
-                </Link>
-              </ModalInfoSubtite>
+              {result.wikiaUrl && (
+                <ModalInfoSubtite>
+                  <Link href={result.wikiaUrl}>
+                    <a target="__blank">Wiki Link</a>
+                  </Link>
+                </ModalInfoSubtite>
+              )}
             </ModalInfoContainer>
           </Fragment>
         </Modal>
