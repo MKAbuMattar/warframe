@@ -30,7 +30,19 @@ const useGetMelee = () => {
       .then((res) => {
         res.data.forEach((result) => {
           if (result.type !== '') {
-            formatData.push(new Melee(result))
+            if (!result.name.toLowerCase().includes('Jai'.toLowerCase()))
+              if (!result.name.toLowerCase().includes('Ruhang'.toLowerCase()))
+                if (!result.name.toLowerCase().includes('KORB'.toLowerCase()))
+                  if (!result.name.toLowerCase().includes('PEYE'.toLowerCase()))
+                    if (!result.name.toLowerCase().includes('PLAGUE AKWIN'.toLowerCase()))
+                      if (!result.name.toLowerCase().includes('LAKA'.toLowerCase()))
+                        if (!result.name.toLowerCase().includes('KWATH'.toLowerCase()))
+                          if (!result.name.toLowerCase().includes('PLAGUE BOKWIN'.toLowerCase()))
+                            if (!result.name.toLowerCase().includes('SEEKALLA'.toLowerCase()))
+                              if (!result.name.toLowerCase().includes('SHTUNG'.toLowerCase()))
+                                if (!result.name.toLowerCase().includes('JAYAP'.toLowerCase()))
+                                  if (!result.name.toLowerCase().includes('KROOSTRA'.toLowerCase()))
+                                    formatData.push(new Melee(result))
           }
         })
 
