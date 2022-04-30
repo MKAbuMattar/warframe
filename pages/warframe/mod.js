@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
 import { ModPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
 
-import Mod from '../../components/Mod/Mod'
+import Mod from '../../view/Mod/Mod'
 
 const mod = () => {
   return (

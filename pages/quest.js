@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import MeatDecorator from '../util/MeatDecorator/MeatDecorator'
 import { QuestPage } from '../util/MeatDecoratorList/MeatDecoratorList'
 
-import Quest from '../components/Quest/Quest'
+import Quest from '../view/Quest/Quest'
 
 const quest = () => {
   return (

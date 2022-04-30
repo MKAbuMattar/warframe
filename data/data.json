@@ -1,0 +1,48 @@
+[
+  {
+    "title": "UPDATE 31.5: ANGELS OF THE ZARIMAN",
+    "data": ["Gyre", "Alternox", "Aeolak", "Phenmor", "Laetum", "Hespar", "Praedos"]
+  },
+  {
+    "title": "UPDATE 31.3: GARUDA PRIME",
+    "data": ["Garuda Prime", "Nagantaka Prime", "Corvas Prime"]
+  },
+  {
+    "title": "UPDATE 31: THE NEW WAR",
+    "data": ["Caliban", "Venato", "Nataruk", "Korumm", "Nepheri", "Verdilac", "Rumblejack"]
+  },
+  {
+    "title": "UPDATE 30.7: NIDUS PRIME & PLAGUE STAR",
+    "data": ["NIDUS PRIME", "STRUN PRIME", "MAGNUS PRIME", "GHOULSAW"]
+  },
+  {
+    "title": "Hotfix 30.6.1: RHINO & NYX PRIME VAULT",
+    "data": [
+      "RHINO PRIME",
+      "BOLTOR PRIME",
+      "ANKYROS PRIME",
+      "NYX PRIME",
+      "HIKOU PRIME",
+      "SCINDO PRIME"
+    ]
+  },
+  {
+    "title": "UPDATE 30.5: SISTERS OF PARVOS",
+    "data": [
+      "YARELI",
+      "AMBASSADOR",
+      "VASTILOK",
+      "TENET ENVOY",
+      "TENET DIPLOS",
+      "TENET SPIREX",
+      "TENET TETRA",
+      "TENET FLUX RIFLE",
+      "TENET ARCA PLASMOR",
+      "TENET CYCRON",
+      "TENET DETRON",
+      "KUVA HEK",
+      "KUVA GRATTLER",
+      "KUVA ZARR"
+    ]
+  }
+]

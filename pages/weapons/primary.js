@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
 import { PrimaryWeaponsPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
 
-import Primary from '../../components/Primary/Primary'
+import Primary from '../../view/Primary/Primary'
 
 const primary = () => {
   return (

@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
 import { ArchwingPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
 
-import Archwing from '../../components/Archwing/Archwing'
+import Archwing from '../../view/Archwing/Archwing'
 
 const archwing = () => {
   return (

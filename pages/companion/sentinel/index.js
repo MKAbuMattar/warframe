@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator'
 import { SentinelPage } from '../../../util/MeatDecoratorList/MeatDecoratorList'
 
-import Sentinel from '../../../components/Sentinel/Sentinel'
+import Sentinel from '../../../view/Sentinel/Sentinel'
 
 const sentinel = () => {
   return (

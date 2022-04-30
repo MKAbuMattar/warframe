@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
 import { CompanionPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
 
-import Pet from '../../components/Pet/Pet'
+import Pet from '../../view/Pet/Pet'
 
 const pet = () => {
   return (
