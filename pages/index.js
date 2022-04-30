@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import MeatDecorator from '../util/MeatDecorator/MeatDecorator'
 import { HomePage } from '../util/MeatDecoratorList/MeatDecoratorList'
 
-import Home from '../components/Home/Home'
+import Home from '../view/Home/Home'
 
 const index = () => {
   return (

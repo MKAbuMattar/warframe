@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 
-import WarframeAPI from '../../components/WarframeAPI/WarframeAPI'
+import WarframeAPI from '../../view/WarframeAPI/WarframeAPI'
 
 import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
 import { WarframeInfoAPI } from '../../util/MeatDecoratorList/MeatDecoratorList'

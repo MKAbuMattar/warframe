@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 
-import Fish from '../components/Fish/Fish'
+import Fish from '../view/Fish/Fish'
 
 const fish = () => {
   return (

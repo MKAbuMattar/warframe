@@ -52,3 +52,12 @@ yarn-error.log*
 
 # Robots txt
 **/public/robots.txt
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
