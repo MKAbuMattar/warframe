@@ -8,12 +8,7 @@ import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
 
 import DamageIcons from '../DamageIcons/DamageIcons'
 
-import {
-  ModalBtnContainer,
-  ModalBtn,
-  ModalInfoContainer,
-  ModalInfoImg,
-} from '../../style/Style'
+import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
 
 import {
   ModalInfoTite,
@@ -114,9 +109,7 @@ const EnemyCard = ({ result, idx }) => {
 
               {result.resistances !== undefined && (
                 <Fragment>
-                  <ModalInfoSubtiteAbilitie>
-                    Resistances
-                  </ModalInfoSubtiteAbilitie>
+                  <ModalInfoSubtiteAbilitie>Resistances</ModalInfoSubtiteAbilitie>
                   <ModalInfoAbilities>
                     {result.resistances.map((element, idx) => (
                       <ModalInfoAbilitie key={idx}>
@@ -124,8 +117,7 @@ const EnemyCard = ({ result, idx }) => {
                         {element.affectors.map((affector, idx) => (
                           <Fragment>
                             <ModalInfoSubtite key={idx}>
-                              <DamageIcons damage={affector.element} />{' '}
-                              {affector.element}
+                              <DamageIcons damage={affector.element} /> {affector.element}
                               {': '}
                               <span>{affector.modifier}</span>
                             </ModalInfoSubtite>
@@ -148,9 +140,7 @@ const EnemyCard = ({ result, idx }) => {
                           element.chance !== null &&
                           element.type !== undefined && (
                             <Fragment>
-                              <ModalInfoSubtite>
-                                {element.location}
-                              </ModalInfoSubtite>
+                              <ModalInfoSubtite>{element.location}</ModalInfoSubtite>
 
                               {element.rarity !== undefined && (
                                 <ModalInfoSubtite>
@@ -158,14 +148,11 @@ const EnemyCard = ({ result, idx }) => {
                                 </ModalInfoSubtite>
                               )}
 
-                              {element.chance !== undefined &&
-                                element.chance !== null && (
-                                  <ModalInfoSubtite>
-                                    <span>
-                                      Drop Chance: {element.chance.toFixed(2)}
-                                    </span>
-                                  </ModalInfoSubtite>
-                                )}
+                              {element.chance !== undefined && element.chance !== null && (
+                                <ModalInfoSubtite>
+                                  <span>Drop Chance: {element.chance.toFixed(2)}</span>
+                                </ModalInfoSubtite>
+                              )}
 
                               {element.type !== undefined && (
                                 <ModalInfoSubtite>
