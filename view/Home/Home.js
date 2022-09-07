@@ -62,7 +62,7 @@ const Home = () => {
         <Fragment>
           <section className="container">
             {data.map((result, idx) => (
-              <Fragment>
+              <Fragment key={idx}>
                 <Container key={idx}>
                   <SubTitle>{Capitalize(result.title)}</SubTitle>
                   <Cards>

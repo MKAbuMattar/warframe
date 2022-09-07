@@ -82,7 +82,7 @@ const SecondaryCard = ({ result, idx }) => {
               <ModalInfoSubtite>
                 Weapon Description: <span>{result.description}</span>
               </ModalInfoSubtite>
-              {result.attacks.map((element, idx) => (
+              {result?.attacks?.map((element, idx) => (
                 <Fragment>
                   <div key={idx}>
                     {result.attacks.length > 1 && (
