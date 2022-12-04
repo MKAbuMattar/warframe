@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Mod from '../models/Mod.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetMod = () => {
-  const url = `${API_URL}Mods${API_FORMAT}`
+  const url = getURI('Mods')
 
   const [getModLoading, setLoading] = useState(true)
   const [getModError, setError] = useState(false)

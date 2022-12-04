@@ -1,14 +1,13 @@
 import getPaginationParams from '../../../../../util/getPaginationParams/getPaginationParams'
 import SentinelWeapon from '../../../../../models/SentinelWeapon.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../../../util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
     const { limit, skip, page } = getPaginationParams(req.query)
 
-    const url = `${API_URL}SentinelWeapons${API_FORMAT}`
+    const url = getURI('SentinelWeapons')
 
     const data = await fetch(url)
 
@@ -17,11 +16,7 @@ export default async function asynchandler(req, res, next) {
     let formatData = []
 
     frames.forEach((result) => {
-      if (
-        result.productCategory
-          .toLowerCase()
-          .includes('SentinelWeapons'.toLowerCase())
-      )
+      if (result.productCategory.toLowerCase().includes('SentinelWeapons'.toLowerCase()))
         formatData.push(new SentinelWeapon(result))
     })
 

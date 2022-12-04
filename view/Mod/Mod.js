@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import ModCard from '../../components/ModCard/ModCard'
 
 import useGetMod from '../../hooks/useGetMod'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -40,9 +38,6 @@ const Mod = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getModLoading ? (
         <Fragment>
           <Loader />
@@ -51,11 +46,7 @@ const Mod = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 1 && (

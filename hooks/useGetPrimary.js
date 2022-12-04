@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Primary from '../models/Primary.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetPrimary = () => {
-  const url = `${API_URL}Primary${API_FORMAT}`
+  const url = getURI('Primary')
 
   const [getPrimaryLoading, setLoading] = useState(true)
   const [getPrimaryError, setError] = useState(false)
@@ -29,16 +28,8 @@ const useGetPrimary = () => {
     })
       .then((res) => {
         res.data.forEach((result) => {
-          if (
-            !result.productCategory
-              .toLowerCase()
-              .includes('SentinelWeapons'.toLowerCase())
-          ) {
-            if (
-              !result.productCategory
-                .toLowerCase()
-                .includes('SpaceGuns'.toLowerCase())
-            ) {
+          if (!result.productCategory.toLowerCase().includes('SentinelWeapons'.toLowerCase())) {
+            if (!result.productCategory.toLowerCase().includes('SpaceGuns'.toLowerCase())) {
               formatData.push(new Primary(result))
             }
           }

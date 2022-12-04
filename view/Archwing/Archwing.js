@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import ArchwingCard from '../../components/ArchwingCard/ArchwingCard'
 
 import useGetArchwing from '../../hooks/useGetArchwing'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -40,9 +38,6 @@ const Archwing = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getArchwingLoading ? (
         <Fragment>
           <Loader />
@@ -50,11 +45,7 @@ const Archwing = () => {
       ) : (
         <Fragment>
           <SearchSection id="search">
-            <SearchInput
-              type="text"
-              placeholder="Search"
-              onChange={filterList}
-            />
+            <SearchInput type="text" placeholder="Search" onChange={filterList} />
           </SearchSection>
 
           <section className="container">

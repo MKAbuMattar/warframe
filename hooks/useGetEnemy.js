@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Enemy from '../models/Enemy.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetEnemy = () => {
-  const url = `${API_URL}Enemy${API_FORMAT}`
+  const url = getURI('Enemy')
 
   const [getEnemyLoading, setLoading] = useState(true)
   const [getEnemyError, setError] = useState(false)

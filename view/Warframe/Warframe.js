@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import WarframeCard from '../../components/WarframeCard/WarframeCard'
 
 import useGetWarframe from '../../hooks/useGetWarframe'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -40,9 +38,6 @@ const Warframe = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getWarframeLoading ? (
         <Fragment>
           <Loader />
@@ -51,18 +46,13 @@ const Warframe = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 0 && (
               <Fragment>
                 <PageCounter>
-                  <WarframeIcon color="#dddddd" size="50" /> Warframe:{' '}
-                  {items.length}
+                  <WarframeIcon color="#dddddd" size="50" /> Warframe: {items.length}
                 </PageCounter>
               </Fragment>
             )}

@@ -14,7 +14,7 @@ import { LogoLink, RightSide } from './Style'
 const Navbar = () => {
   return (
     <Nav>
-      <Link href="/">
+      <Link legacyBehavior href="/">
         <LogoLink>
           <i style={{ display: 'flex' }}>
             <LogoIcon size="35" />

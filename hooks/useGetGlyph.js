@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Glyph from '../models/Glyph.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetGlyph = () => {
-  const url = `${API_URL}Glyphs${API_FORMAT}`
+  const url = getURI('Glyphs')
 
   const [getGlyphLoading, setLoading] = useState(true)
   const [getGlyphError, setError] = useState(false)

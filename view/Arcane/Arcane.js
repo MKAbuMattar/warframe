@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import ArcaneCard from '../../components/ArcaneCard/ArcaneCard'
 
 import useGetArcane from '../../hooks/useGetArcane'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -40,9 +38,6 @@ const Arcane = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getArcaneLoading ? (
         <Fragment>
           <Loader />
@@ -50,11 +45,7 @@ const Arcane = () => {
       ) : (
         <Fragment>
           <SearchSection id="search">
-            <SearchInput
-              type="text"
-              placeholder="Search"
-              onChange={filterList}
-            />
+            <SearchInput type="text" placeholder="Search" onChange={filterList} />
           </SearchSection>
 
           {items.length > 1 && (

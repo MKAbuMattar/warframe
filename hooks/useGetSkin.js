@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 class Skin {
   constructor(data) {
@@ -12,7 +11,7 @@ class Skin {
 }
 
 const useGetSkin = () => {
-  const url = `${API_URL}Skins${API_FORMAT}`
+  const url = getURI('Skins')
 
   const [getSkinLoading, setLoading] = useState(true)
   const [getSkinError, setError] = useState(false)
@@ -33,8 +32,7 @@ const useGetSkin = () => {
     })
       .then((res) => {
         res.data.forEach((result) => {
-          if (!result.name.toLowerCase().includes('/'.toLowerCase()))
-            formatData.push(result)
+          if (!result.name.toLowerCase().includes('/'.toLowerCase())) formatData.push(result)
         })
 
         setGetSkin(

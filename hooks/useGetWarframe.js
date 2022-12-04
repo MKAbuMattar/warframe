@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Warframe from '../models/Warframe.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetWarframe = () => {
-  const url = `${API_URL}Warframes${API_FORMAT}`
+  const url = getURI('Warframes')
 
   const [getWarframeLoading, setLoading] = useState(true)
   const [getWarframeError, setError] = useState(false)

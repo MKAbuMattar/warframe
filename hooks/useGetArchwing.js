@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Archwing from '../models/Archwing.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetArchwing = () => {
-  const url = `${API_URL}Archwing${API_FORMAT}`
+  const url = getURI('Archwing')
 
   const [getArchwingLoading, setLoading] = useState(true)
   const [getArchwingError, setError] = useState(false)

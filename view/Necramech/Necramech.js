@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import NecramechCard from '../../components/NecramechCard/NecramechCard'
 
 import useGetNecramech from '../../hooks/useGetNecramech'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -17,8 +15,7 @@ import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 import { Cards } from '../../style/Style'
 
 const Necramech = () => {
-  const { getNecramech, getNecramechLoading, getNecramechError } =
-    useGetNecramech()
+  const { getNecramech, getNecramechLoading, getNecramechError } = useGetNecramech()
 
   const [items, setItems] = useState([])
 
@@ -41,9 +38,6 @@ const Necramech = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getNecramechLoading ? (
         <Fragment>
           <Loader />
@@ -52,11 +46,7 @@ const Necramech = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 1 && (

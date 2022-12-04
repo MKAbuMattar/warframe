@@ -192,7 +192,7 @@ const WarframeCard = ({ result, idx }) => {
                   {result.introduced.url === undefined && (
                     <Fragment>
                       Introduced:{' '}
-                      <Link href={result.introduced.url}>
+                      <Link legacyBehavior href={result.introduced.url}>
                         <a target="__blank">
                           {result.introduced.name} / Date: {result.introduced.date}
                         </a>
@@ -204,7 +204,7 @@ const WarframeCard = ({ result, idx }) => {
 
               {result.wikiaUrl && (
                 <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl}>
+                  <Link legacyBehavior href={result.wikiaUrl}>
                     <a target="__blank">Wiki Link</a>
                   </Link>
                 </ModalInfoSubtite>

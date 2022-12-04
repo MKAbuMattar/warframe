@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Melee from '../models/Melee.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetMelee = () => {
-  const url = `${API_URL}Melee${API_FORMAT}`
+  const url = getURI('Melee')
 
   const [getMeleeLoading, setLoading] = useState(true)
   const [getMeleeError, setError] = useState(false)

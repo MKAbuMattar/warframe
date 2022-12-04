@@ -1,11 +1,10 @@
 import Primary from '../../../../models/Primary.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../../util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
-    const url = `${API_URL}Primary${API_FORMAT}`
+    const url = getURI('Primary')
 
     const data = await fetch(url)
 
@@ -14,16 +13,8 @@ export default async function asynchandler(req, res, next) {
     let formatData = []
 
     frames.forEach((result) => {
-      if (
-        !result.productCategory
-          .toLowerCase()
-          .includes('SentinelWeapons'.toLowerCase())
-      ) {
-        if (
-          !result.productCategory
-            .toLowerCase()
-            .includes('SpaceGuns'.toLowerCase())
-        ) {
+      if (!result.productCategory.toLowerCase().includes('SentinelWeapons'.toLowerCase())) {
+        if (!result.productCategory.toLowerCase().includes('SpaceGuns'.toLowerCase())) {
           formatData.push(new Primary(result))
         }
       }

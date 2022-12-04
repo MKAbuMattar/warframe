@@ -1,9 +1,12 @@
-const withPWA = require('next-pwa')
+const withPWA = require('next-pwa')({
+  dest: 'public',
+})
 const runtimeCaching = require('next-pwa/cache')
 const generateRobotsTxt = require('./scripts/generateRobotsTxt')
 
 module.exports = withPWA({
   reactStrictMode: true,
+  swcMinify: true,
   pwa: {
     dest: 'public',
     register: true,

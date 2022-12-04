@@ -11,7 +11,7 @@ const NavItem = (props) => {
     <NavbarItem>
       {props.url !== undefined ? (
         <Fragment>
-          <Link href={props.url}>
+          <Link legacyBehavior href={props.url}>
             <IconBtn onClick={() => setOpen(!open)}>{props.icon}</IconBtn>
           </Link>
         </Fragment>

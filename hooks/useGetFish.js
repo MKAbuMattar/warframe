@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 class Fish {
   constructor(data) {
@@ -17,7 +16,7 @@ class Fish {
 }
 
 const useGetFish = () => {
-  const url = `${API_URL}Fish${API_FORMAT}`
+  const url = getURI('Fish')
 
   const [getFishLoading, setLoading] = useState(true)
   const [getFishError, setError] = useState(false)

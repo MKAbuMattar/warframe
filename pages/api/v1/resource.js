@@ -1,11 +1,10 @@
 import Resource from '../../../models/Resource.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
-    const url = `${API_URL}Resources${API_FORMAT}`
+    const url = getURI('Resources')
 
     const data = await fetch(url)
 
@@ -17,11 +16,7 @@ export default async function asynchandler(req, res, next) {
       if (!result.name.toLowerCase().includes('[Ph]'.toLowerCase()))
         if (!result.name.toLowerCase().includes('[hc]'.toLowerCase()))
           if (!result.name.toLowerCase().includes('/'.toLowerCase()))
-            if (
-              !result.name
-                .toLowerCase()
-                .includes('Entratifragmentbase'.toLowerCase())
-            )
+            if (!result.name.toLowerCase().includes('Entratifragmentbase'.toLowerCase()))
               formatData.push(new Resource(result))
     })
 

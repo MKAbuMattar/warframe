@@ -2,14 +2,13 @@ import getPaginationParams from '../../../util/getPaginationParams/getPagination
 
 import Miscellaneous from '../../../models/Miscellaneous.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
     const { limit, skip, page } = getPaginationParams(req.query)
 
-    const url = `${API_URL}Misc${API_FORMAT}`
+    const url = getURI('Misc')
 
     const data = await fetch(url)
 
@@ -28,80 +27,44 @@ export default async function asynchandler(req, res, next) {
                   .includes('Evergreenloginrewardfusionbundle'.toLowerCase())
               )
                 if (result.name.toLowerCase() !== 'Kuva'.toLowerCase())
-                  if (
-                    !result.name
-                      .toLowerCase()
-                      .includes('Legendarymodfuser'.toLowerCase())
-                  )
-                    if (
-                      !result.name
-                        .toLowerCase()
-                        .includes('Libraryscannerupgrade'.toLowerCase())
-                    )
+                  if (!result.name.toLowerCase().includes('Legendarymodfuser'.toLowerCase()))
+                    if (!result.name.toLowerCase().includes('Libraryscannerupgrade'.toLowerCase()))
                       if (
-                        !result.name
-                          .toLowerCase()
-                          .includes('Loginrewardfusionbundle'.toLowerCase())
+                        !result.name.toLowerCase().includes('Loginrewardfusionbundle'.toLowerCase())
                       )
-                        if (
-                          !result.name
-                            .toLowerCase()
-                            .includes('Lotus'.toLowerCase())
-                        )
-                          if (
-                            !result.name
-                              .toLowerCase()
-                              .includes('Markettier'.toLowerCase())
-                          )
-                            if (
-                              !result.name
-                                .toLowerCase()
-                                .includes('Mpvsinglep'.toLowerCase())
-                            )
+                        if (!result.name.toLowerCase().includes('Lotus'.toLowerCase()))
+                          if (!result.name.toLowerCase().includes('Markettier'.toLowerCase()))
+                            if (!result.name.toLowerCase().includes('Mpvsinglep'.toLowerCase()))
                               if (
                                 !result.name
                                   .toLowerCase()
-                                  .includes(
-                                    'Mpvdualpackfusionbundle'.toLowerCase(),
-                                  )
+                                  .includes('Mpvdualpackfusionbundle'.toLowerCase())
                               )
                                 if (
-                                  !result.name
-                                    .toLowerCase()
-                                    .includes('Omega Forma'.toLowerCase())
+                                  !result.name.toLowerCase().includes('Omega Forma'.toLowerCase())
                                 )
                                   if (
-                                    !result.name
-                                      .toLowerCase()
-                                      .includes('Orofusexf'.toLowerCase())
+                                    !result.name.toLowerCase().includes('Orofusexf'.toLowerCase())
                                   )
                                     if (
                                       !result.name
                                         .toLowerCase()
-                                        .includes(
-                                          'Nightwatchfusionbundle'.toLowerCase(),
-                                        )
+                                        .includes('Nightwatchfusionbundle'.toLowerCase())
                                     )
                                       if (
                                         !result.name
                                           .toLowerCase()
-                                          .includes(
-                                            'Orokincatalystblueprint'.toLowerCase(),
-                                          )
+                                          .includes('Orokincatalystblueprint'.toLowerCase())
                                       )
                                         if (
                                           !result.name
                                             .toLowerCase()
-                                            .includes(
-                                              'Orokinreactorblueprint'.toLowerCase(),
-                                            )
+                                            .includes('Orokinreactorblueprint'.toLowerCase())
                                         )
                                           if (
                                             !result.name
                                               .toLowerCase()
-                                              .includes(
-                                                'Photoboothtile'.toLowerCase(),
-                                              )
+                                              .includes('Photoboothtile'.toLowerCase())
                                           )
                                             if (
                                               !result.name
@@ -113,16 +76,12 @@ export default async function asynchandler(req, res, next) {
                                               if (
                                                 !result.name
                                                   .toLowerCase()
-                                                  .includes(
-                                                    'Purgatory'.toLowerCase(),
-                                                  )
+                                                  .includes('Purgatory'.toLowerCase())
                                               )
                                                 if (
                                                   !result.name
                                                     .toLowerCase()
-                                                    .includes(
-                                                      'Rarefusionbundle'.toLowerCase(),
-                                                    )
+                                                    .includes('Rarefusionbundle'.toLowerCase())
                                                 )
                                                   if (
                                                     !result.name
@@ -134,16 +93,12 @@ export default async function asynchandler(req, res, next) {
                                                     if (
                                                       !result.name
                                                         .toLowerCase()
-                                                        .includes(
-                                                          'Dogtag'.toLowerCase(),
-                                                        )
+                                                        .includes('Dogtag'.toLowerCase())
                                                     )
                                                       if (
                                                         !result.name
                                                           .toLowerCase()
-                                                          .includes(
-                                                            'Axi Relic'.toLowerCase(),
-                                                          )
+                                                          .includes('Axi Relic'.toLowerCase())
                                                       )
                                                         if (
                                                           !result.name
@@ -160,9 +115,7 @@ export default async function asynchandler(req, res, next) {
                                                               )
                                                           )
                                                             formatData.push(
-                                                              new Miscellaneous(
-                                                                result,
-                                                              ),
+                                                              new Miscellaneous(result),
                                                             )
     })
 

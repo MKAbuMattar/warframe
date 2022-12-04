@@ -7,12 +7,7 @@ import Modal from 'react-modal'
 import XIcon from '../../Icons/XIcon'
 
 import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-import {
-  ModalBtnContainer,
-  ModalBtn,
-  ModalInfoContainer,
-  ModalInfoImg,
-} from '../../style/Style'
+import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
 import { ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
 
 const QuestCard = ({ result, idx }) => {
@@ -83,7 +78,7 @@ const QuestCard = ({ result, idx }) => {
               {result.introduced !== undefined && (
                 <ModalInfoSubtite>
                   Introduced:{' '}
-                  <Link href={result.introduced.url}>
+                  <Link legacyBehavior href={result.introduced.url}>
                     <a target="__blank">
                       {result.introduced.name} / Date: {result.introduced.date}
                     </a>
@@ -93,7 +88,7 @@ const QuestCard = ({ result, idx }) => {
 
               {result.wikiaUrl !== undefined && (
                 <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl}>
+                  <Link legacyBehavior href={result.wikiaUrl}>
                     <a target="__blank">Wiki Link</a>
                   </Link>
                 </ModalInfoSubtite>

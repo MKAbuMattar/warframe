@@ -1,10 +1,7 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
-
 import useGetSentinel from '../../hooks/useGetSentinel'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -40,9 +37,6 @@ const Sentinel = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getSentinelLoading ? (
         <Fragment>
           <Loader />
@@ -51,18 +45,13 @@ const Sentinel = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinels:{' '}
-                  {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinels: {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -70,8 +59,7 @@ const Sentinel = () => {
             {items.length == 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel:{' '}
-                  {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel: {items.length}
                 </PageCounter>
               </Fragment>
             )}

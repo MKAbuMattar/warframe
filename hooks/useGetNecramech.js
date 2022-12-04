@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Necramech from '../models/Necramech.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetNecramech = () => {
-  const url = `${API_URL}Warframes${API_FORMAT}`
+  const url = getURI('Warframes')
 
   const [getNecramechLoading, setLoading] = useState(true)
   const [getNecramechError, setError] = useState(false)

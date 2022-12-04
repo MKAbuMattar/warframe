@@ -1,11 +1,10 @@
 import Arcane from '../../../../models/Arcane.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../..//util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
-    const url = `${API_URL}Arcanes${API_FORMAT}`
+    const url = getURI('Arcanes')
 
     const data = await fetch(url)
 

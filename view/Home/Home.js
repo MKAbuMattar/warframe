@@ -1,7 +1,5 @@
 import { Fragment } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
-
 import WarframeCard from '../../components/WarframeCard/WarframeCard'
 import ArchwingCard from '../../components/ArchwingCard/ArchwingCard'
 import PrimaryCard from '../../components/PrimaryCard/PrimaryCard'
@@ -20,7 +18,6 @@ import useGetArchGun from '../../hooks/useGetArchGun'
 import useGetSentinel from '../../hooks/useGetSentinel'
 import useGetSentinelWeapon from '../../hooks/useGetSentinelWeapon'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import data from '../../data/data.json'
@@ -44,9 +41,6 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getWarframeLoading &
       getArchwingLoading &
       getPrimaryLoading &

@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Arcane from '../models/Arcane.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetArcane = () => {
-  const url = `${API_URL}Arcanes${API_FORMAT}`
+  const url = getURI('Arcanes')
 
   const [getArcaneLoading, setLoading] = useState(true)
   const [getArcaneError, setError] = useState(false)

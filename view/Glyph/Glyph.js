@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import GlyphCard from '../../components/GlyphCard/GlyphCard'
 
 import useGetGlyph from '../../hooks/useGetGlyph'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -40,9 +38,6 @@ const Glyph = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getGlyphLoading ? (
         <Fragment>
           <Loader />
@@ -51,11 +46,7 @@ const Glyph = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 1 && (

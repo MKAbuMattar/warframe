@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Secondary from '../models/Secondary.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetSecondary = () => {
-  const url = `${API_URL}Secondary${API_FORMAT}`
+  const url = getURI('Secondary')
 
   const [getSecondaryLoading, setLoading] = useState(true)
   const [getSecondaryError, setError] = useState(false)

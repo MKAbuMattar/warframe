@@ -375,6 +375,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 14rem;
   min-height: 300px;
   position: relative;
@@ -388,8 +389,8 @@ export const Card = styled.div`
 `
 
 export const CardImg = styled(Image)`
-  width: 20rem;
-  height: 15rem;
+  width: 12rem;
+  height: 12rem;
   background-size: cover;
   background-position: center center;
 `

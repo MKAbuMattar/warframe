@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Gear from '../models/Gear.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetGear = () => {
-  const url = `${API_URL}Gear${API_FORMAT}`
+  const url = getURI('Gear')
 
   const [getGearLoading, setLoading] = useState(true)
   const [getGearError, setError] = useState(false)
@@ -31,9 +30,7 @@ const useGetGear = () => {
         res.data.forEach((result) => {
           if (!result.name.toLowerCase().includes('[Hc]'.toLowerCase()))
             if (!result.name.toLowerCase().includes('[Ph]'.toLowerCase()))
-              if (
-                !result.name.toLowerCase().includes('Xattractor'.toLowerCase())
-              )
+              if (!result.name.toLowerCase().includes('Xattractor'.toLowerCase()))
                 if (!result.name.toLowerCase().includes('/'.toLowerCase()))
                   formatData.push(new Gear(result))
         })

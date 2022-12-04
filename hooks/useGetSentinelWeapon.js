@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import SentinelWeapon from '../models/SentinelWeapon.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetSentinelWeapon = () => {
-  const url = `${API_URL}SentinelWeapons${API_FORMAT}`
+  const url = getURI('SentinelWeapons')
 
   const [getSentinelWeaponLoading, setLoading] = useState(true)
   const [getSentinelWeaponError, setError] = useState(false)
@@ -29,11 +28,7 @@ const useGetSentinelWeapon = () => {
     })
       .then((res) => {
         res.data.forEach((result) => {
-          if (
-            result.productCategory
-              .toLowerCase()
-              .includes('SentinelWeapons'.toLowerCase())
-          )
+          if (result.productCategory.toLowerCase().includes('SentinelWeapons'.toLowerCase()))
             formatData.push(new SentinelWeapon(result))
         })
 

@@ -168,7 +168,7 @@ const SecondaryCard = ({ result, idx }) => {
               {result.introduced && (
                 <ModalInfoSubtite>
                   Introduced:{' '}
-                  <Link href={result.introduced.url}>
+                  <Link legacyBehavior href={result.introduced.url}>
                     <a target="__blank">
                       {result.introduced.name} / Date: {result.introduced.date}
                     </a>
@@ -178,7 +178,7 @@ const SecondaryCard = ({ result, idx }) => {
 
               {result.wikiaUrl && (
                 <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl}>
+                  <Link legacyBehavior href={result.wikiaUrl}>
                     <a target="__blank">Wiki Link</a>
                   </Link>
                 </ModalInfoSubtite>

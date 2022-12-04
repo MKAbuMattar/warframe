@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import PrimaryCard from '../../components/PrimaryCard/PrimaryCard'
 
 import useGetPrimary from '../../hooks/useGetPrimary'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -40,9 +38,6 @@ const Primary = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getPrimaryLoading ? (
         <Fragment>
           <Loader />
@@ -51,11 +46,7 @@ const Primary = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 1 && (

@@ -1,9 +1,5 @@
 import { Fragment } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
-
-import Background from '../../util/Background/Background'
-
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 
 import V1 from '../../components/API/V1'
@@ -15,8 +11,6 @@ import { TabListCounter, TabCounter } from './Style'
 const WarframeAPI = () => {
   return (
     <Fragment>
-      <Navbar />
-      <Background />
       <PageCounter>Warframe API</PageCounter>
 
       <Tabs className={'container'}>

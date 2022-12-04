@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import SecondaryCard from '../../components/SecondaryCard/SecondaryCard'
 
 import useGetSecondary from '../../hooks/useGetSecondary'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -17,8 +15,7 @@ import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 import { Cards } from '../../style/Style'
 
 const Secondary = () => {
-  const { getSecondary, getSecondaryLoading, getSecondaryError } =
-    useGetSecondary()
+  const { getSecondary, getSecondaryLoading, getSecondaryError } = useGetSecondary()
 
   const [items, setItems] = useState([])
 
@@ -41,9 +38,6 @@ const Secondary = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getSecondaryLoading ? (
         <Fragment>
           <Loader />
@@ -52,18 +46,14 @@ const Secondary = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 1 && (
               <Fragment>
                 <PageCounter>
-                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary
-                  Weapons: {items.length}
+                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary Weapons:{' '}
+                  {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -71,8 +61,7 @@ const Secondary = () => {
             {items.length == 1 && (
               <Fragment>
                 <PageCounter>
-                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary
-                  Weapon: {items.length}
+                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary Weapon: {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -80,8 +69,7 @@ const Secondary = () => {
             {items.length == 0 && (
               <Fragment>
                 <PageCounter>
-                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary
-                  Weapon: None
+                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary Weapon: None
                 </PageCounter>
               </Fragment>
             )}

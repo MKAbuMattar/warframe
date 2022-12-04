@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import SentinelWeaponCard from '../../components/SentinelWeaponCard/SentinelWeaponCard'
 
 import useGetSentinelWeapon from '../../hooks/useGetSentinelWeapon'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -17,11 +15,8 @@ import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 import { Cards } from '../../style/Style'
 
 const SentinelWeapon = () => {
-  const {
-    getSentinelWeapon,
-    getSentinelWeaponLoading,
-    getSentinelWeaponError,
-  } = useGetSentinelWeapon()
+  const { getSentinelWeapon, getSentinelWeaponLoading, getSentinelWeaponError } =
+    useGetSentinelWeapon()
 
   const [items, setItems] = useState([])
 
@@ -44,9 +39,6 @@ const SentinelWeapon = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getSentinelWeaponLoading ? (
         <Fragment>
           <Loader />
@@ -55,18 +47,13 @@ const SentinelWeapon = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput
-                type="text"
-                placeholder="Search"
-                onChange={filterList}
-              />
+              <SearchInput type="text" placeholder="Search" onChange={filterList} />
             </SearchSection>
 
             {items.length > 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapons:{' '}
-                  {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapons: {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -74,8 +61,7 @@ const SentinelWeapon = () => {
             {items.length == 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon:{' '}
-                  {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon: {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -83,8 +69,7 @@ const SentinelWeapon = () => {
             {items.length == 0 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon:
-                  None
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon: None
                 </PageCounter>
               </Fragment>
             )}

@@ -1,11 +1,9 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
 import MiscellaneousCard from '../../components/MiscellaneousCard/MiscellaneousCard'
 
 import useGetMiscellaneous from '../../hooks/useGetMiscellaneous'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -17,8 +15,7 @@ import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
 import { Cards } from '../../style/Style'
 
 const Miscellaneous = () => {
-  const { getMiscellaneous, getMiscellaneousLoading, getMiscellaneousError } =
-    useGetMiscellaneous()
+  const { getMiscellaneous, getMiscellaneousLoading, getMiscellaneousError } = useGetMiscellaneous()
 
   const [items, setItems] = useState([])
 
@@ -41,9 +38,6 @@ const Miscellaneous = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       {getMiscellaneousLoading ? (
         <Fragment>
           <Loader />
@@ -51,11 +45,7 @@ const Miscellaneous = () => {
       ) : (
         <Fragment>
           <SearchSection id="search">
-            <SearchInput
-              type="text"
-              placeholder="Search"
-              onChange={filterList}
-            />
+            <SearchInput type="text" placeholder="Search" onChange={filterList} />
           </SearchSection>
 
           {items.length > 1 && (

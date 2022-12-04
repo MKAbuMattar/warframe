@@ -184,20 +184,22 @@ const ArchMeleeCard = ({ result, idx }) => {
                 </Fragment>
               )}
 
-              {result.introduced !== undefined && result.introduced.name && result.introduced.date && (
-                <ModalInfoSubtite>
-                  Introduced:{' '}
-                  <Link href={result.introduced.url}>
-                    <a target="__blank">
-                      {result.introduced.name} / Date: {result.introduced.date}
-                    </a>
-                  </Link>
-                </ModalInfoSubtite>
-              )}
+              {result.introduced !== undefined &&
+                result.introduced.name &&
+                result.introduced.date && (
+                  <ModalInfoSubtite>
+                    Introduced:{' '}
+                    <Link legacyBehavior href={result.introduced.url}>
+                      <a target="__blank">
+                        {result.introduced.name} / Date: {result.introduced.date}
+                      </a>
+                    </Link>
+                  </ModalInfoSubtite>
+                )}
 
               {result.wikiaUrl !== undefined && (
                 <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl}>
+                  <Link legacyBehavior href={result.wikiaUrl}>
                     <a target="__blank">Wiki Link</a>
                   </Link>
                 </ModalInfoSubtite>

@@ -1,11 +1,10 @@
 import Gear from '../../../models/Gear.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
-    const url = `${API_URL}Gear${API_FORMAT}`
+    const url = getURI('Gear')
 
     const data = await fetch(url)
 

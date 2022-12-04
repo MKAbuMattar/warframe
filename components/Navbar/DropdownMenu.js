@@ -61,10 +61,8 @@ const DropdownMenu = () => {
       <Fragment>
         {props.url !== undefined ? (
           <Fragment>
-            <Link href={props.url}>
-              <MenuItem
-                onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
-              >
+            <Link legacyBehavior href={props.url}>
+              <MenuItem onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <IconLeft>{props.leftIcon}</IconLeft>
                 {props.children}
                 <IconRight>{props.rightIcon}</IconRight>
@@ -73,9 +71,7 @@ const DropdownMenu = () => {
           </Fragment>
         ) : (
           <Fragment>
-            <MenuItem
-              onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
-            >
+            <MenuItem onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
               <IconLeft>{props.leftIcon}</IconLeft>
               {props.children}
               <IconRight>{props.rightIcon}</IconRight>
@@ -99,10 +95,7 @@ const DropdownMenu = () => {
           <DropdownItem leftIcon={<HomeIcon color="#ffffff" />} url="/">
             Home
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<WarframeIcon color="#ffffff" />}
-            url="/warframe"
-          >
+          <DropdownItem leftIcon={<WarframeIcon color="#ffffff" />} url="/warframe">
             Warframe
           </DropdownItem>
           <DropdownItem
@@ -126,22 +119,13 @@ const DropdownMenu = () => {
           >
             Archwing
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<NecramechIcon color="#ffffff" />}
-            url="/warframe/necramech"
-          >
+          <DropdownItem leftIcon={<NecramechIcon color="#ffffff" />} url="/warframe/necramech">
             Necramech
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<ModIcon color="#ffffff" />}
-            url="/warframe/mod"
-          >
+          <DropdownItem leftIcon={<ModIcon color="#ffffff" />} url="/warframe/mod">
             Mod
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<ArcaneIcon color="#ffffff" />}
-            url="/warframe/arcane"
-          >
+          <DropdownItem leftIcon={<ArcaneIcon color="#ffffff" />} url="/warframe/arcane">
             Arcane
           </DropdownItem>
           <DropdownItem leftIcon={<QuestIcon color="#ffffff" />} url="/quest">
@@ -150,16 +134,10 @@ const DropdownMenu = () => {
           <DropdownItem leftIcon={<EnemyIcon color="#ffffff" />} url="/enemy">
             Enemy
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<MiscellaneousIcon color="#ffffff" />}
-            url="/miscellaneous"
-          >
+          <DropdownItem leftIcon={<MiscellaneousIcon color="#ffffff" />} url="/miscellaneous">
             Miscellaneous
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<ResourceIcon color="#ffffff" />}
-            url="/resource"
-          >
+          <DropdownItem leftIcon={<ResourceIcon color="#ffffff" />} url="/resource">
             Resource
           </DropdownItem>
           <DropdownItem leftIcon={<GearIcon color="#ffffff" />} url="/gear">
@@ -187,22 +165,13 @@ const DropdownMenu = () => {
           >
             <h2>Weapons</h2>
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<PrimaryWeaponIcon color="#ffffff" />}
-            url="/weapons/primary"
-          >
+          <DropdownItem leftIcon={<PrimaryWeaponIcon color="#ffffff" />} url="/weapons/primary">
             Primary Weapons
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<SecondaryWeaponIcon color="#ffffff" />}
-            url="/weapons/secondary"
-          >
+          <DropdownItem leftIcon={<SecondaryWeaponIcon color="#ffffff" />} url="/weapons/secondary">
             Secondary Weapons
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<MeleeWeaponIcon color="#ffffff" />}
-            url="/weapons/melee"
-          >
+          <DropdownItem leftIcon={<MeleeWeaponIcon color="#ffffff" />} url="/weapons/melee">
             Melee Weapons
           </DropdownItem>
         </Menu>
@@ -223,10 +192,7 @@ const DropdownMenu = () => {
           >
             <h2>Archwing</h2>
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<ArchwingIcon color="#ffffff" />}
-            url="/archwing/"
-          >
+          <DropdownItem leftIcon={<ArchwingIcon color="#ffffff" />} url="/archwing/">
             Archwing
           </DropdownItem>
           <DropdownItem
@@ -284,16 +250,10 @@ const DropdownMenu = () => {
           >
             <h2>Companions</h2>
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<CompanionIcon color="#ffffff" />}
-            url="/companion/pet"
-          >
+          <DropdownItem leftIcon={<CompanionIcon color="#ffffff" />} url="/companion/pet">
             Pet
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<SentinelIcon color="#ffffff" />}
-            url="/companion/sentinel"
-          >
+          <DropdownItem leftIcon={<SentinelIcon color="#ffffff" />} url="/companion/sentinel">
             Sentinel
           </DropdownItem>
           <DropdownItem

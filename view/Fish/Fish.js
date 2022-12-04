@@ -1,10 +1,7 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 
-import Navbar from '../../components/Navbar/Navbar'
-
 import useGetFish from '../../hooks/useGetFish'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -39,9 +36,6 @@ const Fish = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       <SearchSection id="search">
         <SearchInput type="text" placeholder="Search" onChange={filterList} />
       </SearchSection>

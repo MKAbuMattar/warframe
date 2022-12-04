@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Pet from '../models/Pet.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetPet = () => {
-  const url = `${API_URL}Pets${API_FORMAT}`
+  const url = getURI('Pets')
 
   const [getPetLoading, setLoading] = useState(true)
   const [getPetError, setError] = useState(false)
@@ -33,14 +32,8 @@ const useGetPet = () => {
             if (!result.type.toLowerCase().includes('Warframe'.toLowerCase()))
               if (!result.name.toLowerCase().includes('Gyro'.toLowerCase()))
                 if (!result.name.toLowerCase().includes('Core'.toLowerCase()))
-                  if (
-                    !result.name.toLowerCase().includes('Bracket'.toLowerCase())
-                  )
-                    if (
-                      !result.name
-                        .toLowerCase()
-                        .includes('Stabilizer'.toLowerCase())
-                    )
+                  if (!result.name.toLowerCase().includes('Bracket'.toLowerCase()))
+                    if (!result.name.toLowerCase().includes('Stabilizer'.toLowerCase()))
                       formatData.push(new Pet(result))
         })
 

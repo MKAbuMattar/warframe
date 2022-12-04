@@ -1,14 +1,13 @@
 import getPaginationParams from '../../../../../util/getPaginationParams/getPaginationParams'
 import Sentinel from '../../../../../models/Sentinel.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../../../util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
     const { limit, skip, page } = getPaginationParams(req.query)
 
-    const url = `${API_URL}Sentinels${API_FORMAT}`
+    const url = getURI('Sentinels')
 
     const data = await fetch(url)
 

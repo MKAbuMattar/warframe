@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import ArchGun from '../models/ArchGun.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetArchGun = () => {
-  const url = `${API_URL}Arch-Gun${API_FORMAT}`
+  const url = getURI('Arch-Gun')
 
   const [getArchGunLoading, setLoading] = useState(true)
   const [getArchGunError, setError] = useState(false)

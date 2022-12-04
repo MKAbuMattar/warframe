@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import Sentinel from '../models/Sentinel.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetSentinel = () => {
-  const url = `${API_URL}Sentinels${API_FORMAT}`
+  const url = getURI('Sentinels')
 
   const [getSentinelLoading, setLoading] = useState(true)
   const [getSentinelError, setError] = useState(false)

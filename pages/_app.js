@@ -2,6 +2,9 @@ import { Fragment } from 'react'
 
 import Head from 'next/head'
 
+import Navbar from '../components/Navbar/Navbar'
+import Background from '../util/Background/Background'
+
 import { DefaultSeo } from 'next-seo'
 import SEO from './../next-seo.config'
 
@@ -20,6 +23,8 @@ const App = ({ Component, pageProps }) => {
 
       <DefaultSeo {...SEO} />
       <GlobalStyle />
+      <Background />
+      <Navbar />
       <Component {...pageProps} />
 
       <Footer />

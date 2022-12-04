@@ -4,11 +4,10 @@ import axios from 'axios'
 
 import ArchMelee from '../models/ArchMelee.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../util/getURI'
 
 const useGetArchMelee = () => {
-  const url = `${API_URL}Arch-Melee${API_FORMAT}`
+  const url = getURI('Arch-Melee')
 
   const [getArchMeleeLoading, setLoading] = useState(true)
   const [getArchMeleeError, setError] = useState(false)

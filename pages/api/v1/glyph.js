@@ -1,11 +1,10 @@
 import Glyph from '../../../models/Glyph.model'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
-const API_FORMAT = process.env.NEXT_PUBLIC_API_FORMAT
+import getURI from '../../../util/getURI'
 
 export default async function asynchandler(req, res, next) {
   try {
-    const url = `${API_URL}Glyphs${API_FORMAT}`
+    const url = getURI('Glyphs')
 
     const data = await fetch(url)
 

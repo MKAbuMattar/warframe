@@ -15,11 +15,7 @@ import {
   ModalInfoAbilities,
   ModalInfoAbilitie,
 } from '../../style/Style'
-import {
-  ModalInfoSubtiteAbilitie,
-  ModalInfoTite,
-  ModalInfoSubtite,
-} from '../../style/Style'
+import { ModalInfoSubtiteAbilitie, ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
 
 const ArcaneCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
@@ -80,9 +76,7 @@ const ArcaneCard = ({ result, idx }) => {
 
               {result.levelStats !== undefined && (
                 <Fragment>
-                  <ModalInfoSubtiteAbilitie>
-                    Mod Level Stats
-                  </ModalInfoSubtiteAbilitie>
+                  <ModalInfoSubtiteAbilitie>Mod Level Stats</ModalInfoSubtiteAbilitie>
                   <ModalInfoAbilities>
                     {result.levelStats.map((element, idx) => (
                       <ModalInfoAbilitie key={idx}>
@@ -102,7 +96,7 @@ const ArcaneCard = ({ result, idx }) => {
               {result.introduced !== undefined && (
                 <ModalInfoSubtite>
                   Introduced:{' '}
-                  <Link href={result.introduced.url}>
+                  <Link legacyBehavior href={result.introduced.url}>
                     <a target="__blank">
                       {result.introduced.name} / Date: {result.introduced.date}
                     </a>
@@ -112,7 +106,7 @@ const ArcaneCard = ({ result, idx }) => {
 
               {result.wikiaUrl !== undefined && (
                 <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl}>
+                  <Link legacyBehavior href={result.wikiaUrl}>
                     <a target="__blank">Wiki Link</a>
                   </Link>
                 </ModalInfoSubtite>

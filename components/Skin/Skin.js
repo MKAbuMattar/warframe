@@ -4,7 +4,6 @@ import Navbar from '../Navbar/Navbar'
 
 import useGetSkin from '../../hooks/useGetSkin'
 
-import Background from '../../util/Background/Background'
 import Loader from '../../util/Loader/Loader'
 
 import FilterIt from '../../util/FilterIt/FilterIt'
@@ -39,9 +38,6 @@ const Skin = () => {
 
   return (
     <Fragment>
-      <Background />
-      <Navbar />
-
       <SearchSection id="search">
         <SearchInput type="text" placeholder="Search" onChange={filterList} />
       </SearchSection>
