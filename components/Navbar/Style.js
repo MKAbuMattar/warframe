@@ -12,9 +12,9 @@ export const Navbar = styled.nav`
   background-color: var(--bg);
   padding: 0 1rem;
   /* border-bottom: var(--border); */
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
   user-select: none;
 `
 
@@ -116,9 +116,9 @@ export const Dropdown = styled.div`
   transform: translateX(-45%);
   background-color: var(--bg);
   /* border: var(--border); */
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: var(--border-radius);
   padding: 1rem;
   overflow: hidden;
@@ -128,5 +128,11 @@ export const Dropdown = styled.div`
 `
 
 export const Menu = styled.div`
+  width: 100%;
+`
+
+export const Button = styled.button`
+  all: unset;
+  cursor: pointer;
   width: 100%;
 `
