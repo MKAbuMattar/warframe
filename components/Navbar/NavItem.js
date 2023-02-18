@@ -1,27 +1,27 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 
 import Link from 'next/link'
 
 import { NavbarItem, IconBtn } from './Style'
 
 const NavItem = (props) => {
-  const [open, setOpen] = useState(false)
+  const { open, handleOpen, url, icon, children } = props
 
   return (
     <NavbarItem>
-      {props.url !== undefined ? (
+      {url !== undefined ? (
         <Fragment>
-          <Link legacyBehavior href={props.url}>
-            <IconBtn onClick={() => setOpen(!open)}>{props.icon}</IconBtn>
+          <Link legacyBehavior href={url}>
+            <IconBtn onClick={() => handleOpen()}>{icon}</IconBtn>
           </Link>
         </Fragment>
       ) : (
         <Fragment>
-          <IconBtn onClick={() => setOpen(!open)}>{props.icon}</IconBtn>
+          <IconBtn onClick={() => handleOpen()}>{icon}</IconBtn>
         </Fragment>
       )}
 
-      {open && props.children}
+      {open && children}
     </NavbarItem>
   )
 }

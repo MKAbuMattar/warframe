@@ -40,9 +40,9 @@ import RightIcon from '../../Icons/RightIcon'
 import LeftIcon from '../../Icons/LeftIcon'
 
 import { MenuItem, IconLeft, IconRight } from './Style'
-import { Menu, Dropdown } from './Style'
+import { Menu, Dropdown, Button } from './Style'
 
-const DropdownMenu = () => {
+const DropdownMenu = (props) => {
   const [activeMenu, setActiveMenu] = useState('main')
   const [menuHeight, setMenuHeight] = useState(null)
   const dropdownRef = useRef(null)
@@ -92,61 +92,91 @@ const DropdownMenu = () => {
         onEnter={calcHeight}
       >
         <Menu>
-          <DropdownItem leftIcon={<HomeIcon color="#ffffff" />} url="/">
-            Home
-          </DropdownItem>
-          <DropdownItem leftIcon={<WarframeIcon color="#ffffff" />} url="/warframe">
-            Warframe
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<WeaponIcon color="#ffffff" />}
-            rightIcon={<RightIcon color="#ffffff" />}
-            goToMenu="weapons"
-          >
-            Weapons
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<CompanionIcon color="#ffffff" />}
-            rightIcon={<RightIcon color="#ffffff" />}
-            goToMenu="companions"
-          >
-            Companions
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<ArchwingIcon color="#ffffff" />}
-            rightIcon={<RightIcon color="#ffffff" />}
-            goToMenu="archwing"
-          >
-            Archwing
-          </DropdownItem>
-          <DropdownItem leftIcon={<NecramechIcon color="#ffffff" />} url="/warframe/necramech">
-            Necramech
-          </DropdownItem>
-          <DropdownItem leftIcon={<ModIcon color="#ffffff" />} url="/warframe/mod">
-            Mod
-          </DropdownItem>
-          <DropdownItem leftIcon={<ArcaneIcon color="#ffffff" />} url="/warframe/arcane">
-            Arcane
-          </DropdownItem>
-          <DropdownItem leftIcon={<QuestIcon color="#ffffff" />} url="/quest">
-            Quest
-          </DropdownItem>
-          <DropdownItem leftIcon={<EnemyIcon color="#ffffff" />} url="/enemy">
-            Enemy
-          </DropdownItem>
-          <DropdownItem leftIcon={<MiscellaneousIcon color="#ffffff" />} url="/miscellaneous">
-            Miscellaneous
-          </DropdownItem>
-          <DropdownItem leftIcon={<ResourceIcon color="#ffffff" />} url="/resource">
-            Resource
-          </DropdownItem>
-          <DropdownItem leftIcon={<GearIcon color="#ffffff" />} url="/gear">
-            Gear
-          </DropdownItem>
-          <DropdownItem leftIcon={<GlyphIcon color="#ffffff" />} url="/glyph">
-            Glyph
-          </DropdownItem>
-          <DropdownItem url="/warframe-api">API</DropdownItem>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<HomeIcon color="#ffffff" />} url="/">
+              Home
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<WarframeIcon color="#ffffff" />} url="/warframe">
+              Warframe
+            </DropdownItem>
+          </Button>
+          <Button>
+            <DropdownItem
+              leftIcon={<WeaponIcon color="#ffffff" />}
+              rightIcon={<RightIcon color="#ffffff" />}
+              goToMenu="weapons"
+            >
+              Weapons
+            </DropdownItem>
+          </Button>
+          <Button>
+            <DropdownItem
+              leftIcon={<CompanionIcon color="#ffffff" />}
+              rightIcon={<RightIcon color="#ffffff" />}
+              goToMenu="companions"
+            >
+              Companions
+            </DropdownItem>
+          </Button>
+          <Button>
+            <DropdownItem
+              leftIcon={<ArchwingIcon color="#ffffff" />}
+              rightIcon={<RightIcon color="#ffffff" />}
+              goToMenu="archwing"
+            >
+              Archwing
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<NecramechIcon color="#ffffff" />} url="/warframe/necramech">
+              Necramech
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<ModIcon color="#ffffff" />} url="/warframe/mod">
+              Mod
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<ArcaneIcon color="#ffffff" />} url="/warframe/arcane">
+              Arcane
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<QuestIcon color="#ffffff" />} url="/quest">
+              Quest
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<EnemyIcon color="#ffffff" />} url="/enemy">
+              Enemy
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<MiscellaneousIcon color="#ffffff" />} url="/miscellaneous">
+              Miscellaneous
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<ResourceIcon color="#ffffff" />} url="/resource">
+              Resource
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<GearIcon color="#ffffff" />} url="/gear">
+              Gear
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<GlyphIcon color="#ffffff" />} url="/glyph">
+              Glyph
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem url="/warframe-api">API</DropdownItem>
+          </Button>
         </Menu>
       </CSSTransition>
 
@@ -158,22 +188,33 @@ const DropdownMenu = () => {
         onEnter={calcHeight}
       >
         <Menu>
-          <DropdownItem
-            goToMenu="main"
-            leftIcon={<WeaponIcon color="#ffffff" />}
-            rightIcon={<LeftIcon color="#ffffff" />}
-          >
-            <h2>Weapons</h2>
-          </DropdownItem>
-          <DropdownItem leftIcon={<PrimaryWeaponIcon color="#ffffff" />} url="/weapons/primary">
-            Primary Weapons
-          </DropdownItem>
-          <DropdownItem leftIcon={<SecondaryWeaponIcon color="#ffffff" />} url="/weapons/secondary">
-            Secondary Weapons
-          </DropdownItem>
-          <DropdownItem leftIcon={<MeleeWeaponIcon color="#ffffff" />} url="/weapons/melee">
-            Melee Weapons
-          </DropdownItem>
+          <Button>
+            <DropdownItem
+              goToMenu="main"
+              leftIcon={<WeaponIcon color="#ffffff" />}
+              rightIcon={<LeftIcon color="#ffffff" />}
+            >
+              <h2>Weapons</h2>
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<PrimaryWeaponIcon color="#ffffff" />} url="/weapons/primary">
+              Primary Weapons
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem
+              leftIcon={<SecondaryWeaponIcon color="#ffffff" />}
+              url="/weapons/secondary"
+            >
+              Secondary Weapons
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<MeleeWeaponIcon color="#ffffff" />} url="/weapons/melee">
+              Melee Weapons
+            </DropdownItem>
+          </Button>
         </Menu>
       </CSSTransition>
 
@@ -185,23 +226,29 @@ const DropdownMenu = () => {
         onEnter={calcHeight}
       >
         <Menu>
-          <DropdownItem
-            goToMenu="main"
-            leftIcon={<ArchwingIcon color="#ffffff" />}
-            rightIcon={<LeftIcon color="#ffffff" />}
-          >
-            <h2>Archwing</h2>
-          </DropdownItem>
-          <DropdownItem leftIcon={<ArchwingIcon color="#ffffff" />} url="/archwing/">
-            Archwing
-          </DropdownItem>
-          <DropdownItem
-            goToMenu="arch-weapon"
-            leftIcon={<ArchGunWeaponIcon color="#ffffff" />}
-            rightIcon={<RightIcon color="#ffffff" />}
-          >
-            Arch-Weapon
-          </DropdownItem>
+          <Button>
+            <DropdownItem
+              goToMenu="main"
+              leftIcon={<ArchwingIcon color="#ffffff" />}
+              rightIcon={<LeftIcon color="#ffffff" />}
+            >
+              <h2>Archwing</h2>
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<ArchwingIcon color="#ffffff" />} url="/archwing/">
+              Archwing
+            </DropdownItem>
+          </Button>
+          <Button>
+            <DropdownItem
+              goToMenu="arch-weapon"
+              leftIcon={<ArchGunWeaponIcon color="#ffffff" />}
+              rightIcon={<RightIcon color="#ffffff" />}
+            >
+              Arch-Weapon
+            </DropdownItem>
+          </Button>
         </Menu>
       </CSSTransition>
 
@@ -213,25 +260,31 @@ const DropdownMenu = () => {
         onEnter={calcHeight}
       >
         <Menu>
-          <DropdownItem
-            goToMenu="archwing"
-            leftIcon={<ArchGunWeaponIcon color="#ffffff" />}
-            rightIcon={<LeftIcon color="#ffffff" />}
-          >
-            <h2>Arch-Weapon</h2>
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<ArchGunWeaponIcon color="#ffffff" />}
-            url="/archwing/weapon/arch-gun"
-          >
-            Arch-Gun Weapons
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<ArchMeleeWeaponIcon color="#ffffff" />}
-            url="/archwing/weapon/arch-melee"
-          >
-            Arch-Melee Weapons
-          </DropdownItem>
+          <Button>
+            <DropdownItem
+              goToMenu="archwing"
+              leftIcon={<ArchGunWeaponIcon color="#ffffff" />}
+              rightIcon={<LeftIcon color="#ffffff" />}
+            >
+              <h2>Arch-Weapon</h2>
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem
+              leftIcon={<ArchGunWeaponIcon color="#ffffff" />}
+              url="/archwing/weapon/arch-gun"
+            >
+              Arch-Gun Weapons
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem
+              leftIcon={<ArchMeleeWeaponIcon color="#ffffff" />}
+              url="/archwing/weapon/arch-melee"
+            >
+              Arch-Melee Weapons
+            </DropdownItem>
+          </Button>
         </Menu>
       </CSSTransition>
 
@@ -243,25 +296,33 @@ const DropdownMenu = () => {
         onEnter={calcHeight}
       >
         <Menu>
-          <DropdownItem
-            goToMenu="main"
-            leftIcon={<CompanionIcon color="#ffffff" />}
-            rightIcon={<LeftIcon color="#ffffff" />}
-          >
-            <h2>Companions</h2>
-          </DropdownItem>
-          <DropdownItem leftIcon={<CompanionIcon color="#ffffff" />} url="/companion/pet">
-            Pet
-          </DropdownItem>
-          <DropdownItem leftIcon={<SentinelIcon color="#ffffff" />} url="/companion/sentinel">
-            Sentinel
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<SentinelIcon color="#ffffff" />}
-            url="/companion/sentinel/weapon"
-          >
-            Sentinel Weapon
-          </DropdownItem>
+          <Button>
+            <DropdownItem
+              goToMenu="main"
+              leftIcon={<CompanionIcon color="#ffffff" />}
+              rightIcon={<LeftIcon color="#ffffff" />}
+            >
+              <h2>Companions</h2>
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<CompanionIcon color="#ffffff" />} url="/companion/pet">
+              Pet
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem leftIcon={<SentinelIcon color="#ffffff" />} url="/companion/sentinel">
+              Sentinel
+            </DropdownItem>
+          </Button>
+          <Button onClick={() => props.handleOpen()}>
+            <DropdownItem
+              leftIcon={<SentinelIcon color="#ffffff" />}
+              url="/companion/sentinel/weapon"
+            >
+              Sentinel Weapon
+            </DropdownItem>
+          </Button>
         </Menu>
       </CSSTransition>
     </Dropdown>
