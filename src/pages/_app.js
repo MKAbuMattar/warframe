@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar/Navbar'
 import Background from '../util/Background/Background'
 
 import { DefaultSeo } from 'next-seo'
-import SEO from './../next-seo.config'
+import SEO from './../../next-seo.config'
 
 import { GlobalStyle } from '../style/Style'
 

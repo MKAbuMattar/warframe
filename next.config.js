@@ -1,19 +1,16 @@
+const runtimeCaching = require('next-pwa/cache')
 const withPWA = require('next-pwa')({
   dest: 'public',
+  register: true,
+  skipWaiting: true,
+  runtimeCaching,
+  buildExcludes: [/middleware-manifest.json$/],
 })
-const runtimeCaching = require('next-pwa/cache')
-const generateRobotsTxt = require('./scripts/generateRobotsTxt')
+const generateRobotsTxt = require('./src/scripts/generateRobotsTxt')
 
 module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
-  pwa: {
-    dest: 'public',
-    register: true,
-    skipWaiting: true,
-    runtimeCaching,
-    buildExcludes: [/middleware-manifest.json$/],
-  },
   webpack(config, { isServer }) {
     if (isServer) {
       generateRobotsTxt()
