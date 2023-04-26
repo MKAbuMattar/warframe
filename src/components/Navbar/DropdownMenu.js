@@ -174,9 +174,6 @@ const DropdownMenu = (props) => {
               Glyph
             </DropdownItem>
           </Button>
-          <Button onClick={() => props.handleOpen()}>
-            <DropdownItem url="/warframe-api">API</DropdownItem>
-          </Button>
         </Menu>
       </CSSTransition>
 

@@ -15,6 +15,8 @@ import DamageIcons from '../DamageIcons/DamageIcons'
 import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
 import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
 
+import { generateUniqueKey } from '../../util/generateUniqueKey/index.js'
+
 const ArchGunCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
@@ -33,7 +35,7 @@ const ArchGunCard = ({ result, idx }) => {
 
   return (
     <Fragment>
-      <Card key={idx}>
+      <Card key={generateUniqueKey(idx)}>
         <CardImg
           loader={myLoader}
           src={result.imageName}
@@ -93,7 +95,7 @@ const ArchGunCard = ({ result, idx }) => {
                 <Fragment>
                   {result.attacks.map((element, idx) => (
                     <Fragment>
-                      <div key={idx}>
+                      <div key={generateUniqueKey(idx)}>
                         {result.attacks.length > 1 && (
                           <ModalInfoAttackSubtite>
                             Attack Name: <span>{element.name}</span>
@@ -139,7 +141,7 @@ const ArchGunCard = ({ result, idx }) => {
                         <ModalInfoSubtite>
                           {Object.entries(element.damage).map(([key, value], idx) => (
                             <Fragment>
-                              <ModalInfoSubtite key={idx}>
+                              <ModalInfoSubtite key={generateUniqueKey(idx)}>
                                 <DamageIcons damage={key} /> {Capitalize(key)}: <span>{value}</span>
                               </ModalInfoSubtite>
                             </Fragment>

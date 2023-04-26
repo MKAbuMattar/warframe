@@ -17,6 +17,8 @@ import {
 } from '../../style/Style'
 import { ModalInfoSubtiteAbilitie, ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
 
+import { generateUniqueKey } from '../../util/generateUniqueKey/index.js'
+
 const ArcaneCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
@@ -35,7 +37,7 @@ const ArcaneCard = ({ result, idx }) => {
 
   return (
     <Fragment>
-      <Card key={idx}>
+      <Card key={generateUniqueKey(idx)}>
         <CardImg
           loader={myLoader}
           src={result.imageName}
@@ -79,7 +81,7 @@ const ArcaneCard = ({ result, idx }) => {
                   <ModalInfoSubtiteAbilitie>Mod Level Stats</ModalInfoSubtiteAbilitie>
                   <ModalInfoAbilities>
                     {result.levelStats.map((element, idx) => (
-                      <ModalInfoAbilitie key={idx}>
+                      <ModalInfoAbilitie key={generateUniqueKey(idx)}>
                         <ModalInfoSubtite>{element.stats[0]}</ModalInfoSubtite>
                       </ModalInfoAbilitie>
                     ))}
