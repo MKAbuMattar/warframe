@@ -11,6 +11,9 @@ const generateRobotsTxt = require('./src/scripts/generateRobotsTxt')
 module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  },
   webpack(config, { isServer }) {
     if (isServer) {
       generateRobotsTxt()

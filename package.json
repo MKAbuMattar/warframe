@@ -1,6 +1,6 @@
 {
   "name": "warframe",
-  "version": "1.32.3",
+  "version": "1.33.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -24,7 +24,6 @@
     "styled-components": "5.3.9"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "2.1.1",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "winston": "3.8.2"
