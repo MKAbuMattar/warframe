@@ -1,6 +1,6 @@
 {
   "name": "warframe",
-  "version": "1.33.0",
+  "version": "1.33.5",
   "private": true,
   "scripts": {
     "dev": "next dev",
