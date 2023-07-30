@@ -1,6 +1,6 @@
 {
   "name": "warframe",
-  "version": "1.33.5",
+  "version": "1.33.6",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,21 +12,21 @@
     "axios": "1.4.0",
     "highlight.js": "11.8.0",
     "lodash": "4.17.21",
-    "next": "13.4.9",
+    "next": "13.4.12",
     "next-pwa": "5.6.0",
     "next-seo": "6.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-modal": "3.16.1",
-    "react-tabs": "6.0.1",
+    "react-tabs": "6.0.2",
     "react-transition-group": "4.4.5",
     "sitemap": "7.1.1",
-    "styled-components": "6.0.3"
+    "styled-components": "6.0.5"
   },
   "devDependencies": {
-    "eslint": "8.44.0",
-    "eslint-config-next": "13.4.9",
-    "winston": "3.9.0"
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
+    "winston": "3.10.0"
   },
   "resolutions": {
     "webpack": "^5"
