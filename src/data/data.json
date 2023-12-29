@@ -1,10 +1,14 @@
 [
   {
-    "title": "UPDATE 34 - ABYSS OF DAGATH + GRENDEL PRIME!",
+    "title": "UPDATE 35: WHISPERS IN THE WALLS!",
+    "data": ["Qorvex", "Grimoire", "Ekhein", "Mandonel"]
+  },
+  {
+    "title": "UPDATE 34: ABYSS OF DAGATH + GRENDEL PRIME!",
     "data": ["DAGATH", "DORRCLAVE", "GRENDEL PRIME", "ZYLOK PRIME", "MASSETER PRIME"]
   },
   {
-    "title": "ECHOES OF DUVIRI: 33.6",
+    "title": "UPDATE 33.6: ECHOES OF DUVIRI",
     "data": ["WISP PRIME", "FULMIN PRIME", "GUNSEN PRIME"]
   },
   {
@@ -12,23 +16,23 @@
     "data": ["KULLERVO", "RAUTA"]
   },
   {
-    "title": "BARO KI'TEER 33.0.10 - PRISMA LENZ!",
+    "title": "HOTFIX 33.0.10: BARO KI'TEER - PRISMA LENZ!",
     "data": ["PRISMA LENZ"]
   },
   {
-    "title": "UPDATE 33.0 - THE DUVIRI PARADOX!",
+    "title": "UPDATE 33.0: THE DUVIRI PARADOX!",
     "data": ["CINTA", "SUN & MOON", "SYAM", "AZOTHANE", "EDUN", "SAMPOTES"]
   },
   {
-    "title": "UPDATE 32.3.6 - HILDRYN PRIME ACCESS!",
+    "title": "HOTFIX 32.3.6: HILDRYN PRIME ACCESS!",
     "data": ["HILDRYN PRIME", "LARKSPUR PRIME", "SHADE PRIME"]
   },
   {
-    "title": "UPDATE 32.3 - CITRINE'S LAST WISH!",
+    "title": "UPDATE 32.3: CITRINE'S LAST WISH!",
     "data": ["CITRINE", "STEFLOS", "CORUFELL"]
   },
   {
-    "title": "LUA’S PREY: BARUUK PRIME: HOTFIX 32.2.5",
+    "title": "HOTFIX 32.2.5: LUA’S PREY - BARUUK PRIME ",
     "data": ["BARUUK PRIME", "AFURIS PRIME", "COBRA & CRANE PRIME"]
   },
   {
@@ -36,19 +40,19 @@
     "data": ["VORUNA", "PERIGALE", "SAROFANG", "TENET FERROX", "TENET PLINX"]
   },
   {
-    "title": "VEILBREAKER: REVENANT PRIME: HOTFIX 32.0.9",
+    "title": "HOTFIX 32.0.9: VEILBREAKER - REVENANT PRIME",
     "data": ["Revenant Prime", "Phantasma Prime", "Tatsu Prime"]
   },
   {
-    "title": "VEILBREAKER: UPDATE 32",
+    "title": "UPDATE 32: VEILBREAKER",
     "data": ["Styanax", "Afentis", "Aegrit", "Slaytra"]
   },
   {
-    "title": "KHORA PRIME: UPDATE 31.7",
+    "title": "UPDATE 31.7: KHORA PRIME",
     "data": ["KHORA PRIME", "HYSTRIX PRIME", "DUAL KERES PRIME"]
   },
   {
-    "title": "ECHOES OF THE ZARIMAN: UPDATE 31.6",
+    "title": "UPDATE 31.6: ECHOES OF THE ZARIMAN",
     "data": ["INNODEM", "VERICRES", "FELARX"]
   },
   {
@@ -118,5 +122,9 @@
       "KUVA GRATTLER",
       "KUVA ZARR"
     ]
+  },
+  {
+    "title": "UPDATE 30.2: Gara Prime",
+    "data": ["Gara Prime", "Astilla Prime", "Volnus Prime"]
   }
 ]
