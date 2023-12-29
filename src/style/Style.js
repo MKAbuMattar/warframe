@@ -138,9 +138,9 @@ a {
   background-color: rgba(0, 0, 0, 0.0);
 }
 
-.ReactModal__Body--open {
-  overflow: hidden;
-}
+// .ReactModal__Body--open {
+//   overflow: hidden;
+// }
 
 .ReactModal__Overlay{
   z-index: 999;
