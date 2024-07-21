@@ -1,7 +1,6 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "airbnb-base",
     "prettier"
   ],
   "parser": "babel-eslint",
