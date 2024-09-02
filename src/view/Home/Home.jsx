@@ -25,7 +25,7 @@ import Loader from '../../util/Loader/Loader'
 import data from '../../data/data.json'
 
 import { Capitalize } from '../../util/Capitalize/Capitalize'
-import { generateUniqueKey } from '../../util/generateUniqueKey/index.js'
+import { generateUniqueKey } from '../../util/generateUniqueKey/index'
 
 import { Cards } from '../../style/Style'
 

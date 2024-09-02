@@ -15,7 +15,7 @@ import DamageIcons from '../DamageIcons/DamageIcons'
 import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
 import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
 
-import { generateUniqueKey } from '../../util/generateUniqueKey/index.js'
+import { generateUniqueKey } from '../../util/generateUniqueKey/index'
 
 const ArchGunCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
