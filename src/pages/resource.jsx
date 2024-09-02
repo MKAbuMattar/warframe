@@ -8,10 +8,7 @@ import Resource from '../view/Resource/Resource'
 const resource = () => {
   return (
     <Fragment>
-      <MeatDecorator
-        title={ResourcePage.title}
-        description={ResourcePage.description}
-      />
+      <MeatDecorator title={ResourcePage.title} description={ResourcePage.description} />
       <Resource />
     </Fragment>
   )

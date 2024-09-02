@@ -8,10 +8,7 @@ import Enemy from '../view/Enemy/Enemy'
 const enemy = () => {
   return (
     <Fragment>
-      <MeatDecorator
-        title={EnemyPage.title}
-        description={EnemyPage.description}
-      />
+      <MeatDecorator title={EnemyPage.title} description={EnemyPage.description} />
       <Enemy />
     </Fragment>
   )

@@ -8,10 +8,7 @@ import Quest from '../view/Quest/Quest'
 const quest = () => {
   return (
     <Fragment>
-      <MeatDecorator
-        title={QuestPage.title}
-        description={QuestPage.description}
-      />
+      <MeatDecorator title={QuestPage.title} description={QuestPage.description} />
       <Quest />
     </Fragment>
   )

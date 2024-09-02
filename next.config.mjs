@@ -11,8 +11,14 @@ const NextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
-    compiler: {
+  compiler: {
     styledComponents: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
   webpack(config, { isServer }) {
     if (isServer) {

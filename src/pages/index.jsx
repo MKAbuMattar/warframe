@@ -8,10 +8,7 @@ import Home from '../view/Home/Home'
 const index = () => {
   return (
     <Fragment>
-      <MeatDecorator
-        title={HomePage.title}
-        description={HomePage.description}
-      />
+      <MeatDecorator title={HomePage.title} description={HomePage.description} />
       <Home />
     </Fragment>
   )

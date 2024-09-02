@@ -8,10 +8,7 @@ import Glyph from '../view/Glyph/Glyph'
 const glyph = () => {
   return (
     <Fragment>
-      <MeatDecorator
-        title={GlyphPage.title}
-        description={GlyphPage.description}
-      />
+      <MeatDecorator title={GlyphPage.title} description={GlyphPage.description} />
       <Glyph />
     </Fragment>
   )

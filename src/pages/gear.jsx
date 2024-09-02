@@ -8,10 +8,7 @@ import Gear from '../view/Gear/Gear'
 const gear = () => {
   return (
     <Fragment>
-      <MeatDecorator
-        title={GearPage.title}
-        description={GearPage.description}
-      />
+      <MeatDecorator title={GearPage.title} description={GearPage.description} />
       <Gear />
     </Fragment>
   )
