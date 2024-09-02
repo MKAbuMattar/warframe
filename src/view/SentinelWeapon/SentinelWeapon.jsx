@@ -1,41 +1,41 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import SentinelWeaponCard from '../../components/SentinelWeaponCard/SentinelWeaponCard'
+import SentinelWeaponCard from '../../components/SentinelWeaponCard/SentinelWeaponCard';
 
-import useGetSentinelWeapon from '../../hooks/useGetSentinelWeapon'
+import useGetSentinelWeapon from '../../hooks/useGetSentinelWeapon';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import SentinelIcon from '../../Icons/SentinelIcon'
+import SentinelIcon from '../../Icons/SentinelIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const SentinelWeapon = () => {
-  const { getSentinelWeapon, getSentinelWeaponLoading, getSentinelWeaponError } =
-    useGetSentinelWeapon()
+  const {getSentinelWeapon, getSentinelWeaponLoading, getSentinelWeaponError} =
+    useGetSentinelWeapon();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getSentinelWeaponLoading) {
-      setItems(getSentinelWeapon)
+      setItems(getSentinelWeapon);
     }
-  }, [getSentinelWeaponLoading])
+  }, [getSentinelWeaponLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getSentinelWeapon.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getSentinelWeapon)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getSentinelWeapon);
+        setItems(updatedList);
       }
     },
     [getSentinelWeaponLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -47,13 +47,18 @@ const SentinelWeapon = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapons: {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapons:{' '}
+                  {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -61,7 +66,8 @@ const SentinelWeapon = () => {
             {items.length == 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon: {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon:{' '}
+                  {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -69,7 +75,8 @@ const SentinelWeapon = () => {
             {items.length == 0 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon: None
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel Weapon:
+                  None
                 </PageCounter>
               </Fragment>
             )}
@@ -89,7 +96,7 @@ const SentinelWeapon = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default SentinelWeapon
+export default SentinelWeapon;

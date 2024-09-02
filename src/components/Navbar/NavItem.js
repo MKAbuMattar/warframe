@@ -1,11 +1,11 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
-import { NavbarItem, IconBtn } from './Style'
+import {NavbarItem, IconBtn} from './Style';
 
 const NavItem = (props) => {
-  const { open, handleOpen, url, icon, children } = props
+  const {open, handleOpen, url, icon, children} = props;
 
   return (
     <NavbarItem>
@@ -23,7 +23,7 @@ const NavItem = (props) => {
 
       {open && children}
     </NavbarItem>
-  )
-}
+  );
+};
 
-export default NavItem
+export default NavItem;

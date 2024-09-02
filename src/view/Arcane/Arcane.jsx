@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import ArcaneCard from '../../components/ArcaneCard/ArcaneCard'
+import ArcaneCard from '../../components/ArcaneCard/ArcaneCard';
 
-import useGetArcane from '../../hooks/useGetArcane'
+import useGetArcane from '../../hooks/useGetArcane';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import ArcaneIcon from '../../Icons/ArcaneIcon'
+import ArcaneIcon from '../../Icons/ArcaneIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Arcane = () => {
-  const { getArcane, getArcaneLoading, getArcaneError } = useGetArcane()
+  const {getArcane, getArcaneLoading, getArcaneError} = useGetArcane();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getArcaneLoading) {
-      setItems(getArcane)
+      setItems(getArcane);
     }
-  }, [getArcaneLoading])
+  }, [getArcaneLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getArcane.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getArcane)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getArcane);
+        setItems(updatedList);
       }
     },
     [getArcaneLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -45,7 +45,11 @@ const Arcane = () => {
       ) : (
         <Fragment>
           <SearchSection id="search">
-            <SearchInput type="text" placeholder="Search" onChange={filterList} />
+            <SearchInput
+              type="text"
+              placeholder="Search"
+              onChange={filterList}
+            />
           </SearchSection>
 
           {items.length > 1 && (
@@ -91,7 +95,7 @@ const Arcane = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Arcane
+export default Arcane;

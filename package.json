@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "npm run lint --fix",
-    "fmt": "prettier --check src/**/*.{js,jsx,json}",
-    "fmt:fix": "prettier --write src/**/*.{js,jsx,json}"
+    "fmt": "prettier --config prettier.config.mjs --check ./src",
+    "fmt:fix": "prettier --config prettier.config.mjs --write ./src"
   },
   "dependencies": {
     "axios": "1.7.7",

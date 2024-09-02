@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import WarframeCard from '../../components/WarframeCard/WarframeCard'
+import WarframeCard from '../../components/WarframeCard/WarframeCard';
 
-import useGetWarframe from '../../hooks/useGetWarframe'
+import useGetWarframe from '../../hooks/useGetWarframe';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import WarframeIcon from '../../Icons/WarframeIcon'
+import WarframeIcon from '../../Icons/WarframeIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Warframe = () => {
-  const { getWarframe, getWarframeLoading, getWarframeError } = useGetWarframe()
+  const {getWarframe, getWarframeLoading, getWarframeError} = useGetWarframe();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getWarframeLoading) {
-      setItems(getWarframe)
+      setItems(getWarframe);
     }
-  }, [getWarframeLoading])
+  }, [getWarframeLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getWarframe.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getWarframe)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getWarframe);
+        setItems(updatedList);
       }
     },
     [getWarframeLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,13 +46,18 @@ const Warframe = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 0 && (
               <Fragment>
                 <PageCounter>
-                  <WarframeIcon color="#dddddd" size="50" /> Warframe: {items.length}
+                  <WarframeIcon color="#dddddd" size="50" /> Warframe:{' '}
+                  {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -79,7 +84,7 @@ const Warframe = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Warframe
+export default Warframe;

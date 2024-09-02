@@ -1,6 +1,6 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import { PopupWrapper, Icon } from './Style'
+import {PopupWrapper, Icon} from './Style';
 
 const Background = () => {
   return (
@@ -56,7 +56,7 @@ const Background = () => {
         </Icon>
       </PopupWrapper>
     </Fragment>
-  )
-}
+  );
+};
 
-export default Background
+export default Background;

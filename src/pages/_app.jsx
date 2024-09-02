@@ -1,19 +1,14 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
+import Head from 'next/head';
+import Navbar from '../components/Navbar/Navbar';
+import Background from '../util/Background/Background';
+import {DefaultSeo} from 'next-seo';
+import SEO from '../../next-seo.config';
+import {GlobalStyle} from '../style/Style';
+import Footer from '../components/Footer/Footer';
+import '../style/normalize.css';
 
-import Head from 'next/head'
-
-import Navbar from '../components/Navbar/Navbar'
-import Background from '../util/Background/Background'
-
-import { DefaultSeo } from 'next-seo'
-import SEO from '../../next-seo.config'
-
-import { GlobalStyle } from '../style/Style'
-
-import '../style/normalize.css'
-import Footer from '../components/Footer/Footer'
-
-const App = ({ Component, pageProps }) => {
+const App = ({Component, pageProps}) => {
   return (
     <Fragment>
       <Head>
@@ -29,7 +24,7 @@ const App = ({ Component, pageProps }) => {
 
       <Footer />
     </Fragment>
-  )
-}
+  );
+};
 
-export default App
+export default App;

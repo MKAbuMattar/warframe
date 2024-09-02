@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import ArchwingCard from '../../components/ArchwingCard/ArchwingCard'
+import ArchwingCard from '../../components/ArchwingCard/ArchwingCard';
 
-import useGetArchwing from '../../hooks/useGetArchwing'
+import useGetArchwing from '../../hooks/useGetArchwing';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import ArchwingIcon from '../../Icons/ArchwingIcon'
+import ArchwingIcon from '../../Icons/ArchwingIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Archwing = () => {
-  const { getArchwing, getArchwingLoading, getArchwingError } = useGetArchwing()
+  const {getArchwing, getArchwingLoading, getArchwingError} = useGetArchwing();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getArchwingLoading) {
-      setItems(getArchwing)
+      setItems(getArchwing);
     }
-  }, [getArchwingLoading])
+  }, [getArchwingLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getArchwing.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getArchwing)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getArchwing);
+        setItems(updatedList);
       }
     },
     [getArchwingLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -45,7 +45,11 @@ const Archwing = () => {
       ) : (
         <Fragment>
           <SearchSection id="search">
-            <SearchInput type="text" placeholder="Search" onChange={filterList} />
+            <SearchInput
+              type="text"
+              placeholder="Search"
+              onChange={filterList}
+            />
           </SearchSection>
 
           <section className="container">
@@ -82,7 +86,7 @@ const Archwing = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Archwing
+export default Archwing;

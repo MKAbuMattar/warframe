@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator'
-import { ArchMeleePage } from '../../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator';
+import {ArchMeleePage} from '../../../util/MeatDecoratorList/MeatDecoratorList';
 
-import ArchMelee from '../../../view/ArchMelee/ArchMelee'
+import ArchMelee from '../../../view/ArchMelee/ArchMelee';
 
 const archMelee = () => {
   return (
@@ -14,7 +14,7 @@ const archMelee = () => {
       />
       <ArchMelee />
     </Fragment>
-  )
-}
+  );
+};
 
-export default archMelee
+export default archMelee;

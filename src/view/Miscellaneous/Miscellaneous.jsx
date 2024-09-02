@@ -1,40 +1,41 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import MiscellaneousCard from '../../components/MiscellaneousCard/MiscellaneousCard'
+import MiscellaneousCard from '../../components/MiscellaneousCard/MiscellaneousCard';
 
-import useGetMiscellaneous from '../../hooks/useGetMiscellaneous'
+import useGetMiscellaneous from '../../hooks/useGetMiscellaneous';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import MiscellaneousIcon from '../../Icons/MiscellaneousIcon'
+import MiscellaneousIcon from '../../Icons/MiscellaneousIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Miscellaneous = () => {
-  const { getMiscellaneous, getMiscellaneousLoading, getMiscellaneousError } = useGetMiscellaneous()
+  const {getMiscellaneous, getMiscellaneousLoading, getMiscellaneousError} =
+    useGetMiscellaneous();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getMiscellaneousLoading) {
-      setItems(getMiscellaneous)
+      setItems(getMiscellaneous);
     }
-  }, [getMiscellaneousLoading])
+  }, [getMiscellaneousLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getMiscellaneous.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getMiscellaneous)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getMiscellaneous);
+        setItems(updatedList);
       }
     },
     [getMiscellaneousLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -45,7 +46,11 @@ const Miscellaneous = () => {
       ) : (
         <Fragment>
           <SearchSection id="search">
-            <SearchInput type="text" placeholder="Search" onChange={filterList} />
+            <SearchInput
+              type="text"
+              placeholder="Search"
+              onChange={filterList}
+            />
           </SearchSection>
 
           {items.length > 1 && (
@@ -91,7 +96,7 @@ const Miscellaneous = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Miscellaneous
+export default Miscellaneous;

@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
-import { NecramechPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
+import {NecramechPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Necramech from '../../view/Necramech/Necramech'
+import Necramech from '../../view/Necramech/Necramech';
 
 const necrameche = () => {
   return (
@@ -14,7 +14,7 @@ const necrameche = () => {
       />
       <Necramech />
     </Fragment>
-  )
-}
+  );
+};
 
-export default necrameche
+export default necrameche;

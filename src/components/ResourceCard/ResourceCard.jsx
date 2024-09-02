@@ -1,35 +1,35 @@
-import { Fragment, useState } from 'react'
+import {Fragment, useState} from 'react';
 
-import Modal from 'react-modal'
+import Modal from 'react-modal';
 
-import XIcon from '../../Icons/XIcon'
+import XIcon from '../../Icons/XIcon';
 
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
 
 import {
   ModalBtnContainer,
   ModalBtn,
   ModalInfoContainer,
   ModalInfoImg,
-} from '../../style/Style'
+} from '../../style/Style';
 
-import { ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
+import {ModalInfoTite, ModalInfoSubtite} from '../../style/Style';
 
-const ResourceCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+const ResourceCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
 
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -74,18 +74,19 @@ const ResourceCard = ({ result, idx }) => {
                 </ModalInfoSubtite>
               )}
 
-              {result.description !== undefined && result.description !== '' && (
-                <ModalInfoSubtite>
-                  Description: <span>{result.description}</span>
-                </ModalInfoSubtite>
-              )}
+              {result.description !== undefined &&
+                result.description !== '' && (
+                  <ModalInfoSubtite>
+                    Description: <span>{result.description}</span>
+                  </ModalInfoSubtite>
+                )}
             </ModalInfoContainer>
           </Fragment>
         </Modal>
       </Card>
       {/* {console.log(result)} */}
     </Fragment>
-  )
-}
+  );
+};
 
-export default ResourceCard
+export default ResourceCard;

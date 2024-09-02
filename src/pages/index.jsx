@@ -1,17 +1,20 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator'
-import { HomePage } from '../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
+import {HomePage} from '../util/MeatDecoratorList/MeatDecoratorList';
 
-import Home from '../view/Home/Home'
+import Home from '../view/Home/Home';
 
 const index = () => {
   return (
     <Fragment>
-      <MeatDecorator title={HomePage.title} description={HomePage.description} />
+      <MeatDecorator
+        title={HomePage.title}
+        description={HomePage.description}
+      />
       <Home />
     </Fragment>
-  )
-}
+  );
+};
 
-export default index
+export default index;

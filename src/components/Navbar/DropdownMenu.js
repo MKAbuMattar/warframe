@@ -1,60 +1,60 @@
-import { useState, useEffect, useRef, Fragment } from 'react'
-import Link from 'next/link'
+import {useState, useEffect, useRef, Fragment} from 'react';
+import Link from 'next/link';
 
-import { CSSTransition } from 'react-transition-group'
+import {CSSTransition} from 'react-transition-group';
 
-import HomeIcon from '../../Icons/HomeIcon'
-import WarframeLogoIcon from '../../Icons/WarframeLogoIcon'
+import HomeIcon from '../../Icons/HomeIcon';
+import WarframeLogoIcon from '../../Icons/WarframeLogoIcon';
 
-import WarframeIcon from '../../Icons/WarframeIcon'
+import WarframeIcon from '../../Icons/WarframeIcon';
 
-import WeaponIcon from '../../Icons/WeaponIcon'
-import PrimaryWeaponIcon from '../../Icons/PrimaryWeaponIcon'
-import SecondaryWeaponIcon from '../../Icons/SecondaryWeaponIcon'
-import MeleeWeaponIcon from '../../Icons/MeleeWeaponIcon'
+import WeaponIcon from '../../Icons/WeaponIcon';
+import PrimaryWeaponIcon from '../../Icons/PrimaryWeaponIcon';
+import SecondaryWeaponIcon from '../../Icons/SecondaryWeaponIcon';
+import MeleeWeaponIcon from '../../Icons/MeleeWeaponIcon';
 
-import ArchwingIcon from '../../Icons/ArchwingIcon'
-import ArchGunWeaponIcon from '../../Icons/ArchGunWeaponIcon'
-import ArchMeleeWeaponIcon from '../../Icons/ArchMeleeWeaponIcon'
+import ArchwingIcon from '../../Icons/ArchwingIcon';
+import ArchGunWeaponIcon from '../../Icons/ArchGunWeaponIcon';
+import ArchMeleeWeaponIcon from '../../Icons/ArchMeleeWeaponIcon';
 
-import CompanionIcon from '../../Icons/CompanionIcon'
-import SentinelIcon from '../../Icons/SentinelIcon'
+import CompanionIcon from '../../Icons/CompanionIcon';
+import SentinelIcon from '../../Icons/SentinelIcon';
 
-import NecramechIcon from '../../Icons/NecramechIcon'
+import NecramechIcon from '../../Icons/NecramechIcon';
 
-import ArcaneIcon from '../../Icons/ArcaneIcon'
-import ModIcon from '../../Icons/ModIcon'
+import ArcaneIcon from '../../Icons/ArcaneIcon';
+import ModIcon from '../../Icons/ModIcon';
 
-import EnemyIcon from '../../Icons/EnemyIcon'
+import EnemyIcon from '../../Icons/EnemyIcon';
 
-import ResourceIcon from '../../Icons/ResourceIcon'
-import MiscellaneousIcon from '../../Icons/MiscellaneousIcon'
+import ResourceIcon from '../../Icons/ResourceIcon';
+import MiscellaneousIcon from '../../Icons/MiscellaneousIcon';
 
-import QuestIcon from '../../Icons/QuestIcon'
+import QuestIcon from '../../Icons/QuestIcon';
 
-import GearIcon from '../../Icons/GearIcon'
+import GearIcon from '../../Icons/GearIcon';
 
-import GlyphIcon from '../../Icons/GlyphIcon'
+import GlyphIcon from '../../Icons/GlyphIcon';
 
-import RightIcon from '../../Icons/RightIcon'
-import LeftIcon from '../../Icons/LeftIcon'
+import RightIcon from '../../Icons/RightIcon';
+import LeftIcon from '../../Icons/LeftIcon';
 
-import { MenuItem, IconLeft, IconRight } from './Style'
-import { Menu, Dropdown, Button } from './Style'
+import {MenuItem, IconLeft, IconRight} from './Style';
+import {Menu, Dropdown, Button} from './Style';
 
 const DropdownMenu = (props) => {
-  const [activeMenu, setActiveMenu] = useState('main')
-  const [menuHeight, setMenuHeight] = useState(null)
-  const dropdownRef = useRef(null)
+  const [activeMenu, setActiveMenu] = useState('main');
+  const [menuHeight, setMenuHeight] = useState(null);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
-    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight + 30)
-  }, [])
+    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight + 30);
+  }, []);
 
   const calcHeight = (el) => {
-    const height = el.offsetHeight
-    setMenuHeight(height + 30)
-  }
+    const height = el.offsetHeight;
+    setMenuHeight(height + 30);
+  };
 
   const DropdownItem = (props) => {
     return (
@@ -62,7 +62,9 @@ const DropdownMenu = (props) => {
         {props.url !== undefined ? (
           <Fragment>
             <Link legacyBehavior href={props.url}>
-              <MenuItem onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+              <MenuItem
+                onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
+              >
                 <IconLeft>{props.leftIcon}</IconLeft>
                 {props.children}
                 <IconRight>{props.rightIcon}</IconRight>
@@ -71,7 +73,9 @@ const DropdownMenu = (props) => {
           </Fragment>
         ) : (
           <Fragment>
-            <MenuItem onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+            <MenuItem
+              onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
+            >
               <IconLeft>{props.leftIcon}</IconLeft>
               {props.children}
               <IconRight>{props.rightIcon}</IconRight>
@@ -79,11 +83,11 @@ const DropdownMenu = (props) => {
           </Fragment>
         )}
       </Fragment>
-    )
-  }
+    );
+  };
 
   return (
-    <Dropdown style={{ height: menuHeight }} ref={dropdownRef}>
+    <Dropdown style={{height: menuHeight}} ref={dropdownRef}>
       <CSSTransition
         in={activeMenu === 'main'}
         timeout={500}
@@ -98,7 +102,10 @@ const DropdownMenu = (props) => {
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<WarframeIcon color="#ffffff" />} url="/warframe">
+            <DropdownItem
+              leftIcon={<WarframeIcon color="#ffffff" />}
+              url="/warframe"
+            >
               Warframe
             </DropdownItem>
           </Button>
@@ -130,17 +137,26 @@ const DropdownMenu = (props) => {
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<NecramechIcon color="#ffffff" />} url="/warframe/necramech">
+            <DropdownItem
+              leftIcon={<NecramechIcon color="#ffffff" />}
+              url="/warframe/necramech"
+            >
               Necramech
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<ModIcon color="#ffffff" />} url="/warframe/mod">
+            <DropdownItem
+              leftIcon={<ModIcon color="#ffffff" />}
+              url="/warframe/mod"
+            >
               Mod
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<ArcaneIcon color="#ffffff" />} url="/warframe/arcane">
+            <DropdownItem
+              leftIcon={<ArcaneIcon color="#ffffff" />}
+              url="/warframe/arcane"
+            >
               Arcane
             </DropdownItem>
           </Button>
@@ -155,12 +171,18 @@ const DropdownMenu = (props) => {
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<MiscellaneousIcon color="#ffffff" />} url="/miscellaneous">
+            <DropdownItem
+              leftIcon={<MiscellaneousIcon color="#ffffff" />}
+              url="/miscellaneous"
+            >
               Miscellaneous
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<ResourceIcon color="#ffffff" />} url="/resource">
+            <DropdownItem
+              leftIcon={<ResourceIcon color="#ffffff" />}
+              url="/resource"
+            >
               Resource
             </DropdownItem>
           </Button>
@@ -195,7 +217,10 @@ const DropdownMenu = (props) => {
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<PrimaryWeaponIcon color="#ffffff" />} url="/weapons/primary">
+            <DropdownItem
+              leftIcon={<PrimaryWeaponIcon color="#ffffff" />}
+              url="/weapons/primary"
+            >
               Primary Weapons
             </DropdownItem>
           </Button>
@@ -208,7 +233,10 @@ const DropdownMenu = (props) => {
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<MeleeWeaponIcon color="#ffffff" />} url="/weapons/melee">
+            <DropdownItem
+              leftIcon={<MeleeWeaponIcon color="#ffffff" />}
+              url="/weapons/melee"
+            >
               Melee Weapons
             </DropdownItem>
           </Button>
@@ -233,7 +261,10 @@ const DropdownMenu = (props) => {
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<ArchwingIcon color="#ffffff" />} url="/archwing/">
+            <DropdownItem
+              leftIcon={<ArchwingIcon color="#ffffff" />}
+              url="/archwing/"
+            >
               Archwing
             </DropdownItem>
           </Button>
@@ -303,12 +334,18 @@ const DropdownMenu = (props) => {
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<CompanionIcon color="#ffffff" />} url="/companion/pet">
+            <DropdownItem
+              leftIcon={<CompanionIcon color="#ffffff" />}
+              url="/companion/pet"
+            >
               Pet
             </DropdownItem>
           </Button>
           <Button onClick={() => props.handleOpen()}>
-            <DropdownItem leftIcon={<SentinelIcon color="#ffffff" />} url="/companion/sentinel">
+            <DropdownItem
+              leftIcon={<SentinelIcon color="#ffffff" />}
+              url="/companion/sentinel"
+            >
               Sentinel
             </DropdownItem>
           </Button>
@@ -323,7 +360,7 @@ const DropdownMenu = (props) => {
         </Menu>
       </CSSTransition>
     </Dropdown>
-  )
-}
+  );
+};
 
-export default DropdownMenu
+export default DropdownMenu;

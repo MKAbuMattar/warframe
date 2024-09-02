@@ -1,13 +1,13 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import Fish from '../view/Fish/Fish'
+import Fish from '../view/Fish/Fish';
 
 const fish = () => {
   return (
     <Fragment>
       <Fish />
     </Fragment>
-  )
-}
+  );
+};
 
-export default fish
+export default fish;

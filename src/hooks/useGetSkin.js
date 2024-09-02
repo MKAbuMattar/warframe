@@ -1,29 +1,29 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import axios from 'axios'
+import axios from 'axios';
 
-import getURI from '../util/getURI'
+import getURI from '../util/getURI';
 
 class Skin {
   constructor(data) {
-    this.accuracy = data.accuracy
+    this.accuracy = data.accuracy;
   }
 }
 
 const useGetSkin = () => {
-  const url = getURI('Skins')
+  const url = getURI('Skins');
 
-  const [getSkinLoading, setLoading] = useState(true)
-  const [getSkinError, setError] = useState(false)
-  const [getSkin, setGetSkin] = useState([])
+  const [getSkinLoading, setLoading] = useState(true);
+  const [getSkinError, setError] = useState(false);
+  const [getSkin, setGetSkin] = useState([]);
 
-  let formatData = []
+  let formatData = [];
 
   useEffect(() => {
-    setLoading(true)
-    setError(false)
+    setLoading(true);
+    setError(false);
 
-    let cansle
+    let cansle;
 
     axios({
       method: 'GET',
@@ -32,27 +32,28 @@ const useGetSkin = () => {
     })
       .then((res) => {
         res.data.forEach((result) => {
-          if (!result.name.toLowerCase().includes('/'.toLowerCase())) formatData.push(result)
-        })
+          if (!result.name.toLowerCase().includes('/'.toLowerCase()))
+            formatData.push(result);
+        });
 
         setGetSkin(
           [...new Set(formatData)].reduce((unique, o) => {
             if (!unique.some((obj) => obj.name === o.name)) {
-              unique.push(o)
+              unique.push(o);
             }
-            return unique
+            return unique;
           }, []),
-        )
-        setLoading(false)
+        );
+        setLoading(false);
       })
       .catch((e) => {
-        if (axios.isCancel(e)) return
-        setError(true)
-      })
-    return () => cansle()
-  }, [])
+        if (axios.isCancel(e)) return;
+        setError(true);
+      });
+    return () => cansle();
+  }, []);
 
-  return { getSkin, getSkinLoading, getSkinError }
-}
+  return {getSkin, getSkinLoading, getSkinError};
+};
 
-export default useGetSkin
+export default useGetSkin;

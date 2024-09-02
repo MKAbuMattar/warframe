@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
-import { PrimaryWeaponsPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
+import {PrimaryWeaponsPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Primary from '../../view/Primary/Primary'
+import Primary from '../../view/Primary/Primary';
 
 const primary = () => {
   return (
@@ -14,7 +14,7 @@ const primary = () => {
       />
       <Primary />
     </Fragment>
-  )
-}
+  );
+};
 
-export default primary
+export default primary;

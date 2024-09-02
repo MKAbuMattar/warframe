@@ -1,17 +1,20 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator'
-import { GearPage } from '../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
+import {GearPage} from '../util/MeatDecoratorList/MeatDecoratorList';
 
-import Gear from '../view/Gear/Gear'
+import Gear from '../view/Gear/Gear';
 
 const gear = () => {
   return (
     <Fragment>
-      <MeatDecorator title={GearPage.title} description={GearPage.description} />
+      <MeatDecorator
+        title={GearPage.title}
+        description={GearPage.description}
+      />
       <Gear />
     </Fragment>
-  )
-}
+  );
+};
 
-export default gear
+export default gear;

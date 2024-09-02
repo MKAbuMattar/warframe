@@ -1,37 +1,38 @@
-import { Fragment, useState } from 'react'
+import {Fragment, useState} from 'react';
+import Link from 'next/link';
+import Modal from 'react-modal';
+import {Capitalize} from '../../util/Capitalize/Capitalize';
+import XIcon from '../../Icons/XIcon';
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
+import DamageIcons from '../DamageIcons/DamageIcons';
+import {
+  ModalBtnContainer,
+  ModalBtn,
+  ModalInfoContainer,
+  ModalInfoImg,
+} from '../../style/Style';
+import {
+  ModalInfoTite,
+  ModalInfoSubtite,
+  ModalInfoAttackSubtite,
+} from '../../style/Style';
+import {generateUniqueKey} from '../../util/generateUniqueKey/index';
 
-import Link from 'next/link'
+const MeleeCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-import Modal from 'react-modal'
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
 
-import { Capitalize } from '../../util/Capitalize/Capitalize'
-
-import XIcon from '../../Icons/XIcon'
-
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-
-import DamageIcons from '../DamageIcons/DamageIcons'
-
-import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
-import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
-
-import { generateUniqueKey } from '../../util/generateUniqueKey/index'
-
-const MeleeCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
-
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -88,7 +89,7 @@ const MeleeCard = ({ result, idx }) => {
 
               {result.attacks !== undefined &&
                 result.attacks.map((element, idx) => (
-                  <Fragment>
+                  <Fragment key={generateUniqueKey(idx)}>
                     <div key={generateUniqueKey(idx)}>
                       {result.attacks.length > 1 && (
                         <ModalInfoAttackSubtite>
@@ -123,14 +124,19 @@ const MeleeCard = ({ result, idx }) => {
                       <ModalInfoSubtite>Damage</ModalInfoSubtite>
 
                       <ModalInfoSubtite>
-                        {Object.entries(element.damage).map(([key, value], idx) => (
-                          <Fragment>
-                            <ModalInfoSubtite key={generateUniqueKey(idx)}>
-                              <DamageIcons damage={key} key={generateUniqueKey(idx)} />{' '}
-                              {Capitalize(key)}: <span>{value}</span>
-                            </ModalInfoSubtite>
-                          </Fragment>
-                        ))}
+                        {Object.entries(element.damage).map(
+                          ([key, value], idx) => (
+                            <Fragment key={generateUniqueKey(idx)}>
+                              <ModalInfoSubtite key={generateUniqueKey(idx)}>
+                                <DamageIcons
+                                  damage={key}
+                                  key={generateUniqueKey(idx)}
+                                />{' '}
+                                {Capitalize(key)}: <span>{value}</span>
+                              </ModalInfoSubtite>
+                            </Fragment>
+                          ),
+                        )}
                       </ModalInfoSubtite>
 
                       {element.slam !== undefined && (
@@ -140,11 +146,13 @@ const MeleeCard = ({ result, idx }) => {
                           </ModalInfoSubtite>
 
                           <ModalInfoSubtite>
-                            Radial Damage: <span>{element.slam.radial.damage}</span>
+                            Radial Damage:{' '}
+                            <span>{element.slam.radial.damage}</span>
                           </ModalInfoSubtite>
 
                           <ModalInfoSubtite>
-                            Slam Radius : <span>{element.slam.radial.radius}m</span>
+                            Slam Radius :{' '}
+                            <span>{element.slam.radial.radius}m</span>
                           </ModalInfoSubtite>
                         </Fragment>
                       )}
@@ -185,7 +193,8 @@ const MeleeCard = ({ result, idx }) => {
               {result.vaultDate === 'n/a' && (
                 <Fragment>
                   <ModalInfoSubtite>
-                    Estimated Vault Date: <span>{result.estimatedVaultDate}</span>
+                    Estimated Vault Date:{' '}
+                    <span>{result.estimatedVaultDate}</span>
                   </ModalInfoSubtite>
                 </Fragment>
               )}
@@ -197,7 +206,8 @@ const MeleeCard = ({ result, idx }) => {
                     Introduced:{' '}
                     <Link legacyBehavior href={result.introduced.url}>
                       <a target="__blank">
-                        {result.introduced.name} / Date: {result.introduced.date}
+                        {result.introduced.name} / Date:{' '}
+                        {result.introduced.date}
                       </a>
                     </Link>
                   </ModalInfoSubtite>
@@ -216,7 +226,7 @@ const MeleeCard = ({ result, idx }) => {
         {/* {console.log(result)} */}
       </Card>
     </Fragment>
-  )
-}
+  );
+};
 
-export default MeleeCard
+export default MeleeCard;

@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import ResourceCard from '../../components/ResourceCard/ResourceCard'
+import ResourceCard from '../../components/ResourceCard/ResourceCard';
 
-import useGetResource from '../../hooks/useGetResource'
+import useGetResource from '../../hooks/useGetResource';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import ResourceIcon from '../../Icons/ResourceIcon'
+import ResourceIcon from '../../Icons/ResourceIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Resource = () => {
-  const { getResource, getResourceLoading, getResourceError } = useGetResource()
+  const {getResource, getResourceLoading, getResourceError} = useGetResource();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getResourceLoading) {
-      setItems(getResource)
+      setItems(getResource);
     }
-  }, [getResourceLoading])
+  }, [getResourceLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getResource.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getResource)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getResource);
+        setItems(updatedList);
       }
     },
     [getResourceLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,7 +46,11 @@ const Resource = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
@@ -91,7 +95,7 @@ const Resource = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Resource
+export default Resource;

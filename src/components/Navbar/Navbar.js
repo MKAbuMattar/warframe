@@ -1,42 +1,46 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from 'next/link';
+import {useState} from 'react';
 
-import Nav from './Nav'
-import NavItem from './NavItem'
-import DropdownMenu from './DropdownMenu'
+import Nav from './Nav';
+import NavItem from './NavItem';
+import DropdownMenu from './DropdownMenu';
 
-import InstallPWA from '../../util/useInstallPWA/useInstallPWA'
+import InstallPWA from '../../util/useInstallPWA/useInstallPWA';
 
-import LogoIcon from '../../Icons/LogoIcon'
-import WarframeLogoIcon from '../../Icons/WarframeLogoIcon'
+import LogoIcon from '../../Icons/LogoIcon';
+import WarframeLogoIcon from '../../Icons/WarframeLogoIcon';
 
-import { LogoLink, RightSide } from './Style'
+import {LogoLink, RightSide} from './Style';
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
 
   return (
     <Nav>
       <Link legacyBehavior href="/">
         <LogoLink>
-          <i style={{ display: 'flex' }}>
+          <i style={{display: 'flex'}}>
             <LogoIcon size="35" />
           </i>
           Warframe Info.
         </LogoLink>
       </Link>
       <RightSide>
-        <NavItem icon={<WarframeLogoIcon color="#ffffff" />} open={open} handleOpen={handleOpen}>
+        <NavItem
+          icon={<WarframeLogoIcon color="#ffffff" />}
+          open={open}
+          handleOpen={handleOpen}
+        >
           <DropdownMenu handleOpen={handleOpen} />
         </NavItem>
         <InstallPWA initSupportsPWA={false} initPromptInstall={null} />
       </RightSide>
     </Nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

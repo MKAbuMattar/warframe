@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import MeleeCard from '../../components/MeleeCard/MeleeCard'
+import MeleeCard from '../../components/MeleeCard/MeleeCard';
 
-import useGetMelee from '../../hooks/useGetMelee'
+import useGetMelee from '../../hooks/useGetMelee';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import MeleeWeaponIcon from '../../Icons/MeleeWeaponIcon'
+import MeleeWeaponIcon from '../../Icons/MeleeWeaponIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Melee = () => {
-  const { getMelee, getMeleeLoading, getMeleeError } = useGetMelee()
+  const {getMelee, getMeleeLoading, getMeleeError} = useGetMelee();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getMeleeLoading) {
-      setItems(getMelee)
+      setItems(getMelee);
     }
-  }, [getMeleeLoading])
+  }, [getMeleeLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getMelee.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getMelee)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getMelee);
+        setItems(updatedList);
       }
     },
     [getMeleeLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,7 +46,11 @@ const Melee = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
@@ -91,7 +95,7 @@ const Melee = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Melee
+export default Melee;

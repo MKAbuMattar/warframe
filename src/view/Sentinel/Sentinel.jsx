@@ -1,39 +1,39 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import useGetSentinel from '../../hooks/useGetSentinel'
+import useGetSentinel from '../../hooks/useGetSentinel';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import SentinelIcon from '../../Icons/SentinelIcon'
+import SentinelIcon from '../../Icons/SentinelIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
-import SentinelCard from '../../components/SentinelCard/SentinelCard'
+import {Cards} from '../../style/Style';
+import SentinelCard from '../../components/SentinelCard/SentinelCard';
 
 const Sentinel = () => {
-  const { getSentinel, getSentinelLoading, getSentinelError } = useGetSentinel()
+  const {getSentinel, getSentinelLoading, getSentinelError} = useGetSentinel();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getSentinelLoading) {
-      setItems(getSentinel)
+      setItems(getSentinel);
     }
-  }, [getSentinelLoading])
+  }, [getSentinelLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getSentinel.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getSentinel)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getSentinel);
+        setItems(updatedList);
       }
     },
     [getSentinelLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -45,13 +45,18 @@ const Sentinel = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinels: {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinels:{' '}
+                  {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -59,7 +64,8 @@ const Sentinel = () => {
             {items.length == 1 && (
               <Fragment>
                 <PageCounter>
-                  <SentinelIcon color="#dddddd" size="50" /> Sentinel: {items.length}
+                  <SentinelIcon color="#dddddd" size="50" /> Sentinel:{' '}
+                  {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -87,7 +93,7 @@ const Sentinel = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Sentinel
+export default Sentinel;

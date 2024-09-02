@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
-import { CompanionPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
+import {CompanionPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Pet from '../../view/Pet/Pet'
+import Pet from '../../view/Pet/Pet';
 
 const pet = () => {
   return (
@@ -14,7 +14,7 @@ const pet = () => {
       />
       <Pet />
     </Fragment>
-  )
-}
+  );
+};
 
-export default pet
+export default pet;

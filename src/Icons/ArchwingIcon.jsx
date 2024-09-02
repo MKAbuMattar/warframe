@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const WeaponIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -69,17 +69,17 @@ const WeaponIcon = (props) => {
         d: 'M39.91,43.77,33.22,59.46l-1.33-.59c.39-6.06,5-10.23,7.06-15.53Z',
       }),
     ),
-  )
-}
+  );
+};
 
 WeaponIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 WeaponIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default WeaponIcon
+export default WeaponIcon;

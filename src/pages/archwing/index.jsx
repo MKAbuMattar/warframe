@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
-import { ArchwingPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
+import {ArchwingPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Archwing from '../../view/Archwing/Archwing'
+import Archwing from '../../view/Archwing/Archwing';
 
 const archwing = () => {
   return (
@@ -14,7 +14,7 @@ const archwing = () => {
       />
       <Archwing />
     </Fragment>
-  )
-}
+  );
+};
 
-export default archwing
+export default archwing;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const FooterSection = styled.footer`
   text-align: center;
@@ -13,4 +13,4 @@ export const FooterSection = styled.footer`
       color: rgb(213, 33, 40, 1);
     }
   }
-`
+`;

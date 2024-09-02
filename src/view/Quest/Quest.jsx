@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import QuestCard from '../../components/QuestCard/QuestCard'
+import QuestCard from '../../components/QuestCard/QuestCard';
 
-import useGetQuest from '../../hooks/useGetQuest'
+import useGetQuest from '../../hooks/useGetQuest';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import QuestIcon from '../../Icons/QuestIcon'
+import QuestIcon from '../../Icons/QuestIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Quest = () => {
-  const { getQuest, getQuestLoading, getQuestError } = useGetQuest()
+  const {getQuest, getQuestLoading, getQuestError} = useGetQuest();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getQuestLoading) {
-      setItems(getQuest)
+      setItems(getQuest);
     }
-  }, [getQuestLoading])
+  }, [getQuestLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getQuest.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getQuest)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getQuest);
+        setItems(updatedList);
       }
     },
     [getQuestLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,7 +46,11 @@ const Quest = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
@@ -82,7 +86,7 @@ const Quest = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Quest
+export default Quest;

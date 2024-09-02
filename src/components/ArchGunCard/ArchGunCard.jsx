@@ -1,37 +1,36 @@
-import { Fragment, useState } from 'react'
+import {Fragment, useState} from 'react';
+import Link from 'next/link';
+import Modal from 'react-modal';
+import {Capitalize} from '../../util/Capitalize/Capitalize';
+import XIcon from '../../Icons/XIcon';
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
+import DamageIcons from '../DamageIcons/DamageIcons';
+import {
+  ModalBtnContainer,
+  ModalBtn,
+  ModalInfoContainer,
+  ModalInfoImg,
+  ModalInfoTite,
+  ModalInfoSubtite,
+  ModalInfoAttackSubtite,
+} from '../../style/Style';
+import {generateUniqueKey} from '../../util/generateUniqueKey/index';
 
-import Link from 'next/link'
+const ArchGunCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-import Modal from 'react-modal'
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
 
-import { Capitalize } from '../../util/Capitalize/Capitalize'
-
-import XIcon from '../../Icons/XIcon'
-
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-
-import DamageIcons from '../DamageIcons/DamageIcons'
-
-import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
-import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
-
-import { generateUniqueKey } from '../../util/generateUniqueKey/index'
-
-const ArchGunCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
-
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -94,7 +93,7 @@ const ArchGunCard = ({ result, idx }) => {
               {result.attacks && (
                 <Fragment>
                   {result.attacks.map((element, idx) => (
-                    <Fragment>
+                    <Fragment key={generateUniqueKey(idx)}>
                       <div key={generateUniqueKey(idx)}>
                         {result.attacks.length > 1 && (
                           <ModalInfoAttackSubtite>
@@ -119,7 +118,9 @@ const ArchGunCard = ({ result, idx }) => {
                           Magazine:{' '}
                           <span>
                             {result.magazineSize}
-                            {result.ammo > 0 && <Fragment> / {result.ammo}</Fragment>}
+                            {result.ammo > 0 && (
+                              <Fragment> / {result.ammo}</Fragment>
+                            )}
                           </span>
                         </ModalInfoSubtite>
                         <ModalInfoSubtite>
@@ -139,13 +140,16 @@ const ArchGunCard = ({ result, idx }) => {
                         </ModalInfoSubtite>
                         <ModalInfoSubtite>Damage</ModalInfoSubtite>
                         <ModalInfoSubtite>
-                          {Object.entries(element.damage).map(([key, value], idx) => (
-                            <Fragment>
-                              <ModalInfoSubtite key={generateUniqueKey(idx)}>
-                                <DamageIcons damage={key} /> {Capitalize(key)}: <span>{value}</span>
-                              </ModalInfoSubtite>
-                            </Fragment>
-                          ))}
+                          {Object.entries(element.damage).map(
+                            ([key, value], idx) => (
+                              <Fragment key={generateUniqueKey(idx)}>
+                                <ModalInfoSubtite key={generateUniqueKey(idx)}>
+                                  <DamageIcons damage={key} /> {Capitalize(key)}
+                                  : <span>{value}</span>
+                                </ModalInfoSubtite>
+                              </Fragment>
+                            ),
+                          )}
                         </ModalInfoSubtite>
                         <ModalInfoSubtite>
                           Trigger: <span>{result.trigger}</span>
@@ -176,7 +180,8 @@ const ArchGunCard = ({ result, idx }) => {
               {result.vaultDate === 'n/a' && (
                 <Fragment>
                   <ModalInfoSubtite>
-                    Estimated Vault Date: <span>{result.estimatedVaultDate}</span>
+                    Estimated Vault Date:{' '}
+                    <span>{result.estimatedVaultDate}</span>
                   </ModalInfoSubtite>
                 </Fragment>
               )}
@@ -205,7 +210,7 @@ const ArchGunCard = ({ result, idx }) => {
       </Card>
       {/* {console.log(result)} */}
     </Fragment>
-  )
-}
+  );
+};
 
-export default ArchGunCard
+export default ArchGunCard;

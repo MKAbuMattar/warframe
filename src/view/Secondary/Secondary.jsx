@@ -1,40 +1,41 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import SecondaryCard from '../../components/SecondaryCard/SecondaryCard'
+import SecondaryCard from '../../components/SecondaryCard/SecondaryCard';
 
-import useGetSecondary from '../../hooks/useGetSecondary'
+import useGetSecondary from '../../hooks/useGetSecondary';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import SecondaryWeaponIcon from '../../Icons/SecondaryWeaponIcon'
+import SecondaryWeaponIcon from '../../Icons/SecondaryWeaponIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Secondary = () => {
-  const { getSecondary, getSecondaryLoading, getSecondaryError } = useGetSecondary()
+  const {getSecondary, getSecondaryLoading, getSecondaryError} =
+    useGetSecondary();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getSecondaryLoading) {
-      setItems(getSecondary)
+      setItems(getSecondary);
     }
-  }, [getSecondaryLoading])
+  }, [getSecondaryLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getSecondary.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getSecondary)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getSecondary);
+        setItems(updatedList);
       }
     },
     [getSecondaryLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,14 +47,18 @@ const Secondary = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
               <Fragment>
                 <PageCounter>
-                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary Weapons:{' '}
-                  {items.length}
+                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary
+                  Weapons: {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -61,7 +66,8 @@ const Secondary = () => {
             {items.length == 1 && (
               <Fragment>
                 <PageCounter>
-                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary Weapon: {items.length}
+                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary
+                  Weapon: {items.length}
                 </PageCounter>
               </Fragment>
             )}
@@ -69,7 +75,8 @@ const Secondary = () => {
             {items.length == 0 && (
               <Fragment>
                 <PageCounter>
-                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary Weapon: None
+                  <SecondaryWeaponIcon color="#dddddd" size="50" /> Secondary
+                  Weapon: None
                 </PageCounter>
               </Fragment>
             )}
@@ -77,7 +84,7 @@ const Secondary = () => {
               {items.length > 0 ? (
                 <Fragment>
                   {items.map((result, idx) => (
-                    <Fragment>
+                    <Fragment key={idx}>
                       <SecondaryCard result={result} key={idx} idx={idx} />
                     </Fragment>
                   ))}
@@ -90,7 +97,7 @@ const Secondary = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Secondary
+export default Secondary;

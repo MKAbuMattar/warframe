@@ -1,40 +1,33 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
-
-import Navbar from '../Navbar/Navbar'
-
-import useGetSkin from '../../hooks/useGetSkin'
-
-import Loader from '../../util/Loader/Loader'
-
-import FilterIt from '../../util/FilterIt/FilterIt'
-
-import { SearchSection, SearchInput } from '../../style/Style'
-
-import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import {Fragment, useState, useEffect, useCallback} from 'react';
+import useGetSkin from '../../hooks/useGetSkin';
+import Loader from '../../util/Loader/Loader';
+import FilterIt from '../../util/FilterIt/FilterIt';
+import {SearchSection, SearchInput} from '../../style/Style';
+import {Cards, Card, CardImg, CardTite, CardBtn} from '../../style/Style';
 
 const Skin = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-  const { getSkin, getSkinLoading, getSkinError } = useGetSkin()
+  const {getSkin, getSkinLoading, getSkinError} = useGetSkin();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getSkinLoading) {
-      setItems(getSkin)
+      setItems(getSkin);
     }
-  }, [getSkinLoading])
+  }, [getSkinLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getSkin.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getSkin)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getSkin);
+        setItems(updatedList);
       }
     },
     [getSkinLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -72,7 +65,7 @@ const Skin = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Skin
+export default Skin;

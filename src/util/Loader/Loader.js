@@ -1,6 +1,6 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import { LoaderWrapper, LoaderSides, LoaderCenter } from './Style'
+import {LoaderWrapper, LoaderSides, LoaderCenter} from './Style';
 
 const Loader = () => {
   return (
@@ -10,7 +10,7 @@ const Loader = () => {
         <LoaderCenter />
       </LoaderWrapper>
     </Fragment>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

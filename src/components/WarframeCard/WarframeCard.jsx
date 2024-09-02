@@ -1,14 +1,9 @@
-import { Fragment, useState } from 'react'
-
-import Link from 'next/link'
-
-import Modal from 'react-modal'
-
-import XIcon from '../../Icons/XIcon'
-import AbilitieIcons from '../AbilitieIcons/AbilitieIcons'
-
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-
+import {Fragment, useState} from 'react';
+import Link from 'next/link';
+import Modal from 'react-modal';
+import XIcon from '../../Icons/XIcon';
+import AbilitieIcons from '../AbilitieIcons/AbilitieIcons';
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
 import {
   ModalBtnContainer,
   ModalBtn,
@@ -16,25 +11,28 @@ import {
   ModalInfoImg,
   ModalInfoAbilities,
   ModalInfoAbilitie,
-} from '../../style/Style'
+} from '../../style/Style';
+import {
+  ModalInfoSubtiteAbilitie,
+  ModalInfoTite,
+  ModalInfoSubtite,
+} from '../../style/Style';
 
-import { ModalInfoSubtiteAbilitie, ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
+const WarframeCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-const WarframeCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
 
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
-
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -131,7 +129,9 @@ const WarframeCard = ({ result, idx }) => {
                   Polarities:{' '}
                   <span>
                     {result.polarities &&
-                      result.polarities.map((result, idx) => <i key={idx}>{result} </i>)}{' '}
+                      result.polarities.map((result, idx) => (
+                        <i key={idx}>{result} </i>
+                      ))}{' '}
                   </span>
                 </ModalInfoSubtite>
               )}
@@ -182,7 +182,8 @@ const WarframeCard = ({ result, idx }) => {
               {result.vaultDate === 'n/a' && (
                 <Fragment>
                   <ModalInfoSubtite>
-                    Estimated Vault Date: <span>{result.estimatedVaultDate}</span>
+                    Estimated Vault Date:{' '}
+                    <span>{result.estimatedVaultDate}</span>
                   </ModalInfoSubtite>
                 </Fragment>
               )}
@@ -194,7 +195,8 @@ const WarframeCard = ({ result, idx }) => {
                       Introduced:{' '}
                       <Link legacyBehavior href={result.introduced.url}>
                         <a target="__blank">
-                          {result.introduced.name} / Date: {result.introduced.date}
+                          {result.introduced.name} / Date:{' '}
+                          {result.introduced.date}
                         </a>
                       </Link>
                     </Fragment>
@@ -214,7 +216,7 @@ const WarframeCard = ({ result, idx }) => {
         </Modal>
       </Card>
     </Fragment>
-  )
-}
+  );
+};
 
-export default WarframeCard
+export default WarframeCard;

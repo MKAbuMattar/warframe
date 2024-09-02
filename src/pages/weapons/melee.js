@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
-import { MeleeWeaponsPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
+import {MeleeWeaponsPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Melee from '../../view/Melee/Melee'
+import Melee from '../../view/Melee/Melee';
 
 const melee = () => {
   return (
@@ -14,7 +14,7 @@ const melee = () => {
       />
       <Melee />
     </Fragment>
-  )
-}
+  );
+};
 
-export default melee
+export default melee;

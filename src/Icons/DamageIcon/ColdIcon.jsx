@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const ColdIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -24,17 +24,17 @@ const ColdIcon = (props) => {
         d: 'M39.28,38.51c-2.57,1.52-4,3-5.31,3-1.06-.06-2.83-2.07-2.79-3.16s1.88-3.07,2.93-3.07C35.45,35.23,36.78,36.82,39.28,38.51Z',
       }),
     ),
-  )
-}
+  );
+};
 
 ColdIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 ColdIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default ColdIcon
+export default ColdIcon;

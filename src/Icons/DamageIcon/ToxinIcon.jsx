@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const ToxinIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -33,17 +33,17 @@ const ToxinIcon = (props) => {
         d: 'M65.49,14.71C61.63,16.25,59.15,13,60,10.54,61,7.35,64.59,5,67.07,2.26c2.55,2.78,7.05,5.5,7.15,8.37C74.35,14.38,69.74,15.56,65.49,14.71Z',
       }),
     ),
-  )
-}
+  );
+};
 
 ToxinIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 ToxinIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default ToxinIcon
+export default ToxinIcon;

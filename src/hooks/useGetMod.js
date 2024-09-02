@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import axios from 'axios'
+import axios from 'axios';
 
-import Mod from '../models/Mod.model'
+import Mod from '../models/Mod.model';
 
-import getURI from '../util/getURI'
+import getURI from '../util/getURI';
 
 const useGetMod = () => {
-  const url = getURI('Mods')
+  const url = getURI('Mods');
 
-  const [getModLoading, setLoading] = useState(true)
-  const [getModError, setError] = useState(false)
-  const [getMod, setGetMod] = useState([])
+  const [getModLoading, setLoading] = useState(true);
+  const [getModError, setError] = useState(false);
+  const [getMod, setGetMod] = useState([]);
 
-  let formatData = []
+  let formatData = [];
 
   useEffect(() => {
-    setLoading(true)
-    setError(false)
+    setLoading(true);
+    setError(false);
 
-    let cansle
+    let cansle;
 
     axios({
       method: 'GET',
@@ -29,27 +29,27 @@ const useGetMod = () => {
       .then((res) => {
         res.data.forEach((result) => {
           if (result.name.toLowerCase() !== 'Do Not Use'.toLowerCase())
-            formatData.push(new Mod(result))
-        })
+            formatData.push(new Mod(result));
+        });
 
         setGetMod(
           [...new Set(formatData)].reduce((unique, o) => {
             if (!unique.some((obj) => obj.name === o.name)) {
-              unique.push(o)
+              unique.push(o);
             }
-            return unique
+            return unique;
           }, []),
-        )
-        setLoading(false)
+        );
+        setLoading(false);
       })
       .catch((e) => {
-        if (axios.isCancel(e)) return
-        setError(true)
-      })
-    return () => cansle()
-  }, [])
+        if (axios.isCancel(e)) return;
+        setError(true);
+      });
+    return () => cansle();
+  }, []);
 
-  return { getMod, getModLoading, getModError }
-}
+  return {getMod, getModLoading, getModError};
+};
 
-export default useGetMod
+export default useGetMod;

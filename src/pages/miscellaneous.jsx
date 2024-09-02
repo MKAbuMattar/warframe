@@ -1,17 +1,20 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator'
-import { MiscellaneousPage } from '../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
+import {MiscellaneousPage} from '../util/MeatDecoratorList/MeatDecoratorList';
 
-import Miscellaneous from '../view/Miscellaneous/Miscellaneous'
+import Miscellaneous from '../view/Miscellaneous/Miscellaneous';
 
 const index = () => {
   return (
     <Fragment>
-      <MeatDecorator title={MiscellaneousPage.title} description={MiscellaneousPage.description} />
+      <MeatDecorator
+        title={MiscellaneousPage.title}
+        description={MiscellaneousPage.description}
+      />
       <Miscellaneous />
     </Fragment>
-  )
-}
+  );
+};
 
-export default index
+export default index;

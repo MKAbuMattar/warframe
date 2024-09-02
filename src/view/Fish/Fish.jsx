@@ -1,38 +1,38 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import useGetFish from '../../hooks/useGetFish'
+import useGetFish from '../../hooks/useGetFish';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import { SearchSection, SearchInput } from '../../style/Style'
+import {SearchSection, SearchInput} from '../../style/Style';
 
-import { Cards, Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import {Cards, Card, CardImg, CardTite, CardBtn} from '../../style/Style';
 
 const Fish = () => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-  const { getFish, getFishLoading, getFishError } = useGetFish()
+  const {getFish, getFishLoading, getFishError} = useGetFish();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getFishLoading) {
-      setItems(getFish)
+      setItems(getFish);
     }
-  }, [getFishLoading])
+  }, [getFishLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getFish.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getFish)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getFish);
+        setItems(updatedList);
       }
     },
     [getFishLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -70,7 +70,7 @@ const Fish = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Fish
+export default Fish;
