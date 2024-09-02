@@ -1,5 +1,8 @@
 const winston = require('winston');
-const {NODE_ENV} = require('../../config/env.config.mjs');
+
+const {NEXT_PUBLIC_NODE_ENV} = process.env;
+
+const NODE_ENV = NEXT_PUBLIC_NODE_ENV;
 
 const levels = {
   error: 0,
