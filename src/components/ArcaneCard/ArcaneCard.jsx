@@ -17,7 +17,7 @@ import {
 } from '../../style/Style'
 import { ModalInfoSubtiteAbilitie, ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
 
-import { generateUniqueKey } from '../../util/generateUniqueKey/index.js'
+import { generateUniqueKey } from '../../util/generateUniqueKey/index'
 
 const ArcaneCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL

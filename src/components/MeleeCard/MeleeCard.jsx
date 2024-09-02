@@ -15,9 +15,9 @@ import DamageIcons from '../DamageIcons/DamageIcons'
 import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
 import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
 
-import { generateUniqueKey } from '../../util/generateUniqueKey/index.js'
+import { generateUniqueKey } from '../../util/generateUniqueKey/index'
 
-const ArchMeleeCard = ({ result, idx }) => {
+const MeleeCard = ({ result, idx }) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
 
   const myLoader = ({ src, width, quality }) =>
@@ -160,6 +160,10 @@ const ArchMeleeCard = ({ result, idx }) => {
                       <ModalInfoSubtite>
                         Total Damage: <span>{result.totalDamage}</span>
                       </ModalInfoSubtite>
+
+                      <ModalInfoSubtite>
+                        Wind-up : <span>{result.windUp}s</span>
+                      </ModalInfoSubtite>
                     </div>
                   </Fragment>
                 ))}
@@ -215,4 +219,4 @@ const ArchMeleeCard = ({ result, idx }) => {
   )
 }
 
-export default ArchMeleeCard
+export default MeleeCard
