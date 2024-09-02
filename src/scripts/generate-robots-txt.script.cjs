@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Logger = require('../util/Logger');
 
-const {NODE_ENV, HOST} = require('../config/env.config.js');
+const {NODE_ENV, HOST} = require('../config/env.config.mjs');
 
 const crawlableRobotsTxt = `Sitemap: ${HOST}/api/sitemap.xml
 

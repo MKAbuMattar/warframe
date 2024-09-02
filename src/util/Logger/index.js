@@ -1,5 +1,5 @@
 const winston = require('winston');
-const {NODE_ENV} = require('../../config/env.config');
+const {NODE_ENV} = require('../../config/env.config.mjs');
 
 const levels = {
   error: 0,
