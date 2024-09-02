@@ -1,35 +1,46 @@
-import { Fragment, useState } from 'react'
+import {Fragment, useState} from 'react';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
-import Modal from 'react-modal'
+import Modal from 'react-modal';
 
-import { Capitalize } from '../../util/Capitalize/Capitalize'
+import {Capitalize} from '../../util/Capitalize/Capitalize';
 
-import XIcon from '../../Icons/XIcon'
+import XIcon from '../../Icons/XIcon';
 
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
 
-import DamageIcons from '../DamageIcons/DamageIcons'
+import DamageIcons from '../DamageIcons/DamageIcons';
 
-import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
-import { ModalInfoTite, ModalInfoSubtite, ModalInfoAttackSubtite } from '../../style/Style'
+import {
+  ModalBtnContainer,
+  ModalBtn,
+  ModalInfoContainer,
+  ModalInfoImg,
+} from '../../style/Style';
+import {
+  ModalInfoTite,
+  ModalInfoSubtite,
+  ModalInfoAttackSubtite,
+} from '../../style/Style';
 
-const SecondaryCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+import {generateUniqueKey} from '../../util/generateUniqueKey/index';
 
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+const SecondaryCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
+
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -83,7 +94,7 @@ const SecondaryCard = ({ result, idx }) => {
                 Weapon Description: <span>{result.description}</span>
               </ModalInfoSubtite>
               {result?.attacks?.map((element, idx) => (
-                <Fragment>
+                <Fragment key={generateUniqueKey(idx)}>
                   <div key={idx}>
                     {result.attacks.length > 1 && (
                       <ModalInfoAttackSubtite>
@@ -108,7 +119,9 @@ const SecondaryCard = ({ result, idx }) => {
                       Magazine:{' '}
                       <span>
                         {result.magazineSize}
-                        {result.ammo > 0 && <Fragment> / {result.ammo}</Fragment>}
+                        {result.ammo > 0 && (
+                          <Fragment> / {result.ammo}</Fragment>
+                        )}
                       </span>
                     </ModalInfoSubtite>
                     <ModalInfoSubtite>
@@ -128,13 +141,16 @@ const SecondaryCard = ({ result, idx }) => {
                     </ModalInfoSubtite>
                     <ModalInfoSubtite>Damage</ModalInfoSubtite>
                     <ModalInfoSubtite>
-                      {Object.entries(element.damage).map(([key, value], idx) => (
-                        <Fragment>
-                          <ModalInfoSubtite key={idx}>
-                            <DamageIcons damage={key} /> {Capitalize(key)}: <span>{value}</span>
-                          </ModalInfoSubtite>
-                        </Fragment>
-                      ))}
+                      {Object.entries(element.damage).map(
+                        ([key, value], idx) => (
+                          <Fragment key={generateUniqueKey(idx)}>
+                            <ModalInfoSubtite key={idx}>
+                              <DamageIcons damage={key} /> {Capitalize(key)}:{' '}
+                              <span>{value}</span>
+                            </ModalInfoSubtite>
+                          </Fragment>
+                        ),
+                      )}
                     </ModalInfoSubtite>
                     <ModalInfoSubtite>
                       Trigger: <span>{result.trigger}</span>
@@ -160,7 +176,8 @@ const SecondaryCard = ({ result, idx }) => {
               {result.vaultDate === 'n/a' && (
                 <Fragment>
                   <ModalInfoSubtite>
-                    Estimated Vault Date: <span>{result.estimatedVaultDate}</span>
+                    Estimated Vault Date:{' '}
+                    <span>{result.estimatedVaultDate}</span>
                   </ModalInfoSubtite>
                 </Fragment>
               )}
@@ -189,7 +206,7 @@ const SecondaryCard = ({ result, idx }) => {
       </Card>
       {/* {console.log(result)} */}
     </Fragment>
-  )
-}
+  );
+};
 
-export default SecondaryCard
+export default SecondaryCard;

@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator'
-import { ArchGunPage } from '../../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator';
+import {ArchGunPage} from '../../../util/MeatDecoratorList/MeatDecoratorList';
 
-import ArchGun from '../../../view/ArchGun/ArchGun'
+import ArchGun from '../../../view/ArchGun/ArchGun';
 
 const archGun = () => {
   return (
@@ -14,7 +14,7 @@ const archGun = () => {
       />
       <ArchGun />
     </Fragment>
-  )
-}
+  );
+};
 
-export default archGun
+export default archGun;

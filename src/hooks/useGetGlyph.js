@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import axios from 'axios'
+import axios from 'axios';
 
-import Glyph from '../models/Glyph.model'
+import Glyph from '../models/Glyph.model';
 
-import getURI from '../util/getURI'
+import getURI from '../util/getURI';
 
 const useGetGlyph = () => {
-  const url = getURI('Glyphs')
+  const url = getURI('Glyphs');
 
-  const [getGlyphLoading, setLoading] = useState(true)
-  const [getGlyphError, setError] = useState(false)
-  const [getGlyph, setGetGlyph] = useState([])
+  const [getGlyphLoading, setLoading] = useState(true);
+  const [getGlyphError, setError] = useState(false);
+  const [getGlyph, setGetGlyph] = useState([]);
 
-  let formatData = []
+  let formatData = [];
 
   useEffect(() => {
-    setLoading(true)
-    setError(false)
+    setLoading(true);
+    setError(false);
 
-    let cansle
+    let cansle;
 
     axios({
       method: 'GET',
@@ -30,27 +30,27 @@ const useGetGlyph = () => {
         res.data.forEach((result) => {
           if (!result.name.toLowerCase().includes('[hc]'.toLowerCase()))
             if (!result.name.toLowerCase().includes('[Ph]'.toLowerCase()))
-              formatData.push(new Glyph(result))
-        })
+              formatData.push(new Glyph(result));
+        });
 
         setGetGlyph(
           [...new Set(formatData)].reduce((unique, o) => {
             if (!unique.some((obj) => obj.name === o.name)) {
-              unique.push(o)
+              unique.push(o);
             }
-            return unique
+            return unique;
           }, []),
-        )
-        setLoading(false)
+        );
+        setLoading(false);
       })
       .catch((e) => {
-        if (axios.isCancel(e)) return
-        setError(true)
-      })
-    return () => cansle()
-  }, [])
+        if (axios.isCancel(e)) return;
+        setError(true);
+      });
+    return () => cansle();
+  }, []);
 
-  return { getGlyph, getGlyphLoading, getGlyphError }
-}
+  return {getGlyph, getGlyphLoading, getGlyphError};
+};
 
-export default useGetGlyph
+export default useGetGlyph;

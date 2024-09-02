@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const ViralIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -24,17 +24,17 @@ const ViralIcon = (props) => {
         d: 'M23.53,0c5.18.24,7.62,4.22,6.13,7.82A29.15,29.15,0,0,1,16.33,22.5c-1.54.85-2,3.55-3.57,4.42-2.75,1.55-5.92,2.37-8.92,3.5.91-3.07-4.08-.8-3.83-5.24.53-9.32.21-10.17,8.74-14,2.12-1,3.28-3.86,5.29-5.3C17.39,3.43,21.06,1.49,23.53,0Z',
       }),
     ),
-  )
-}
+  );
+};
 
 ViralIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 ViralIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default ViralIcon
+export default ViralIcon;

@@ -1,40 +1,41 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import NecramechCard from '../../components/NecramechCard/NecramechCard'
+import NecramechCard from '../../components/NecramechCard/NecramechCard';
 
-import useGetNecramech from '../../hooks/useGetNecramech'
+import useGetNecramech from '../../hooks/useGetNecramech';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import NecramechIcon from '../../Icons/NecramechIcon'
+import NecramechIcon from '../../Icons/NecramechIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Necramech = () => {
-  const { getNecramech, getNecramechLoading, getNecramechError } = useGetNecramech()
+  const {getNecramech, getNecramechLoading, getNecramechError} =
+    useGetNecramech();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getNecramechLoading) {
-      setItems(getNecramech)
+      setItems(getNecramech);
     }
-  }, [getNecramechLoading])
+  }, [getNecramechLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getNecramech.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getNecramech)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getNecramech);
+        setItems(updatedList);
       }
     },
     [getNecramechLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,7 +47,11 @@ const Necramech = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
@@ -82,7 +87,7 @@ const Necramech = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Necramech
+export default Necramech;

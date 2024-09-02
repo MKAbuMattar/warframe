@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const MagneticIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -33,17 +33,17 @@ const MagneticIcon = (props) => {
         d: 'M66.15,43.91l8.41,2.81-6.48,2.72c.07.53.14,1.07.2,1.61l-8-3.08,5.64-2.79Z',
       }),
     ),
-  )
-}
+  );
+};
 
 MagneticIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 MagneticIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default MagneticIcon
+export default MagneticIcon;

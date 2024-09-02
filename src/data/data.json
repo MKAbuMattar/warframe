@@ -1,10 +1,10 @@
 [
   {
-    "title":"UPDATE 36.1.0: THE LOTUS EATERS",
+    "title": "UPDATE 36.1.0: THE LOTUS EATERS",
     "data": ["Sevagoth Prime", "Epitaph Prime", "Nautilus Prime"]
   },
   {
-    "title":"Update 36.0.6 - Tennocon!",
+    "title": "Update 36.0.6 - Tennocon!",
     "data": ["Ax-52", "Akmagnus Prime"]
   },
   {
@@ -29,7 +29,13 @@
   },
   {
     "title": "UPDATE 34: ABYSS OF DAGATH + GRENDEL PRIME!",
-    "data": ["DAGATH", "DORRCLAVE", "GRENDEL PRIME", "ZYLOK PRIME", "MASSETER PRIME"]
+    "data": [
+      "DAGATH",
+      "DORRCLAVE",
+      "GRENDEL PRIME",
+      "ZYLOK PRIME",
+      "MASSETER PRIME"
+    ]
   },
   {
     "title": "UPDATE 33.6: ECHOES OF DUVIRI",
@@ -92,7 +98,15 @@
   },
   {
     "title": "UPDATE 31.5: ANGELS OF THE ZARIMAN",
-    "data": ["Gyre", "Alternox", "Aeolak", "Phenmor", "Laetum", "Hespar", "Praedos"]
+    "data": [
+      "Gyre",
+      "Alternox",
+      "Aeolak",
+      "Phenmor",
+      "Laetum",
+      "Hespar",
+      "Praedos"
+    ]
   },
   {
     "title": "UPDATE 31.3: GARUDA PRIME",

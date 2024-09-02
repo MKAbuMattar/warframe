@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator'
-import { SentinelWeaponPage } from '../../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator';
+import {SentinelWeaponPage} from '../../../util/MeatDecoratorList/MeatDecoratorList';
 
-import SentinelWeapon from '../../../view/SentinelWeapon/SentinelWeapon'
+import SentinelWeapon from '../../../view/SentinelWeapon/SentinelWeapon';
 
 const sentinelWeapon = () => {
   return (
@@ -14,7 +14,7 @@ const sentinelWeapon = () => {
       />
       <SentinelWeapon />
     </Fragment>
-  )
-}
+  );
+};
 
-export default sentinelWeapon
+export default sentinelWeapon;

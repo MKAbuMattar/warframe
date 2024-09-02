@@ -1,5 +1,4 @@
-import { Fragment } from 'react'
-
+import {Fragment} from 'react';
 import {
   BlastIcon,
   ColdIcon,
@@ -14,9 +13,9 @@ import {
   SlashIcon,
   ToxinIcon,
   ViralIcon,
-} from '../../Icons/DamageIcon'
+} from '../../Icons/DamageIcon';
 
-const DamageIcons = ({ damage }) => {
+const DamageIcons = ({damage}) => {
   return (
     <Fragment>
       {damage.toLowerCase() === 'Blast'.toLowerCase() && (
@@ -59,7 +58,7 @@ const DamageIcons = ({ damage }) => {
         <ViralIcon color="#ffffff" size="15" />
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default DamageIcons
+export default DamageIcons;

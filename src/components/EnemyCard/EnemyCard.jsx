@@ -1,38 +1,38 @@
-import { Fragment, useState } from 'react'
-
-import Modal from 'react-modal'
-
-import XIcon from '../../Icons/XIcon'
-
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
-
-import DamageIcons from '../DamageIcons/DamageIcons'
-
-import { ModalBtnContainer, ModalBtn, ModalInfoContainer, ModalInfoImg } from '../../style/Style'
-
+import {Fragment, useState} from 'react';
+import Modal from 'react-modal';
+import XIcon from '../../Icons/XIcon';
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
+import DamageIcons from '../DamageIcons/DamageIcons';
+import {generateUniqueKey} from '../../util/generateUniqueKey/index';
+import {
+  ModalBtnContainer,
+  ModalBtn,
+  ModalInfoContainer,
+  ModalInfoImg,
+} from '../../style/Style';
 import {
   ModalInfoTite,
   ModalInfoSubtite,
   ModalInfoSubtiteAbilitie,
   ModalInfoAbilities,
   ModalInfoAbilitie,
-} from '../../style/Style'
+} from '../../style/Style';
 
-const EnemyCard = ({ result, idx }) => {
-  const IMG_URL = process.env.NEXT_PUBLIC_IMG_URL
+const EnemyCard = ({result, idx}) => {
+  const IMG_URL = process.env.NEXT_PUBLIC_IMG_URL;
 
-  const myLoader = ({ src, width, quality }) =>
-    `${IMG_URL}/warframe/enemy/${src}?w=${width}&q=${quality || 75}`
+  const myLoader = ({src, width, quality}) =>
+    `${IMG_URL}/warframe/enemy/${src}?w=${width}&q=${quality || 75}`;
 
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -71,11 +71,12 @@ const EnemyCard = ({ result, idx }) => {
 
               <ModalInfoTite>{result.name}</ModalInfoTite>
 
-              {result.description !== undefined && result.description !== '' && (
-                <ModalInfoSubtite>
-                  Description: <span>{result.description}</span>
-                </ModalInfoSubtite>
-              )}
+              {result.description !== undefined &&
+                result.description !== '' && (
+                  <ModalInfoSubtite>
+                    Description: <span>{result.description}</span>
+                  </ModalInfoSubtite>
+                )}
 
               {result.type !== undefined && (
                 <ModalInfoSubtite>
@@ -109,15 +110,18 @@ const EnemyCard = ({ result, idx }) => {
 
               {result.resistances !== undefined && (
                 <Fragment>
-                  <ModalInfoSubtiteAbilitie>Resistances</ModalInfoSubtiteAbilitie>
+                  <ModalInfoSubtiteAbilitie>
+                    Resistances
+                  </ModalInfoSubtiteAbilitie>
                   <ModalInfoAbilities>
                     {result.resistances.map((element, idx) => (
                       <ModalInfoAbilitie key={idx}>
                         <ModalInfoSubtite>{element.type}</ModalInfoSubtite>
                         {element.affectors.map((affector, idx) => (
-                          <Fragment>
+                          <Fragment key={generateUniqueKey(idx)}>
                             <ModalInfoSubtite key={idx}>
-                              <DamageIcons damage={affector.element} /> {affector.element}
+                              <DamageIcons damage={affector.element} />{' '}
+                              {affector.element}
                               {': '}
                               <span>{affector.modifier}</span>
                             </ModalInfoSubtite>
@@ -140,7 +144,9 @@ const EnemyCard = ({ result, idx }) => {
                           element.chance !== null &&
                           element.type !== undefined && (
                             <Fragment>
-                              <ModalInfoSubtite>{element.location}</ModalInfoSubtite>
+                              <ModalInfoSubtite>
+                                {element.location}
+                              </ModalInfoSubtite>
 
                               {element.rarity !== undefined && (
                                 <ModalInfoSubtite>
@@ -148,11 +154,14 @@ const EnemyCard = ({ result, idx }) => {
                                 </ModalInfoSubtite>
                               )}
 
-                              {element.chance !== undefined && element.chance !== null && (
-                                <ModalInfoSubtite>
-                                  <span>Drop Chance: {element.chance.toFixed(2)}</span>
-                                </ModalInfoSubtite>
-                              )}
+                              {element.chance !== undefined &&
+                                element.chance !== null && (
+                                  <ModalInfoSubtite>
+                                    <span>
+                                      Drop Chance: {element.chance.toFixed(2)}
+                                    </span>
+                                  </ModalInfoSubtite>
+                                )}
 
                               {element.type !== undefined && (
                                 <ModalInfoSubtite>
@@ -172,7 +181,7 @@ const EnemyCard = ({ result, idx }) => {
       </Card>
       {/* {console.log(result)} */}
     </Fragment>
-  )
-}
+  );
+};
 
-export default EnemyCard
+export default EnemyCard;

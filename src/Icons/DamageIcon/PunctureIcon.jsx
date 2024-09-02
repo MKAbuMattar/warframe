@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const PunctureIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -27,17 +27,17 @@ const PunctureIcon = (props) => {
         d: 'M45.5,50.09,57.83,66.55l-1.11.93L43.32,52C44,51.33,44.77,50.71,45.5,50.09Z',
       }),
     ),
-  )
-}
+  );
+};
 
 PunctureIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 PunctureIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default PunctureIcon
+export default PunctureIcon;

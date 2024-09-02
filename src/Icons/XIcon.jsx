@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const XIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -34,17 +34,17 @@ const XIcon = (props) => {
         y2: '18',
       }),
     ),
-  )
-}
+  );
+};
 
 XIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 XIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default XIcon
+export default XIcon;

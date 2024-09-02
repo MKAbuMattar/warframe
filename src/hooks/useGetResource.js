@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import axios from 'axios'
+import axios from 'axios';
 
-import Resource from '../models/Resource.model'
+import Resource from '../models/Resource.model';
 
-import getURI from '../util/getURI'
+import getURI from '../util/getURI';
 
 const useGetResource = () => {
-  const url = getURI('Resources')
+  const url = getURI('Resources');
 
-  const [getResourceLoading, setLoading] = useState(true)
-  const [getResourceError, setError] = useState(false)
-  const [getResource, setGetResource] = useState([])
+  const [getResourceLoading, setLoading] = useState(true);
+  const [getResourceError, setError] = useState(false);
+  const [getResource, setGetResource] = useState([]);
 
-  let formatData = []
+  let formatData = [];
 
   useEffect(() => {
-    setLoading(true)
-    setError(false)
+    setLoading(true);
+    setError(false);
 
-    let cansle
+    let cansle;
 
     axios({
       method: 'GET',
@@ -31,28 +31,32 @@ const useGetResource = () => {
           if (!result.name.toLowerCase().includes('[Ph]'.toLowerCase()))
             if (!result.name.toLowerCase().includes('[hc]'.toLowerCase()))
               if (!result.name.toLowerCase().includes('/'.toLowerCase()))
-                if (!result.name.toLowerCase().includes('Entratifragmentbase'.toLowerCase()))
-                  formatData.push(new Resource(result))
-        })
+                if (
+                  !result.name
+                    .toLowerCase()
+                    .includes('Entratifragmentbase'.toLowerCase())
+                )
+                  formatData.push(new Resource(result));
+        });
 
         setGetResource(
           [...new Set(formatData)].reduce((unique, o) => {
             if (!unique.some((obj) => obj.name === o.name)) {
-              unique.push(o)
+              unique.push(o);
             }
-            return unique
+            return unique;
           }, []),
-        )
-        setLoading(false)
+        );
+        setLoading(false);
       })
       .catch((e) => {
-        if (axios.isCancel(e)) return
-        setError(true)
-      })
-    return () => cansle()
-  }, [])
+        if (axios.isCancel(e)) return;
+        setError(true);
+      });
+    return () => cansle();
+  }, []);
 
-  return { getResource, getResourceLoading, getResourceError }
-}
+  return {getResource, getResourceLoading, getResourceError};
+};
 
-export default useGetResource
+export default useGetResource;

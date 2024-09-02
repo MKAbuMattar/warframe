@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const IconBtn = styled.button`
   --button-size: calc(var(--nav-size) * 0.5);
@@ -24,4 +24,4 @@ export const IconBtn = styled.button`
     width: 20px;
     height: 20px;
   }
-`
+`;

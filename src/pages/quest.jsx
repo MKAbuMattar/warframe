@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator'
-import { QuestPage } from '../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
+import {QuestPage} from '../util/MeatDecoratorList/MeatDecoratorList';
 
-import Quest from '../view/Quest/Quest'
+import Quest from '../view/Quest/Quest';
 
 const quest = () => {
   return (
@@ -14,7 +14,7 @@ const quest = () => {
       />
       <Quest />
     </Fragment>
-  )
-}
+  );
+};
 
-export default quest
+export default quest;

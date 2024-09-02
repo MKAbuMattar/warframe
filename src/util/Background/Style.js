@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const PopupWrapper = styled.div`
   background-color: rgb(33, 33, 33);
@@ -9,7 +9,7 @@ export const PopupWrapper = styled.div`
   display: flex;
   position: fixed;
   z-index: -1;
-`
+`;
 
 export const Icon = styled.svg`
   height: 100vh;
@@ -35,4 +35,4 @@ export const Icon = styled.svg`
       }
     }
   }
-`
+`;

@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
-import { ArcanePage } from '../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
+import {ArcanePage} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Arcane from '../../view/Arcane/Arcane'
+import Arcane from '../../view/Arcane/Arcane';
 
 const arcane = () => {
   return (
@@ -14,7 +14,7 @@ const arcane = () => {
       />
       <Arcane />
     </Fragment>
-  )
-}
+  );
+};
 
-export default arcane
+export default arcane;

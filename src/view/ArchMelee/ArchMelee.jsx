@@ -1,39 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import useGetArchMelee from '../../hooks/useGetArchMelee'
+import useGetArchMelee from '../../hooks/useGetArchMelee';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import ArchMeleeWeaponIcon from '../../Icons/ArchMeleeWeaponIcon'
+import ArchMeleeWeaponIcon from '../../Icons/ArchMeleeWeaponIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
-import ArchMeleeCard from '../../components/ArchMeleeCard/ArchMeleeCard'
+import {Cards} from '../../style/Style';
+import ArchMeleeCard from '../../components/ArchMeleeCard/ArchMeleeCard';
 
 const ArchMelee = () => {
-  const { getArchMelee, getArchMeleeLoading, getArchMeleeError } = useGetArchMelee()
+  const {getArchMelee, getArchMeleeLoading, getArchMeleeError} =
+    useGetArchMelee();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getArchMeleeLoading) {
-      setItems(getArchMelee)
+      setItems(getArchMelee);
     }
-  }, [getArchMeleeLoading])
+  }, [getArchMeleeLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getArchMelee.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getArchMelee)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getArchMelee);
+        setItems(updatedList);
       }
     },
     [getArchMeleeLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -45,7 +46,11 @@ const ArchMelee = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
@@ -90,7 +95,7 @@ const ArchMelee = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default ArchMelee
+export default ArchMelee;

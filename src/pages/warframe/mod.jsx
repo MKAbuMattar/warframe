@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator'
-import { ModPage } from '../../util/MeatDecoratorList/MeatDecoratorList'
+import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
+import {ModPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Mod from '../../view/Mod/Mod'
+import Mod from '../../view/Mod/Mod';
 
 const mod = () => {
   return (
@@ -11,7 +11,7 @@ const mod = () => {
       <MeatDecorator title={ModPage.title} description={ModPage.description} />
       <Mod />
     </Fragment>
-  )
-}
+  );
+};
 
-export default mod
+export default mod;

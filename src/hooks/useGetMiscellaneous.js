@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import axios from 'axios'
+import axios from 'axios';
 
-import Miscellaneous from '../models/Miscellaneous.model'
+import Miscellaneous from '../models/Miscellaneous.model';
 
-import getURI from '../util/getURI'
+import getURI from '../util/getURI';
 
 const useGetMiscellaneous = () => {
-  const url = getURI('Misc')
+  const url = getURI('Misc');
 
-  const [getMiscellaneousLoading, setLoading] = useState(true)
-  const [getMiscellaneousError, setError] = useState(false)
-  const [getMiscellaneous, setGetMiscellaneous] = useState([])
+  const [getMiscellaneousLoading, setLoading] = useState(true);
+  const [getMiscellaneousError, setError] = useState(false);
+  const [getMiscellaneous, setGetMiscellaneous] = useState([]);
 
-  let formatData = []
+  let formatData = [];
 
   useEffect(() => {
-    setLoading(true)
-    setError(false)
+    setLoading(true);
+    setError(false);
 
-    let cansle
+    let cansle;
 
     axios({
       method: 'GET',
@@ -35,25 +35,47 @@ const useGetMiscellaneous = () => {
                   if (
                     !result.name
                       .toLowerCase()
-                      .includes('Evergreenloginrewardfusionbundle'.toLowerCase())
+                      .includes(
+                        'Evergreenloginrewardfusionbundle'.toLowerCase(),
+                      )
                   )
                     if (result.name.toLowerCase() !== 'Kuva'.toLowerCase())
-                      if (!result.name.toLowerCase().includes('Legendarymodfuser'.toLowerCase()))
+                      if (
+                        !result.name
+                          .toLowerCase()
+                          .includes('Legendarymodfuser'.toLowerCase())
+                      )
                         if (
-                          !result.name.toLowerCase().includes('Libraryscannerupgrade'.toLowerCase())
+                          !result.name
+                            .toLowerCase()
+                            .includes('Libraryscannerupgrade'.toLowerCase())
                         )
                           if (
                             !result.name
                               .toLowerCase()
                               .includes('Loginrewardfusionbundle'.toLowerCase())
                           )
-                            if (!result.name.toLowerCase().includes('Lotus'.toLowerCase()))
-                              if (!result.name.toLowerCase().includes('Markettier'.toLowerCase()))
-                                if (!result.name.toLowerCase().includes('Mpvsinglep'.toLowerCase()))
+                            if (
+                              !result.name
+                                .toLowerCase()
+                                .includes('Lotus'.toLowerCase())
+                            )
+                              if (
+                                !result.name
+                                  .toLowerCase()
+                                  .includes('Markettier'.toLowerCase())
+                              )
+                                if (
+                                  !result.name
+                                    .toLowerCase()
+                                    .includes('Mpvsinglep'.toLowerCase())
+                                )
                                   if (
                                     !result.name
                                       .toLowerCase()
-                                      .includes('Mpvdualpackfusionbundle'.toLowerCase())
+                                      .includes(
+                                        'Mpvdualpackfusionbundle'.toLowerCase(),
+                                      )
                                   )
                                     if (
                                       !result.name
@@ -68,22 +90,30 @@ const useGetMiscellaneous = () => {
                                         if (
                                           !result.name
                                             .toLowerCase()
-                                            .includes('Nightwatchfusionbundle'.toLowerCase())
+                                            .includes(
+                                              'Nightwatchfusionbundle'.toLowerCase(),
+                                            )
                                         )
                                           if (
                                             !result.name
                                               .toLowerCase()
-                                              .includes('Orokincatalystblueprint'.toLowerCase())
+                                              .includes(
+                                                'Orokincatalystblueprint'.toLowerCase(),
+                                              )
                                           )
                                             if (
                                               !result.name
                                                 .toLowerCase()
-                                                .includes('Orokinreactorblueprint'.toLowerCase())
+                                                .includes(
+                                                  'Orokinreactorblueprint'.toLowerCase(),
+                                                )
                                             )
                                               if (
                                                 !result.name
                                                   .toLowerCase()
-                                                  .includes('Photoboothtile'.toLowerCase())
+                                                  .includes(
+                                                    'Photoboothtile'.toLowerCase(),
+                                                  )
                                               )
                                                 if (
                                                   !result.name
@@ -95,12 +125,16 @@ const useGetMiscellaneous = () => {
                                                   if (
                                                     !result.name
                                                       .toLowerCase()
-                                                      .includes('Purgatory'.toLowerCase())
+                                                      .includes(
+                                                        'Purgatory'.toLowerCase(),
+                                                      )
                                                   )
                                                     if (
                                                       !result.name
                                                         .toLowerCase()
-                                                        .includes('Rarefusionbundle'.toLowerCase())
+                                                        .includes(
+                                                          'Rarefusionbundle'.toLowerCase(),
+                                                        )
                                                     )
                                                       if (
                                                         !result.name
@@ -112,12 +146,16 @@ const useGetMiscellaneous = () => {
                                                         if (
                                                           !result.name
                                                             .toLowerCase()
-                                                            .includes('Dogtag'.toLowerCase())
+                                                            .includes(
+                                                              'Dogtag'.toLowerCase(),
+                                                            )
                                                         )
                                                           if (
                                                             !result.name
                                                               .toLowerCase()
-                                                              .includes('Axi Relic'.toLowerCase())
+                                                              .includes(
+                                                                'Axi Relic'.toLowerCase(),
+                                                              )
                                                           )
                                                             if (
                                                               !result.name
@@ -134,28 +172,30 @@ const useGetMiscellaneous = () => {
                                                                   )
                                                               )
                                                                 formatData.push(
-                                                                  new Miscellaneous(result),
-                                                                )
-        })
+                                                                  new Miscellaneous(
+                                                                    result,
+                                                                  ),
+                                                                );
+        });
 
         setGetMiscellaneous(
           [...new Set(formatData)].reduce((unique, o) => {
             if (!unique.some((obj) => obj.name === o.name)) {
-              unique.push(o)
+              unique.push(o);
             }
-            return unique
+            return unique;
           }, []),
-        )
-        setLoading(false)
+        );
+        setLoading(false);
       })
       .catch((e) => {
-        if (axios.isCancel(e)) return
-        setError(true)
-      })
-    return () => cansle()
-  }, [])
+        if (axios.isCancel(e)) return;
+        setError(true);
+      });
+    return () => cansle();
+  }, []);
 
-  return { getMiscellaneous, getMiscellaneousLoading, getMiscellaneousError }
-}
+  return {getMiscellaneous, getMiscellaneousLoading, getMiscellaneousError};
+};
 
-export default useGetMiscellaneous
+export default useGetMiscellaneous;

@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const GasIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -27,17 +27,17 @@ const GasIcon = (props) => {
         d: 'M67.39,46.47l3.11-3c-1.37,4.15-2.31,7-3.39,10.24-4.21-4.56-3-17,1.43-21.8,3.32,2.92,2.88,3.42,0,6.35-1.72,1.78-1.9,5.06-2.77,7.67Z',
       }),
     ),
-  )
-}
+  );
+};
 
 GasIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 GasIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default GasIcon
+export default GasIcon;

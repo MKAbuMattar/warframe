@@ -1,6 +1,6 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, {createGlobalStyle} from 'styled-components';
 
-import Image from 'next/image'
+import Image from 'next/image';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -308,12 +308,12 @@ a {
   border-radius: 0.5rem;
 }
 
-`
+`;
 
 export const SearchSection = styled.div`
   text-align: center;
   padding: 4em 2em;
-`
+`;
 
 export const SearchInput = styled.input`
   font-size: 18px;
@@ -343,7 +343,7 @@ export const SearchInput = styled.input`
   @media only screen and (max-width: 512px) {
     max-width: 240px;
   }
-`
+`;
 
 export const PageCounter = styled.h3`
   display: flex;
@@ -358,7 +358,7 @@ export const PageCounter = styled.h3`
   @media only screen and (max-width: 900px) {
     font-size: 1.5rem;
   }
-`
+`;
 
 export const Cards = styled.div`
   display: flex;
@@ -366,7 +366,7 @@ export const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-`
+`;
 
 export const Card = styled.div`
   background: rgba(0, 0, 0, 0.4);
@@ -386,20 +386,20 @@ export const Card = styled.div`
     top: 4px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-`
+`;
 
 export const CardImg = styled(Image)`
   width: 12rem;
   height: 12rem;
   background-size: cover;
   background-position: center center;
-`
+`;
 
 export const CardTite = styled.h3`
   padding: 20px;
   text-align: center;
   font-size: 1.5rem;
-`
+`;
 
 export const CardBtn = styled.button`
   width: 8rem;
@@ -417,7 +417,7 @@ export const CardBtn = styled.button`
     border-color: rgb(213, 33, 40, 1);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-`
+`;
 
 export const ModalBtnContainer = styled.div`
   display: flex;
@@ -425,7 +425,7 @@ export const ModalBtnContainer = styled.div`
   position: sticky;
   left: 0;
   top: 0;
-`
+`;
 
 export const ModalBtn = styled.button`
   width: 3rem;
@@ -441,7 +441,7 @@ export const ModalBtn = styled.button`
   place-content: center;
   place-items: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-`
+`;
 
 export const ModalInfoContainer = styled.div`
   width: 100%;
@@ -449,14 +449,14 @@ export const ModalInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const ModalInfoImg = styled.img`
   @media only screen and (max-width: 600px) {
     width: inherit;
     /* height: inherit; */
   }
-`
+`;
 
 export const ModalInfoAbilities = styled.div`
   display: flex;
@@ -465,7 +465,7 @@ export const ModalInfoAbilities = styled.div`
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const ModalInfoAbilitie = styled.div`
   display: flex;
@@ -476,18 +476,18 @@ export const ModalInfoAbilitie = styled.div`
   @media only screen and (max-width: 600px) {
     width: 80%;
   }
-`
+`;
 
 export const ModalInfoTite = styled.h3`
   padding: 1.42rem;
   text-align: center;
   font-size: 2.5rem;
-`
+`;
 
 export const ModalInfoSubtiteAbilitie = styled.p`
   font-weight: bold;
   font-size: 1.7rem;
-`
+`;
 
 export const ModalInfoSubtite = styled.p`
   padding: 0.5rem;
@@ -507,7 +507,7 @@ export const ModalInfoSubtite = styled.p`
       color: rgb(213, 33, 40, 1);
     }
   }
-`
+`;
 
 export const ModalInfoAttackSubtite = styled.h4`
   text-align: center;
@@ -521,4 +521,4 @@ export const ModalInfoAttackSubtite = styled.h4`
     padding-top: 12px;
     border-bottom: 3px solid rgb(213, 33, 40, 1);
   }
-`
+`;

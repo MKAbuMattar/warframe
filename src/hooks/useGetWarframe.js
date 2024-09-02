@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import axios from 'axios'
+import axios from 'axios';
 
-import Warframe from '../models/Warframe.model'
+import Warframe from '../models/Warframe.model';
 
-import getURI from '../util/getURI'
+import getURI from '../util/getURI';
 
 const useGetWarframe = () => {
-  const url = getURI('Warframes')
+  const url = getURI('Warframes');
 
-  const [getWarframeLoading, setLoading] = useState(true)
-  const [getWarframeError, setError] = useState(false)
-  const [getWarframe, setGetWarframe] = useState([])
+  const [getWarframeLoading, setLoading] = useState(true);
+  const [getWarframeError, setError] = useState(false);
+  const [getWarframe, setGetWarframe] = useState([]);
 
-  let formatData = []
+  let formatData = [];
 
   useEffect(() => {
-    setLoading(true)
-    setError(false)
+    setLoading(true);
+    setError(false);
 
-    let cansle
+    let cansle;
 
     axios({
       method: 'GET',
@@ -29,21 +29,21 @@ const useGetWarframe = () => {
       .then((res) => {
         res.data.forEach((result) => {
           if (result.stamina <= 5) {
-            formatData.push(new Warframe(result))
+            formatData.push(new Warframe(result));
           }
-        })
-        let uniq = [...new Set(formatData)]
-        setGetWarframe(uniq)
-        setLoading(false)
+        });
+        let uniq = [...new Set(formatData)];
+        setGetWarframe(uniq);
+        setLoading(false);
       })
       .catch((e) => {
-        if (axios.isCancel(e)) return
-        setError(true)
-      })
-    return () => cansle()
-  }, [])
+        if (axios.isCancel(e)) return;
+        setError(true);
+      });
+    return () => cansle();
+  }, []);
 
-  return { getWarframe, getWarframeLoading, getWarframeError }
-}
+  return {getWarframe, getWarframeLoading, getWarframeError};
+};
 
-export default useGetWarframe
+export default useGetWarframe;

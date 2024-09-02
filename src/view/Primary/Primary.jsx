@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import PrimaryCard from '../../components/PrimaryCard/PrimaryCard'
+import PrimaryCard from '../../components/PrimaryCard/PrimaryCard';
 
-import useGetPrimary from '../../hooks/useGetPrimary'
+import useGetPrimary from '../../hooks/useGetPrimary';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import PrimaryWeaponIcon from '../../Icons/PrimaryWeaponIcon'
+import PrimaryWeaponIcon from '../../Icons/PrimaryWeaponIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Primary = () => {
-  const { getPrimary, getPrimaryLoading, getPrimaryError } = useGetPrimary()
+  const {getPrimary, getPrimaryLoading, getPrimaryError} = useGetPrimary();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getPrimaryLoading) {
-      setItems(getPrimary)
+      setItems(getPrimary);
     }
-  }, [getPrimaryLoading])
+  }, [getPrimaryLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getPrimary.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getPrimary)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getPrimary);
+        setItems(updatedList);
       }
     },
     [getPrimaryLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,7 +46,11 @@ const Primary = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
@@ -90,7 +94,7 @@ const Primary = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Primary
+export default Primary;

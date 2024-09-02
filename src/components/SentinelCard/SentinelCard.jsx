@@ -1,35 +1,35 @@
-import { Fragment, useState } from 'react'
+import {Fragment, useState} from 'react';
 
-import Modal from 'react-modal'
+import Modal from 'react-modal';
 
-import XIcon from '../../Icons/XIcon'
+import XIcon from '../../Icons/XIcon';
 
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
 
 import {
   ModalBtnContainer,
   ModalBtn,
   ModalInfoContainer,
   ModalInfoImg,
-} from '../../style/Style'
+} from '../../style/Style';
 
-import { ModalInfoTite, ModalInfoSubtite } from '../../style/Style'
+import {ModalInfoTite, ModalInfoSubtite} from '../../style/Style';
 
-const SentinelCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+const SentinelCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
 
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -73,11 +73,12 @@ const SentinelCard = ({ result, idx }) => {
                 </span>
               </ModalInfoSubtite>
 
-              {result.description !== undefined && result.description !== '' && (
-                <ModalInfoSubtite>
-                  Description: <span>{result.description}</span>
-                </ModalInfoSubtite>
-              )}
+              {result.description !== undefined &&
+                result.description !== '' && (
+                  <ModalInfoSubtite>
+                    Description: <span>{result.description}</span>
+                  </ModalInfoSubtite>
+                )}
               {result.health !== undefined && (
                 <ModalInfoSubtite>
                   Health:{' '}
@@ -132,7 +133,7 @@ const SentinelCard = ({ result, idx }) => {
       </Card>
       {/* {console.log(result)} */}
     </Fragment>
-  )
-}
+  );
+};
 
-export default SentinelCard
+export default SentinelCard;

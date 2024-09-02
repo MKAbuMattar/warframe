@@ -1,40 +1,40 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import {Fragment, useState, useEffect, useCallback} from 'react';
 
-import GearCard from '../../components/GearCard/GearCard'
+import GearCard from '../../components/GearCard/GearCard';
 
-import useGetGear from '../../hooks/useGetGear'
+import useGetGear from '../../hooks/useGetGear';
 
-import Loader from '../../util/Loader/Loader'
+import Loader from '../../util/Loader/Loader';
 
-import FilterIt from '../../util/FilterIt/FilterIt'
+import FilterIt from '../../util/FilterIt/FilterIt';
 
-import GearIcon from '../../Icons/GearIcon'
+import GearIcon from '../../Icons/GearIcon';
 
-import { SearchSection, SearchInput, PageCounter } from '../../style/Style'
+import {SearchSection, SearchInput, PageCounter} from '../../style/Style';
 
-import { Cards } from '../../style/Style'
+import {Cards} from '../../style/Style';
 
 const Gear = () => {
-  const { getGear, getGearLoading, getGearError } = useGetGear()
+  const {getGear, getGearLoading, getGearError} = useGetGear();
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     if (!getGearLoading) {
-      setItems(getGear)
+      setItems(getGear);
     }
-  }, [getGearLoading])
+  }, [getGearLoading]);
 
   const filterList = useCallback(
-    ({ target }) => {
+    ({target}) => {
       if (getGear.length > 0) {
-        const searchQuery = target.value.toLowerCase()
-        const updatedList = FilterIt(searchQuery, getGear)
-        setItems(updatedList)
+        const searchQuery = target.value.toLowerCase();
+        const updatedList = FilterIt(searchQuery, getGear);
+        setItems(updatedList);
       }
     },
     [getGearLoading],
-  )
+  );
 
   return (
     <Fragment>
@@ -46,7 +46,11 @@ const Gear = () => {
         <Fragment>
           <section className="container">
             <SearchSection id="search">
-              <SearchInput type="text" placeholder="Search" onChange={filterList} />
+              <SearchInput
+                type="text"
+                placeholder="Search"
+                onChange={filterList}
+              />
             </SearchSection>
 
             {items.length > 1 && (
@@ -82,7 +86,7 @@ const Gear = () => {
         </Fragment>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Gear
+export default Gear;

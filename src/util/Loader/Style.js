@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const LoaderWrapper = styled.div`
   background: rgb(255, 255, 255);
@@ -11,7 +11,7 @@ export const LoaderWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-`
+`;
 
 export const LoaderSides = styled.span`
   border: 6px solid rgb(255, 255, 255);
@@ -85,7 +85,7 @@ export const LoaderSides = styled.span`
       height: 52px;
     }
   }
-`
+`;
 export const LoaderCenter = styled.span`
   border: 6px solid rgb(255, 255, 255);
   display: inline-block;
@@ -129,4 +129,4 @@ export const LoaderCenter = styled.span`
       transform: rotate(360deg);
     }
   }
-`
+`;

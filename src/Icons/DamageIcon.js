@@ -1,13 +1,13 @@
-export { default as BlastIcon } from './DamageIcon/BlastIcon'
-export { default as ColdIcon } from './DamageIcon/ColdIcon'
-export { default as CorrosiveIcon } from './DamageIcon/CorrosiveIcon'
-export { default as ElectrcityIcon } from './DamageIcon/ElectrcityIcon'
-export { default as GasIcon } from './DamageIcon/GasIcon'
-export { default as HeatIcon } from './DamageIcon/HeatIcon'
-export { default as ImpactIcon } from './DamageIcon/ImpactIcon'
-export { default as MagneticIcon } from './DamageIcon/MagneticIcon'
-export { default as PunctureIcon } from './DamageIcon/PunctureIcon'
-export { default as RadiationIcon } from './DamageIcon/RadiationIcon'
-export { default as SlashIcon } from './DamageIcon/SlashIcon'
-export { default as ToxinIcon } from './DamageIcon/ToxinIcon'
-export { default as ViralIcon } from './DamageIcon/ViralIcon'
+export {default as BlastIcon} from './DamageIcon/BlastIcon';
+export {default as ColdIcon} from './DamageIcon/ColdIcon';
+export {default as CorrosiveIcon} from './DamageIcon/CorrosiveIcon';
+export {default as ElectrcityIcon} from './DamageIcon/ElectrcityIcon';
+export {default as GasIcon} from './DamageIcon/GasIcon';
+export {default as HeatIcon} from './DamageIcon/HeatIcon';
+export {default as ImpactIcon} from './DamageIcon/ImpactIcon';
+export {default as MagneticIcon} from './DamageIcon/MagneticIcon';
+export {default as PunctureIcon} from './DamageIcon/PunctureIcon';
+export {default as RadiationIcon} from './DamageIcon/RadiationIcon';
+export {default as SlashIcon} from './DamageIcon/SlashIcon';
+export {default as ToxinIcon} from './DamageIcon/ToxinIcon';
+export {default as ViralIcon} from './DamageIcon/ViralIcon';

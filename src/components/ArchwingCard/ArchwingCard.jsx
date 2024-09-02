@@ -1,11 +1,8 @@
-import { Fragment, useState } from 'react'
-
-import Modal from 'react-modal'
-
-import XIcon from '../../Icons/XIcon'
-import AbilitieIcons from '../AbilitieIcons/AbilitieIcons'
-
-import { Card, CardImg, CardTite, CardBtn } from '../../style/Style'
+import {Fragment, useState} from 'react';
+import Modal from 'react-modal';
+import XIcon from '../../Icons/XIcon';
+import AbilitieIcons from '../AbilitieIcons/AbilitieIcons';
+import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
 import {
   ModalBtnContainer,
   ModalBtn,
@@ -13,29 +10,28 @@ import {
   ModalInfoImg,
   ModalInfoAbilities,
   ModalInfoAbilitie,
-} from '../../style/Style'
-
+} from '../../style/Style';
 import {
   ModalInfoSubtiteAbilitie,
   ModalInfoTite,
   ModalInfoSubtite,
-} from '../../style/Style'
+} from '../../style/Style';
 
-const ArchwingCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
+const ArchwingCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
 
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Fragment>
@@ -161,7 +157,7 @@ const ArchwingCard = ({ result, idx }) => {
       </Card>
       {/* {console.log(result)} */}
     </Fragment>
-  )
-}
+  );
+};
 
-export default ArchwingCard
+export default ArchwingCard;

@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const CorrosiveIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -27,17 +27,17 @@ const CorrosiveIcon = (props) => {
         d: 'M55.59,27a69.93,69.93,0,0,1,2.31,9.31c.14,1.26-1,3.14-2.18,3.94-.95.67-3.37.74-4,0a5.64,5.64,0,0,1-.88-4.41,82,82,0,0,1,2.94-8.72Z',
       }),
     ),
-  )
-}
+  );
+};
 
 CorrosiveIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 CorrosiveIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default CorrosiveIcon
+export default CorrosiveIcon;

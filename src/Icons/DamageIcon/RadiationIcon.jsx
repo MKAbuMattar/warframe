@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import {createElement} from 'react';
+import PropTypes from 'prop-types';
 
 const RadiationIcon = (props) => {
-  const { color, size, ...otherProps } = props
+  const {color, size, ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -30,17 +30,17 @@ const RadiationIcon = (props) => {
         d: 'M43.66,33.26a7.46,7.46,0,0,1-14.92-.44,7.46,7.46,0,0,1,14.92.44Z',
       }),
     ),
-  )
-}
+  );
+};
 
 RadiationIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 RadiationIcon.defaultProps = {
   color: '#1a1516',
   size: '24',
-}
+};
 
-export default RadiationIcon
+export default RadiationIcon;

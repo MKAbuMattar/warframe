@@ -1,14 +1,12 @@
-import { Fragment } from 'react'
+import {Fragment} from 'react';
+import {removeGlyph} from '../../util/Regex/Regex';
+import {Card, CardImg, CardTite} from '../../style/Style';
 
-import { removeGlyph } from '../../util/Regex/Regex'
+const GlyphCard = ({result, idx}) => {
+  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
-import { Card, CardImg, CardTite } from '../../style/Style'
-
-const GlyphCard = ({ result, idx }) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL
-
-  const myLoader = ({ src, width, quality }) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`
+  const myLoader = ({src, width, quality}) =>
+    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
 
   return (
     <Fragment>
@@ -25,7 +23,7 @@ const GlyphCard = ({ result, idx }) => {
         <CardTite>{removeGlyph(result.name)}</CardTite>
       </Card>
     </Fragment>
-  )
-}
+  );
+};
 
-export default GlyphCard
+export default GlyphCard;
