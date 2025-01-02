@@ -1,12 +1,10 @@
-import PWANextInit from 'next-pwa';
+import nextPWAInit from 'next-pwa';
 import runtimeCachingConfig from './runtime-caching.config.mjs';
 import generateRobotsTxt from './src/scripts/generate-robots-txt.script.cjs';
 
-
 /** @type {import('next').NextConfig} */
-const NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   i18n: {
     locales: ['en'],
     defaultLocale: 'en',
@@ -28,8 +26,7 @@ const NextConfig = {
   },
 };
 
-
-const PWANextConfig = PWANextInit({
+const nextPWAConfig = nextPWAInit({
   dest: 'public',
   register: true,
   skipWaiting: true,
@@ -43,4 +40,4 @@ const PWANextConfig = PWANextInit({
   buildExcludes: ['app-build-manifest.json'],
 });
 
-export default PWANextConfig(NextConfig);
+export default nextPWAConfig(nextConfig);
