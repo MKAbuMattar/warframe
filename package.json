@@ -1,6 +1,6 @@
 {
   "name": "warframe",
-  "version": "1.0.0-warframe.38",
+  "version": "1.0.0-warframe.38.5",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -12,8 +12,8 @@
     "fmt:fix": "prettier --config prettier.config.mjs --write ./src"
   },
   "dependencies": {
-    "axios": "1.8.3",
-    "next": "15.2.2",
+    "axios": "1.8.4",
+    "next": "15.2.4",
     "next-pwa": "5.6.0",
     "next-seo": "6.6.0",
     "react": "18.3.1",
@@ -22,12 +22,12 @@
     "react-tabs": "6.1.0",
     "react-transition-group": "4.4.5",
     "sitemap": "8.0.0",
-    "styled-components": "6.1.15",
+    "styled-components": "6.1.16",
     "webpack": "5.98.0"
   },
   "devDependencies": {
-    "eslint": "9.22.0",
-    "eslint-config-next": "15.2.2",
+    "eslint": "8.57.1",
+    "eslint-config-next": "15.2.4",
     "prettier": "3.5.3",
     "winston": "3.17.0"
   },
