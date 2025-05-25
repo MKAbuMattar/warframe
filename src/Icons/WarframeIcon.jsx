@@ -1,8 +1,6 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
-const WarframeIcon = (props) => {
-  const {color, size, ...otherProps} = props;
+const WarframeIcon = ({color = '#1a1516', size = '24', ...otherProps}) => {
   return createElement(
     'svg',
     {
@@ -22,16 +20,6 @@ const WarframeIcon = (props) => {
       }),
     ),
   );
-};
-
-WarframeIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-
-WarframeIcon.defaultProps = {
-  color: '#1a1516',
-  size: '24',
 };
 
 export default WarframeIcon;

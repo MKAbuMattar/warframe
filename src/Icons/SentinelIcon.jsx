@@ -1,8 +1,7 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
 const SentinelIcon = (props) => {
-  const {color, size, ...otherProps} = props;
+  const {color = '#1a1516', size = '24', ...otherProps} = props;
   return createElement(
     'svg',
     {
@@ -49,16 +48,6 @@ const SentinelIcon = (props) => {
       }),
     ),
   );
-};
-
-SentinelIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-
-SentinelIcon.defaultProps = {
-  color: '#1a1516',
-  size: '24',
 };
 
 export default SentinelIcon;

@@ -13,8 +13,8 @@ const Footer = () => {
         All Copyrights Reserved © &nbsp;
         {getYear() >= '2019' ? `2019 - ${getYear()}` : getYear()}, Made With ❤
         & a lot ☕ By &nbsp;
-        <Link legacyBehavior href="https://mkabumattar.github.io/">
-          <a target="__blank">Mohammad Abu Mattar</a>
+        <Link href="https://mkabumattar.github.io/" target="__blank">
+          Mohammad Abu Mattar
         </Link>
       </FooterSection>
     </Fragment>

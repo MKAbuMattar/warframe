@@ -200,19 +200,16 @@ const ArchMeleeCard = ({result, idx}) => {
                 result.introduced.date && (
                   <ModalInfoSubtite>
                     Introduced:{' '}
-                    <Link legacyBehavior href={result.introduced.url}>
-                      <a target="__blank">
-                        {result.introduced.name} / Date:{' '}
-                        {result.introduced.date}
-                      </a>
+                    <Link href={result.introduced.url} target="__blank">
+                      {result.introduced.name} / Date: {result.introduced.date}
                     </Link>
                   </ModalInfoSubtite>
                 )}
 
               {result.wikiaUrl !== undefined && (
                 <ModalInfoSubtite>
-                  <Link legacyBehavior href={result.wikiaUrl}>
-                    <a target="__blank">Wiki Link</a>
+                  <Link href={result.wikiaUrl} target="__blank">
+                    Wiki Link
                   </Link>
                 </ModalInfoSubtite>
               )}

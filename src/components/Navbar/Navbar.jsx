@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Link legacyBehavior href="/">
+      <Link href="/">
         <LogoLink>
           <i style={{display: 'flex'}}>
             <LogoIcon size="35" />
