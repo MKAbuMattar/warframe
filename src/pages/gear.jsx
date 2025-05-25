@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../components/PageTemplate/ListPageTemplate';
+import {GearPageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../hooks/useListPage';
+import GearIcon from '../Icons/GearIcon';
+import GearCard from '../components/GearCard/GearCard';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
-import {GearPage} from '../util/MeatDecoratorList/MeatDecoratorList';
+const GearPage = () => {
+  const {items, loading, filterList} = useListPage('gear');
 
-import Gear from '../view/Gear/Gear';
-
-const gear = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={GearPage.title}
-        description={GearPage.description}
+    <PageSEO
+      title={GearPageMeatDecorator.title}
+      description={GearPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={GearIcon}
+        Card={GearCard}
+        entityName="Gear"
       />
-      <Gear />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default gear;
+export default GearPage;

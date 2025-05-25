@@ -51,14 +51,14 @@ export const DATA_CONFIGS = {
   },
 
   archGun: {
-    endpoint: 'Archgun',
+    endpoint: 'Arch-Gun',
     ModelClass: ArchGun,
     filters: [],
     deduplicationStrategy: 'name',
   },
 
   archMelee: {
-    endpoint: 'Archmelee',
+    endpoint: 'Arch-Melee',
     ModelClass: ArchMelee,
     filters: [],
     deduplicationStrategy: 'name',
@@ -188,7 +188,10 @@ export const DATA_CONFIGS = {
   skin: {
     endpoint: 'Skins',
     ModelClass: Skin,
-    filters: [createExcludeFilter(['/'])],
+    filters: [
+      createExcludeFilter(['/']),
+      createPropertyFilter('type', 'Skin', '==='),
+    ],
     deduplicationStrategy: 'name',
   },
 

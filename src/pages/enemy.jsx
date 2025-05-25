@@ -1,20 +1,30 @@
-import {Fragment} from 'react';
+import useListPage from '../hooks/useListPage';
+import useGetEnemy from '../hooks/useGetEnemy';
+import EnemyCard from '../components/EnemyCard/EnemyCard';
+import EnemyIcon from '../Icons/EnemyIcon';
+import ListPageTemplate from '../components/PageTemplate/ListPageTemplate';
+import PageSEO from '../components/PageTemplate/PageSEO';
+import {EnemyPageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
-import {EnemyPage} from '../util/MeatDecoratorList/MeatDecoratorList';
+const EnemyPage = () => {
+  const {items, loading, filterList} = useListPage(useGetEnemy);
 
-import Enemy from '../view/Enemy/Enemy';
-
-const enemy = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={EnemyPage.title}
-        description={EnemyPage.description}
+    <PageSEO
+      title={EnemyPageMeatDecorator.title}
+      description={EnemyPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={EnemyIcon}
+        Card={EnemyCard}
+        entityName="Enemy"
+        entityNamePlural="Enemies"
       />
-      <Enemy />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default enemy;
+export default EnemyPage;

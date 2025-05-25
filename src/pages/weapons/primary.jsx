@@ -1,20 +1,30 @@
-import {Fragment} from 'react';
+import useListPage from '../../hooks/useListPage';
+import useGetPrimary from '../../hooks/useGetPrimary';
+import PrimaryCard from '../../components/PrimaryCard/PrimaryCard';
+import PrimaryWeaponIcon from '../../Icons/PrimaryWeaponIcon';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import {PrimaryWeaponsPageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
-import {PrimaryWeaponsPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
+const PrimaryWeaponsPage = () => {
+  const {items, loading, filterList} = useListPage(useGetPrimary);
 
-import Primary from '../../view/Primary/Primary';
-
-const primary = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={PrimaryWeaponsPage.title}
-        description={PrimaryWeaponsPage.description}
+    <PageSEO
+      title={PrimaryWeaponsPageMeatDecorator.title}
+      description={PrimaryWeaponsPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={PrimaryWeaponIcon}
+        Card={PrimaryCard}
+        entityName="Primary Weapon"
+        entityNamePlural="Primary Weapons"
       />
-      <Primary />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default primary;
+export default PrimaryWeaponsPage;

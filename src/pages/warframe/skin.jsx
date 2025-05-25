@@ -1,13 +1,28 @@
-import {Fragment} from 'react';
+import useListPage from '../../hooks/useListPage';
+import SkinCard from '../../components/SkinCard/SkinCard';
+import SkinIcon from '../../Icons/SkinIcon';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import {SkinPageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import Skin from '../../components/Skin/Skin';
+const SkinPage = () => {
+  const {items, loading, filterList} = useListPage('skin');
 
-const skin = () => {
   return (
-    <Fragment>
-      <Skin />
-    </Fragment>
+    <PageSEO
+      title={SkinPageMeatDecorator.title}
+      description={SkinPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={SkinIcon}
+        Card={SkinCard}
+        entityName="Skin"
+      />
+    </PageSEO>
   );
 };
 
-export default skin;
+export default SkinPage;

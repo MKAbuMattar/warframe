@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import {NecramechPageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../hooks/useListPage';
+import NecramechIcon from '../../Icons/NecramechIcon';
+import NecramechCard from '../../components/NecramechCard/NecramechCard';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
-import {NecramechPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
+const NecramechPage = () => {
+  const {items, loading, filterList} = useListPage('necramech');
 
-import Necramech from '../../view/Necramech/Necramech';
-
-const necrameche = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={NecramechPage.title}
-        description={NecramechPage.description}
+    <PageSEO
+      title={NecramechPageMeatDecorator.title}
+      description={NecramechPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={NecramechIcon}
+        Card={NecramechCard}
+        entityName="Necramech"
       />
-      <Necramech />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default necrameche;
+export default NecramechPage;

@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../components/PageTemplate/ListPageTemplate';
+import {MiscellaneousPageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../hooks/useListPage';
+import MiscellaneousIcon from '../Icons/MiscellaneousIcon';
+import MiscellaneousCard from '../components/MiscellaneousCard/MiscellaneousCard';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
-import {MiscellaneousPage} from '../util/MeatDecoratorList/MeatDecoratorList';
+const MiscellaneousPage = () => {
+  const {items, loading, filterList} = useListPage('miscellaneous');
 
-import Miscellaneous from '../view/Miscellaneous/Miscellaneous';
-
-const index = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={MiscellaneousPage.title}
-        description={MiscellaneousPage.description}
+    <PageSEO
+      title={MiscellaneousPageMeatDecorator.title}
+      description={MiscellaneousPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={MiscellaneousIcon}
+        Card={MiscellaneousCard}
+        entityName="Miscellaneous"
       />
-      <Miscellaneous />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default index;
+export default MiscellaneousPage;

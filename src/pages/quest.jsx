@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../components/PageTemplate/ListPageTemplate';
+import {QuestPageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../hooks/useListPage';
+import QuestIcon from '../Icons/QuestIcon';
+import QuestCard from '../components/QuestCard/QuestCard';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
-import {QuestPage} from '../util/MeatDecoratorList/MeatDecoratorList';
+const QuestPage = () => {
+  const {items, loading, filterList} = useListPage('quest');
 
-import Quest from '../view/Quest/Quest';
-
-const quest = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={QuestPage.title}
-        description={QuestPage.description}
+    <PageSEO
+      title={QuestPageMeatDecorator.title}
+      description={QuestPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={QuestIcon}
+        Card={QuestCard}
+        entityName="Quest"
       />
-      <Quest />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default quest;
+export default QuestPage;

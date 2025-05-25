@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import {CompanionPageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../hooks/useListPage';
+import CompanionIcon from '../../Icons/CompanionIcon';
+import PetCard from '../../components/PetCard/PetCard';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
-import {CompanionPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
+const PetPage = () => {
+  const {items, loading, filterList} = useListPage('pet');
 
-import Pet from '../../view/Pet/Pet';
-
-const pet = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={CompanionPage.title}
-        description={CompanionPage.description}
+    <PageSEO
+      title={CompanionPageMeatDecorator.title}
+      description={CompanionPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={CompanionIcon}
+        Card={PetCard}
+        entityName="Pet"
       />
-      <Pet />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default pet;
+export default PetPage;

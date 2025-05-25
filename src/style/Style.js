@@ -399,6 +399,7 @@ export const CardTite = styled.h3`
   padding: 20px;
   text-align: center;
   font-size: 1.5rem;
+  word-break: break-all;
 `;
 
 export const CardBtn = styled.button`
@@ -521,4 +522,16 @@ export const ModalInfoAttackSubtite = styled.h4`
     padding-top: 12px;
     border-bottom: 3px solid rgb(213, 33, 40, 1);
   }
+`;
+
+export const SubTitle = styled.h2`
+  text-align: center;
+  color: rgba(221, 221, 221, 01);
+  font-size: 2.1rem;
+  margin: 3rem 0;
+`;
+
+export const Container = styled.section`
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
 `;

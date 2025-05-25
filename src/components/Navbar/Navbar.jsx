@@ -21,14 +21,16 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Link href="/">
-        <LogoLink>
-          <i style={{display: 'flex'}}>
-            <LogoIcon size="35" />
-          </i>
-          Warframe Info.
-        </LogoLink>
-      </Link>
+      <LogoLink>
+        <Link href="/">
+          <LogoLink>
+            <i style={{display: 'flex'}}>
+              <LogoIcon size="35" />
+            </i>
+            Warframe Info.
+          </LogoLink>
+        </Link>
+      </LogoLink>
       <RightSide>
         <NavItem
           icon={<WarframeLogoIcon color="#ffffff" />}

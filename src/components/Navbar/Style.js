@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LogoLink = styled.a`
+export const LogoLink = styled.span`
   display: flex;
   align-items: center;
   gap: 0.5rem;

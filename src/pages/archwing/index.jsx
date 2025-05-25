@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import {ArchwingPageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../hooks/useListPage';
+import ArchwingIcon from '../../Icons/ArchwingIcon';
+import ArchwingCard from '../../components/ArchwingCard/ArchwingCard';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
-import {ArchwingPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
+const ArchwingPage = () => {
+  const {items, loading, filterList} = useListPage('archwing');
 
-import Archwing from '../../view/Archwing/Archwing';
-
-const archwing = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={ArchwingPage.title}
-        description={ArchwingPage.description}
+    <PageSEO
+      title={ArchwingPageMeatDecorator.title}
+      description={ArchwingPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={ArchwingIcon}
+        Card={ArchwingCard}
+        entityName="Archwing"
       />
-      <Archwing />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default archwing;
+export default ArchwingPage;

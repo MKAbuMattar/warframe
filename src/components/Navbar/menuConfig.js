@@ -21,6 +21,8 @@ import MiscellaneousIcon from '../../Icons/MiscellaneousIcon';
 import QuestIcon from '../../Icons/QuestIcon';
 import GearIcon from '../../Icons/GearIcon';
 import GlyphIcon from '../../Icons/GlyphIcon';
+import FishIcon from '../../Icons/FishIcon';
+import SkinIcon from '../../Icons/SkinIcon';
 import RightIcon from '../../Icons/RightIcon';
 import LeftIcon from '../../Icons/LeftIcon';
 
@@ -46,6 +48,8 @@ export const ICONS = {
   QUEST: QuestIcon,
   GEAR: GearIcon,
   GLYPH: GlyphIcon,
+  FISH: FishIcon,
+  SKIN: SkinIcon,
   RIGHT: RightIcon,
   LEFT: LeftIcon,
 };
@@ -63,21 +67,8 @@ export const MENU_CONFIG = {
       {
         label: 'Warframe',
         leftIcon: 'WARFRAME',
-        url: '/warframe',
-        type: ITEM_TYPES.LINK,
-      },
-      {
-        label: 'Weapons',
-        leftIcon: 'WEAPON',
         rightIcon: 'RIGHT',
-        goToMenu: 'weapons',
-        type: ITEM_TYPES.SUBMENU,
-      },
-      {
-        label: 'Companions',
-        leftIcon: 'COMPANION',
-        rightIcon: 'RIGHT',
-        goToMenu: 'companions',
+        goToMenu: 'warframe',
         type: ITEM_TYPES.SUBMENU,
       },
       {
@@ -86,24 +77,6 @@ export const MENU_CONFIG = {
         rightIcon: 'RIGHT',
         goToMenu: 'archwing',
         type: ITEM_TYPES.SUBMENU,
-      },
-      {
-        label: 'Necramech',
-        leftIcon: 'NECRAMECH',
-        url: '/warframe/necramech',
-        type: ITEM_TYPES.LINK,
-      },
-      {
-        label: 'Mod',
-        leftIcon: 'MOD',
-        url: '/warframe/mod',
-        type: ITEM_TYPES.LINK,
-      },
-      {
-        label: 'Arcane',
-        leftIcon: 'ARCANE',
-        url: '/warframe/arcane',
-        type: ITEM_TYPES.LINK,
       },
       {
         label: 'Quest',
@@ -141,10 +114,16 @@ export const MENU_CONFIG = {
         url: '/glyph',
         type: ITEM_TYPES.LINK,
       },
+      {
+        label: 'Fish',
+        leftIcon: 'FISH',
+        url: '/fish',
+        type: ITEM_TYPES.LINK,
+      },
     ],
   },
   weapons: {
-    parentMenu: 'main',
+    parentMenu: 'warframe',
     parentIcon: 'WEAPON',
     title: 'Weapons',
     items: [
@@ -164,6 +143,57 @@ export const MENU_CONFIG = {
         label: 'Melee Weapons',
         leftIcon: 'MELEE_WEAPON',
         url: '/weapons/melee',
+        type: ITEM_TYPES.LINK,
+      },
+    ],
+  },
+  warframe: {
+    parentMenu: 'main',
+    parentIcon: 'WARFRAME',
+    title: 'Warframe',
+    items: [
+      {
+        label: 'Warframes',
+        leftIcon: 'WARFRAME',
+        url: '/warframe',
+        type: ITEM_TYPES.LINK,
+      },
+      {
+        label: 'Weapons',
+        leftIcon: 'WEAPON',
+        rightIcon: 'RIGHT',
+        goToMenu: 'weapons',
+        type: ITEM_TYPES.SUBMENU,
+      },
+      {
+        label: 'Companions',
+        leftIcon: 'COMPANION',
+        rightIcon: 'RIGHT',
+        goToMenu: 'companions',
+        type: ITEM_TYPES.SUBMENU,
+      },
+      {
+        label: 'Necramech',
+        leftIcon: 'NECRAMECH',
+        url: '/warframe/necramech',
+        type: ITEM_TYPES.LINK,
+      },
+      {
+        label: 'Mod',
+        leftIcon: 'MOD',
+        url: '/warframe/mod',
+        type: ITEM_TYPES.LINK,
+      },
+      {
+        label: 'Arcane',
+        leftIcon: 'ARCANE',
+        url: '/warframe/arcane',
+        type: ITEM_TYPES.LINK,
+      },
+      {
+        label: 'Skin',
+        leftIcon: 'SKIN',
+        url: '/warframe/skin',
         type: ITEM_TYPES.LINK,
       },
     ],
@@ -208,7 +238,7 @@ export const MENU_CONFIG = {
     ],
   },
   companions: {
-    parentMenu: 'main',
+    parentMenu: 'warframe',
     parentIcon: 'COMPANION',
     title: 'Companions',
     items: [

@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../../components/PageTemplate/ListPageTemplate';
+import {SentinelPageMeatDecorator} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../../hooks/useListPage';
+import SentinelIcon from '../../../Icons/SentinelIcon';
+import SentinelCard from '../../../components/SentinelCard/SentinelCard';
 
-import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator';
-import {SentinelPage} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+const SentinelPage = () => {
+  const {items, loading, filterList} = useListPage('sentinel');
 
-import Sentinel from '../../../view/Sentinel/Sentinel';
-
-const sentinel = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={SentinelPage.title}
-        description={SentinelPage.description}
+    <PageSEO
+      title={SentinelPageMeatDecorator.title}
+      description={SentinelPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={SentinelIcon}
+        Card={SentinelCard}
+        entityName="Sentinel"
       />
-      <Sentinel />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default sentinel;
+export default SentinelPage;
