@@ -2,7 +2,7 @@ import {Fragment, useState} from 'react';
 import Link from 'next/link';
 import Modal from 'react-modal';
 import XIcon from '../../Icons/XIcon';
-import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
+import {Card, CardImg, CardTitle, CardBtn} from '../../style/Style';
 import {
   ModalBtnContainer,
   ModalBtn,
@@ -45,7 +45,7 @@ const MiscellaneousCard = ({result, idx}) => {
           height={300}
           objectFit="contain"
         />
-        <CardTite>{result.name}</CardTite>
+        <CardTitle>{result.name}</CardTitle>
         <CardBtn onClick={openModal}>Info</CardBtn>
 
         <Modal

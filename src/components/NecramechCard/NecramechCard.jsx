@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import XIcon from '../../Icons/XIcon';
 import AbilitieIcons from '../AbilitieIcons/AbilitieIcons';
 
-import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
+import {Card, CardImg, CardTitle, CardBtn} from '../../style/Style';
 
 import {
   ModalBtnContainer,
@@ -50,7 +50,7 @@ const NecramecheCard = ({result, idx}) => {
           height={300}
           objectFit="contain"
         />
-        <CardTite>{result.name}</CardTite>
+        <CardTitle>{result.name}</CardTitle>
         <CardBtn onClick={openModal}>Info</CardBtn>
 
         <Modal

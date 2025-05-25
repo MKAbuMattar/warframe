@@ -395,7 +395,7 @@ export const CardImg = styled(Image)`
   background-position: center center;
 `;
 
-export const CardTite = styled.h3`
+export const CardTitle = styled.h3`
   padding: 20px;
   text-align: center;
   font-size: 1.5rem;

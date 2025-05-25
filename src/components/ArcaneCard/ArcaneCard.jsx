@@ -5,7 +5,7 @@ import XIcon from '../../Icons/XIcon';
 import {
   Card,
   CardImg,
-  CardTite,
+  CardTitle,
   CardBtn,
   ModalBtnContainer,
   ModalBtn,
@@ -47,7 +47,7 @@ const ArcaneCard = ({result, idx}) => {
           height={300}
           objectFit="contain"
         />
-        <CardTite>{result.name}</CardTite>
+        <CardTitle>{result.name}</CardTitle>
         <CardBtn onClick={openModal}>Info</CardBtn>
 
         <Modal
