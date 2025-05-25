@@ -1,28 +1,18 @@
-import {Fragment} from 'react';
-import {removeGlyph} from '../../util/Regex/Regex';
-import {Card, CardImg, CardTitle} from '../../style/Style';
+import React from 'react';
+import BaseCard from '../BaseCard/BaseCard';
+import {SimpleModalContent} from '../BaseCard/ModalContentRenderers';
 
 const GlyphCard = ({result, idx}) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
-
-  const myLoader = ({src, width, quality}) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
+  const altTextTemplate = `Name: ${result.name}\nDescription: ${result.description || 'N/A'}`;
 
   return (
-    <Fragment>
-      <Card key={idx}>
-        <CardImg
-          loader={myLoader}
-          src={result.imageName}
-          title={removeGlyph(result.name)}
-          alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-          width={300}
-          height={300}
-          objectFit="contain"
-        />
-        <CardTitle>{removeGlyph(result.name)}</CardTitle>
-      </Card>
-    </Fragment>
+    <BaseCard
+      item={result}
+      index={idx}
+      renderModalContent={(item) => <SimpleModalContent item={item} />}
+      altTextTemplate={altTextTemplate}
+      ariaLabel={`Glyph: ${result.name}`}
+    />
   );
 };
 
