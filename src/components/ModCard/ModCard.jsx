@@ -122,19 +122,15 @@ const ModCard = ({result, idx}) => {
               {result.introduced !== undefined && (
                 <ModalInfoSubtite>
                   Introduced:{' '}
-                  <Link legacyBehavior href={result.introduced.url}>
-                    <a target="__blank">
-                      {result.introduced.name} / Date: {result.introduced.date}
-                    </a>
+                  <Link href={result.introduced.url} target="__blank">
+                    {result.introduced.name} / Date: {result.introduced.date}
                   </Link>
                 </ModalInfoSubtite>
               )}
 
               {result.wikiaUrl !== undefined && (
                 <ModalInfoSubtite>
-                  <Link legacyBehavior href={result.wikiaUrl}>
-                    <a target="__blank">Wiki Link</a>
-                  </Link>
+                  <Link href={result.wikiaUrl}>Wiki Link</Link>
                 </ModalInfoSubtite>
               )}
             </ModalInfoContainer>
