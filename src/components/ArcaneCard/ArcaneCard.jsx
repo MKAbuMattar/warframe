@@ -1,124 +1,19 @@
-import {Fragment, useState} from 'react';
-import Link from 'next/link';
-import Modal from 'react-modal';
-import XIcon from '../../Icons/XIcon';
-import {
-  Card,
-  CardImg,
-  CardTitle,
-  CardBtn,
-  ModalBtnContainer,
-  ModalBtn,
-  ModalInfoContainer,
-  ModalInfoImg,
-  ModalInfoAbilities,
-  ModalInfoAbilitie,
-  ModalInfoSubtiteAbilitie,
-  ModalInfoTite,
-  ModalInfoSubtite,
-} from '../../style/Style';
-import {generateUniqueKey} from '../../util/generateUniqueKey/index';
+import React from 'react';
+import BaseCard from '../BaseCard/BaseCard';
+import {ArcaneModalContent} from '../BaseCard/ModalContentRenderers';
 
 const ArcaneCard = ({result, idx}) => {
-  const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
-
-  const myLoader = ({src, width, quality}) =>
-    `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const altTextTemplate = `Name: ${result.name}\nDescription: ${result.description || 'N/A'}`;
 
   return (
-    <Fragment>
-      <Card key={generateUniqueKey(idx)}>
-        <CardImg
-          loader={myLoader}
-          src={result.imageName}
-          title={result.name}
-          alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-          width={300}
-          height={300}
-          objectFit="contain"
-        />
-        <CardTitle>{result.name}</CardTitle>
-        <CardBtn onClick={openModal}>Info</CardBtn>
-
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          ariaHideApp={false}
-          className="Modal"
-          overlayClassName="Overlay"
-        >
-          <Fragment>
-            <ModalBtnContainer>
-              <ModalBtn onClick={closeModal}>
-                <XIcon color="#ffffff" />
-              </ModalBtn>
-            </ModalBtnContainer>
-            <ModalInfoContainer>
-              <ModalInfoImg
-                src={`${CDN_IMG_URL}/${result.imageName}`}
-                alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
-                title={result.name}
-              />
-
-              <ModalInfoTite>{result.name}</ModalInfoTite>
-
-              <ModalInfoSubtite>
-                Rarity: <span>{result.rarity}</span>
-              </ModalInfoSubtite>
-
-              {result.levelStats !== undefined && (
-                <Fragment>
-                  <ModalInfoSubtiteAbilitie>
-                    Mod Level Stats
-                  </ModalInfoSubtiteAbilitie>
-                  <ModalInfoAbilities>
-                    {result.levelStats.map((element, idx) => (
-                      <ModalInfoAbilitie key={generateUniqueKey(idx)}>
-                        <ModalInfoSubtite>{element.stats[0]}</ModalInfoSubtite>
-                      </ModalInfoAbilitie>
-                    ))}
-                  </ModalInfoAbilities>
-                </Fragment>
-              )}
-
-              {result.releaseDate !== undefined && (
-                <ModalInfoSubtite>
-                  Release Date: <span>{result.releaseDate}</span>
-                </ModalInfoSubtite>
-              )}
-
-              {result.introduced !== undefined && (
-                <ModalInfoSubtite>
-                  Introduced:{' '}
-                  <Link href={result.introduced.url} target="__blank">
-                    {result.introduced.name} / Date: {result.introduced.date}
-                  </Link>
-                </ModalInfoSubtite>
-              )}
-
-              {result.wikiaUrl !== undefined && (
-                <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl} target="__blank">
-                    Wiki Link
-                  </Link>
-                </ModalInfoSubtite>
-              )}
-            </ModalInfoContainer>
-          </Fragment>
-        </Modal>
-      </Card>
-      {/* {console.log(result)} */}
-    </Fragment>
+    <BaseCard
+      item={result}
+      index={idx}
+      renderModalContent={(item) => <ArcaneModalContent item={item} />}
+      altTextTemplate={altTextTemplate}
+      ariaLabel={`Arcane: ${result.name}`}
+      useCdnImages={true}
+    />
   );
 };
 
