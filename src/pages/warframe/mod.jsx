@@ -1,17 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import {ModPageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../hooks/useListPage';
+import ModIcon from '../../Icons/ModIcon';
+import ModCard from '../../components/ModCard/ModCard';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
-import {ModPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
+const ModPage = () => {
+  const {items, loading, filterList} = useListPage('mod');
 
-import Mod from '../../view/Mod/Mod';
-
-const mod = () => {
   return (
-    <Fragment>
-      <MeatDecorator title={ModPage.title} description={ModPage.description} />
-      <Mod />
-    </Fragment>
+    <PageSEO
+      title={ModPageMeatDecorator.title}
+      description={ModPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={ModIcon}
+        Card={ModCard}
+        entityName="Mod"
+      />
+    </PageSEO>
   );
 };
 
-export default mod;
+export default ModPage;

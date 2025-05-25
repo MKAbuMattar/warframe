@@ -1,23 +1,21 @@
 import {Fragment, useState} from 'react';
-import Link from 'next/link';
+
 import Modal from 'react-modal';
+
 import XIcon from '../../Icons/XIcon';
+
 import {Card, CardImg, CardTitle, CardBtn} from '../../style/Style';
+
 import {
   ModalBtnContainer,
   ModalBtn,
   ModalInfoContainer,
   ModalInfoImg,
-  ModalInfoAbilities,
-  ModalInfoAbilitie,
-} from '../../style/Style';
-import {
-  ModalInfoSubtiteAbilitie,
-  ModalInfoTite,
-  ModalInfoSubtite,
 } from '../../style/Style';
 
-const MiscellaneousCard = ({result, idx}) => {
+import {ModalInfoTite, ModalInfoSubtite} from '../../style/Style';
+
+const FishCard = ({result, idx}) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
   const myLoader = ({src, width, quality}) =>
@@ -40,7 +38,7 @@ const MiscellaneousCard = ({result, idx}) => {
           loader={myLoader}
           src={result.imageName}
           title={result.name}
-          alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+          alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rType: ${result.type}`}
           width={300}
           height={300}
           objectFit="contain"
@@ -64,7 +62,7 @@ const MiscellaneousCard = ({result, idx}) => {
             <ModalInfoContainer>
               <ModalInfoImg
                 src={`${CDN_IMG_URL}/${result.imageName}`}
-                alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+                alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rType: ${result.type}`}
                 title={result.name}
               />
 
@@ -76,19 +74,31 @@ const MiscellaneousCard = ({result, idx}) => {
                 </ModalInfoSubtite>
               )}
 
+              {result.category !== undefined && (
+                <ModalInfoSubtite>
+                  Category: <span>{result.category}</span>
+                </ModalInfoSubtite>
+              )}
+
               {result.description !== undefined &&
                 result.description !== '' && (
                   <ModalInfoSubtite>
                     Description: <span>{result.description}</span>
                   </ModalInfoSubtite>
                 )}
+
+              {result.tradable !== undefined && (
+                <ModalInfoSubtite>
+                  Tradable: <span>{result.tradable ? 'Yes' : 'No'}</span>
+                </ModalInfoSubtite>
+              )}
             </ModalInfoContainer>
           </Fragment>
         </Modal>
       </Card>
-      {console.log(result)}
+      {/* {console.log(result)} */}
     </Fragment>
   );
 };
 
-export default MiscellaneousCard;
+export default FishCard;

@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../components/PageTemplate/ListPageTemplate';
+import {ResourcePageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../hooks/useListPage';
+import ResourceIcon from '../Icons/ResourceIcon';
+import ResourceCard from '../components/ResourceCard/ResourceCard';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
-import {ResourcePage} from '../util/MeatDecoratorList/MeatDecoratorList';
+const ResourcePage = () => {
+  const {items, loading, filterList} = useListPage('resource');
 
-import Resource from '../view/Resource/Resource';
-
-const resource = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={ResourcePage.title}
-        description={ResourcePage.description}
+    <PageSEO
+      title={ResourcePageMeatDecorator.title}
+      description={ResourcePageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={ResourceIcon}
+        Card={ResourceCard}
+        entityName="Resource"
       />
-      <Resource />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default resource;
+export default ResourcePage;

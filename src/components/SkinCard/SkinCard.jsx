@@ -1,29 +1,17 @@
 import {Fragment, useState} from 'react';
-
-import Link from 'next/link';
-
 import Modal from 'react-modal';
-
 import XIcon from '../../Icons/XIcon';
-
 import {Card, CardImg, CardTitle, CardBtn} from '../../style/Style';
-
 import {
   ModalBtnContainer,
   ModalBtn,
   ModalInfoContainer,
   ModalInfoImg,
-  ModalInfoAbilities,
-  ModalInfoAbilitie,
-} from '../../style/Style';
-
-import {
-  ModalInfoSubtiteAbilitie,
   ModalInfoTite,
   ModalInfoSubtite,
 } from '../../style/Style';
 
-const ModCard = ({result, idx}) => {
+const SkinCard = ({result, idx}) => {
   const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
 
   const myLoader = ({src, width, quality}) =>
@@ -70,76 +58,40 @@ const ModCard = ({result, idx}) => {
             <ModalInfoContainer>
               <ModalInfoImg
                 src={`${CDN_IMG_URL}/${result.imageName}`}
-                alt={`Name: ${result.name}\n\rDescription:${result.description}\n\rPassive${result.passiveDescription}`}
+                alt={result.name}
                 title={result.name}
               />
-
               <ModalInfoTite>{result.name}</ModalInfoTite>
 
-              {result.type !== undefined && (
+              {result.type && (
                 <ModalInfoSubtite>
-                  Mod Type: <span>{result.type}</span>
+                  Type: <span>{result.type}</span>
                 </ModalInfoSubtite>
               )}
 
-              {result.isAugment !== undefined && result.isAugment !== false && (
+              {result.category && (
                 <ModalInfoSubtite>
-                  Augment: <span>{result.compatName}</span>
+                  Category: <span>{result.category}</span>
                 </ModalInfoSubtite>
               )}
 
-              <ModalInfoSubtite>
-                Rarity: <span>{result.rarity}</span>
-              </ModalInfoSubtite>
-
-              {result.polarity !== undefined && (
+              {result.description && (
                 <ModalInfoSubtite>
-                  Polarity: <span>{result.polarity}</span>
+                  Description: <span>{result.description}</span>
                 </ModalInfoSubtite>
               )}
 
-              {result.levelStats !== undefined && (
-                <Fragment>
-                  <ModalInfoSubtiteAbilitie>
-                    Mod Level Stats
-                  </ModalInfoSubtiteAbilitie>
-                  <ModalInfoAbilities>
-                    {result.levelStats.map((element, idx) => (
-                      <ModalInfoAbilitie key={idx}>
-                        <ModalInfoSubtite>{element.stats[0]}</ModalInfoSubtite>
-                      </ModalInfoAbilitie>
-                    ))}
-                  </ModalInfoAbilities>
-                </Fragment>
-              )}
-
-              {result.releaseDate !== undefined && (
+              {result.tradable !== undefined && (
                 <ModalInfoSubtite>
-                  Release Date: <span>{result.releaseDate}</span>
-                </ModalInfoSubtite>
-              )}
-
-              {result.introduced !== undefined && (
-                <ModalInfoSubtite>
-                  Introduced:{' '}
-                  <Link href={result.introduced.url} target="__blank">
-                    {result.introduced.name} / Date: {result.introduced.date}
-                  </Link>
-                </ModalInfoSubtite>
-              )}
-
-              {result.wikiaUrl !== undefined && (
-                <ModalInfoSubtite>
-                  <Link href={result.wikiaUrl}>Wiki Link</Link>
+                  Tradable: <span>{result.tradable ? 'Yes' : 'No'}</span>
                 </ModalInfoSubtite>
               )}
             </ModalInfoContainer>
           </Fragment>
         </Modal>
       </Card>
-      {/* {console.log(result)} */}
     </Fragment>
   );
 };
 
-export default ModCard;
+export default SkinCard;

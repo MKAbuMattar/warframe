@@ -1,20 +1,29 @@
-import {Fragment} from 'react';
+import PageSEO from '../../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../../components/PageTemplate/ListPageTemplate';
+import {SentinelWeaponPageMeatDecorator} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../../hooks/useListPage';
+import SentinelIcon from '../../../Icons/SentinelIcon';
+import SentinelWeaponCard from '../../../components/SentinelWeaponCard/SentinelWeaponCard';
 
-import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator';
-import {SentinelWeaponPage} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+const SentinelWeaponPage = () => {
+  const {items, loading, filterList} = useListPage('sentinelWeapon');
 
-import SentinelWeapon from '../../../view/SentinelWeapon/SentinelWeapon';
-
-const sentinelWeapon = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={SentinelWeaponPage.title}
-        description={SentinelWeaponPage.description}
+    <PageSEO
+      title={SentinelWeaponPageMeatDecorator.title}
+      description={SentinelWeaponPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={SentinelIcon}
+        Card={SentinelWeaponCard}
+        entityName="Sentinel Weapon"
+        entityNamePlural="Sentinel Weapons"
       />
-      <SentinelWeapon />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default sentinelWeapon;
+export default SentinelWeaponPage;

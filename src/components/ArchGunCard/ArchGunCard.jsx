@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Modal from 'react-modal';
 import {Capitalize} from '../../util/Capitalize/Capitalize';
 import XIcon from '../../Icons/XIcon';
-import {Card, CardImg, CardTite, CardBtn} from '../../style/Style';
+import {Card, CardImg, CardTitle, CardBtn} from '../../style/Style';
 import DamageIcons from '../DamageIcons/DamageIcons';
 import {
   ModalBtnContainer,
@@ -44,7 +44,7 @@ const ArchGunCard = ({result, idx}) => {
           height={300}
           objectFit="contain"
         />
-        <CardTite>{result.name}</CardTite>
+        <CardTitle>{result.name}</CardTitle>
         <CardBtn onClick={openModal}>Info</CardBtn>
 
         <Modal

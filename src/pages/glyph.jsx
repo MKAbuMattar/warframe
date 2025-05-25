@@ -1,20 +1,28 @@
-import {Fragment} from 'react';
+import PageSEO from '../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../components/PageTemplate/ListPageTemplate';
+import {GlyphPageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../hooks/useListPage';
+import GlyphIcon from '../Icons/GlyphIcon';
+import GlyphCard from '../components/GlyphCard/GlyphCard';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
-import {GlyphPage} from '../util/MeatDecoratorList/MeatDecoratorList';
+const GlyphPage = () => {
+  const {items, loading, filterList} = useListPage('glyph');
 
-import Glyph from '../view/Glyph/Glyph';
-
-const glyph = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={GlyphPage.title}
-        description={GlyphPage.description}
+    <PageSEO
+      title={GlyphPageMeatDecorator.title}
+      description={GlyphPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={GlyphIcon}
+        Card={GlyphCard}
+        entityName="Glyph"
       />
-      <Glyph />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default glyph;
+export default GlyphPage;

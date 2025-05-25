@@ -1,20 +1,29 @@
-import {Fragment} from 'react';
+import PageSEO from '../../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../../components/PageTemplate/ListPageTemplate';
+import {ArchMeleePageMeatDecorator} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../../hooks/useListPage';
+import ArchMeleeWeaponIcon from '../../../Icons/ArchMeleeWeaponIcon';
+import ArchMeleeCard from '../../../components/ArchMeleeCard/ArchMeleeCard';
 
-import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator';
-import {ArchMeleePage} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+const ArchMeleePage = () => {
+  const {items, loading, filterList} = useListPage('archMelee');
 
-import ArchMelee from '../../../view/ArchMelee/ArchMelee';
-
-const archMelee = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={ArchMeleePage.title}
-        description={ArchMeleePage.description}
+    <PageSEO
+      title={ArchMeleePageMeatDecorator.title}
+      description={ArchMeleePageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={ArchMeleeWeaponIcon}
+        Card={ArchMeleeCard}
+        entityName="Arch-Melee"
+        entityNamePlural="Arch-Melee Weapons"
       />
-      <ArchMelee />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default archMelee;
+export default ArchMeleePage;

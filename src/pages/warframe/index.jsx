@@ -1,20 +1,29 @@
-import {Fragment} from 'react';
+import useListPage from '../../hooks/useListPage';
+import useGetWarframe from '../../hooks/useGetWarframe';
+import WarframeCard from '../../components/WarframeCard/WarframeCard';
+import WarframeIcon from '../../Icons/WarframeIcon';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import {WarframePageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
-import {WarframePage} from '../../util/MeatDecoratorList/MeatDecoratorList';
+const WarframePage = () => {
+  const {items, loading, filterList} = useListPage(useGetWarframe);
 
-import Warframe from '../../view/Warframe/Warframe';
-
-const index = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={WarframePage.title}
-        description={WarframePage.description}
+    <PageSEO
+      title={WarframePageMeatDecorator.title}
+      description={WarframePageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={WarframeIcon}
+        Card={WarframeCard}
+        entityName="Warframe"
       />
-      <Warframe />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default index;
+export default WarframePage;

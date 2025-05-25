@@ -1,20 +1,29 @@
-import {Fragment} from 'react';
+import PageSEO from '../../../components/PageTemplate/PageSEO';
+import ListPageTemplate from '../../../components/PageTemplate/ListPageTemplate';
+import {ArchGunPageMeatDecorator} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+import useListPage from '../../../hooks/useListPage';
+import ArchGunWeaponIcon from '../../../Icons/ArchGunWeaponIcon';
+import ArchGunCard from '../../../components/ArchGunCard/ArchGunCard';
 
-import MeatDecorator from '../../../util/MeatDecorator/MeatDecorator';
-import {ArchGunPage} from '../../../util/MeatDecoratorList/MeatDecoratorList';
+const ArchGunPage = () => {
+  const {items, loading, filterList} = useListPage('archGun');
 
-import ArchGun from '../../../view/ArchGun/ArchGun';
-
-const archGun = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={ArchGunPage.title}
-        description={ArchGunPage.description}
+    <PageSEO
+      title={ArchGunPageMeatDecorator.title}
+      description={ArchGunPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={ArchGunWeaponIcon}
+        Card={ArchGunCard}
+        entityName="Arch-Gun"
+        entityNamePlural="Arch-Guns"
       />
-      <ArchGun />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default archGun;
+export default ArchGunPage;

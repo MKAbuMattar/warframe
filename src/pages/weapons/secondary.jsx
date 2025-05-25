@@ -1,20 +1,30 @@
-import {Fragment} from 'react';
+import useListPage from '../../hooks/useListPage';
+import useGetSecondary from '../../hooks/useGetSecondary';
+import SecondaryCard from '../../components/SecondaryCard/SecondaryCard';
+import SecondaryWeaponIcon from '../../Icons/SecondaryWeaponIcon';
+import ListPageTemplate from '../../components/PageTemplate/ListPageTemplate';
+import PageSEO from '../../components/PageTemplate/PageSEO';
+import {SecondaryWeaponsPageMeatDecorator} from '../../util/MeatDecoratorList/MeatDecoratorList';
 
-import MeatDecorator from '../../util/MeatDecorator/MeatDecorator';
-import {SecondaryWeaponsPage} from '../../util/MeatDecoratorList/MeatDecoratorList';
+const SecondaryWeaponsPage = () => {
+  const {items, loading, filterList} = useListPage(useGetSecondary);
 
-import Secondary from '../../view/Secondary/Secondary';
-
-const secondary = () => {
   return (
-    <Fragment>
-      <MeatDecorator
-        title={SecondaryWeaponsPage.title}
-        description={SecondaryWeaponsPage.description}
+    <PageSEO
+      title={SecondaryWeaponsPageMeatDecorator.title}
+      description={SecondaryWeaponsPageMeatDecorator.description}
+    >
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={SecondaryWeaponIcon}
+        Card={SecondaryCard}
+        entityName="Secondary Weapon"
+        entityNamePlural="Secondary Weapons"
       />
-      <Secondary />
-    </Fragment>
+    </PageSEO>
   );
 };
 
-export default secondary;
+export default SecondaryWeaponsPage;

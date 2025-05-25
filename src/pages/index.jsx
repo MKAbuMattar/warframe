@@ -1,20 +1,103 @@
 import {Fragment} from 'react';
+import PageSEO from '../components/PageTemplate/PageSEO';
+import {HomePageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
 
-import MeatDecorator from '../util/MeatDecorator/MeatDecorator';
-import {HomePage} from '../util/MeatDecoratorList/MeatDecoratorList';
+import WarframeCard from '../components/WarframeCard/WarframeCard';
+import ArchwingCard from '../components/ArchwingCard/ArchwingCard';
+import PrimaryCard from '../components/PrimaryCard/PrimaryCard';
+import SecondaryCard from '../components/SecondaryCard/SecondaryCard';
+import MeleeCard from '../components/MeleeCard/MeleeCard';
+import ArchGunCard from '../components/ArchGunCard/ArchGunCard';
+import ArchMeleeCard from '../components/ArchMeleeCard/ArchMeleeCard';
+import SentinelCard from '../components/SentinelCard/SentinelCard';
+import SentinelWeaponCard from '../components/SentinelWeaponCard/SentinelWeaponCard';
 
-import Home from '../view/Home/Home';
+import useGetWarframe from '../hooks/useGetWarframe';
+import useGetArchwing from '../hooks/useGetArchwing';
+import useGetPrimary from '../hooks/useGetPrimary';
+import useGetSecondary from '../hooks/useGetSecondary';
+import useGetMelee from '../hooks/useGetMelee';
+import useGetArchGun from '../hooks/useGetArchGun';
+import useGetArchMelee from '../hooks/useGetArchMelee';
+import useGetSentinel from '../hooks/useGetSentinel';
+import useGetSentinelWeapon from '../hooks/useGetSentinelWeapon';
 
-const index = () => {
+import Loader from '../util/Loader/Loader';
+import data from '../data/data.json';
+import {Capitalize} from '../util/Capitalize/Capitalize';
+import {generateUniqueKey} from '../util/generateUniqueKey/index';
+import {Cards} from '../style/Style';
+
+// Import Home styles
+import {Container, SubTitle} from '../style/Style';
+
+const HomePage = () => {
+  const {getWarframe, getWarframeLoading} = useGetWarframe();
+  const {getArchwing, getArchwingLoading} = useGetArchwing();
+  const {getPrimary, getPrimaryLoading} = useGetPrimary();
+  const {getSecondary, getSecondaryLoading} = useGetSecondary();
+  const {getMelee, getMeleeLoading} = useGetMelee();
+  const {getArchGun, getArchGunLoading} = useGetArchGun();
+  const {getArchMelee, getArchMeleeLoading} = useGetArchMelee();
+  const {getSentinel, getSentinelLoading} = useGetSentinel();
+  const {getSentinelWeapon, getSentinelWeaponLoading} = useGetSentinelWeapon();
+
+  const isLoading =
+    getWarframeLoading ||
+    getArchwingLoading ||
+    getPrimaryLoading ||
+    getSecondaryLoading ||
+    getMeleeLoading ||
+    getArchGunLoading ||
+    getArchMeleeLoading ||
+    getSentinelLoading ||
+    getSentinelWeaponLoading;
+
+  const renderEntityCards = (element, entityData, CardComponent) => {
+    return entityData
+      ?.filter((item) => item.name.toLowerCase() === element.toLowerCase())
+      .map((item, idx) => (
+        <CardComponent result={item} key={generateUniqueKey(idx)} idx={idx} />
+      ));
+  };
+
   return (
-    <Fragment>
-      <MeatDecorator
-        title={HomePage.title}
-        description={HomePage.description}
-      />
-      <Home />
-    </Fragment>
+    <PageSEO
+      title={HomePageMeatDecorator.title}
+      description={HomePageMeatDecorator.description}
+    >
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <section className="container">
+          {data.map((result, idx) => (
+            <Container key={generateUniqueKey(idx)}>
+              <SubTitle>{Capitalize(result.title)}</SubTitle>
+              <Cards>
+                {result.data.map((element, i) => (
+                  <Fragment key={generateUniqueKey(i)}>
+                    {renderEntityCards(element, getWarframe, WarframeCard)}
+                    {renderEntityCards(element, getArchwing, ArchwingCard)}
+                    {renderEntityCards(element, getPrimary, PrimaryCard)}
+                    {renderEntityCards(element, getSecondary, SecondaryCard)}
+                    {renderEntityCards(element, getMelee, MeleeCard)}
+                    {renderEntityCards(element, getArchGun, ArchGunCard)}
+                    {renderEntityCards(element, getArchMelee, ArchMeleeCard)}
+                    {renderEntityCards(element, getSentinel, SentinelCard)}
+                    {renderEntityCards(
+                      element,
+                      getSentinelWeapon,
+                      SentinelWeaponCard,
+                    )}
+                  </Fragment>
+                ))}
+              </Cards>
+            </Container>
+          ))}
+        </section>
+      )}
+    </PageSEO>
   );
 };
 
-export default index;
+export default HomePage;
