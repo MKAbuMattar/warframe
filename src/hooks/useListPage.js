@@ -18,6 +18,7 @@ import useGetArchMelee from './useGetArchMelee';
 import useGetSentinel from './useGetSentinel';
 import useGetSentinelWeapon from './useGetSentinelWeapon';
 import useGetSkin from './useGetSkin';
+import useGetRailjack from './useGetRailjack';
 
 // Map string entity names to hooks
 const HOOK_MAP = {
@@ -37,6 +38,7 @@ const HOOK_MAP = {
   sentinel: useGetSentinel,
   sentinelWeapon: useGetSentinelWeapon,
   skin: useGetSkin,
+  railjack: useGetRailjack,
 };
 
 /**

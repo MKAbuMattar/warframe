@@ -131,6 +131,12 @@ export const SkinPageMeatDecorator = {
     'Skins are cosmetic items that change the appearance of Warframes, weapons, and other equipment. They provide visual customization without affecting gameplay mechanics.',
 };
 
+export const RailjackPageMeatDecorator = {
+  title: `Railjack | ${WebTitle}`,
+  description:
+    'Railjacks are massive Orokin-era interceptor spacecraft used by Tenno in the Empyrean game mode. They can be customized with various components, weapons, and battle avionics to create powerful space-faring vessels capable of engaging in large-scale space combat missions.',
+};
+
 export const WarframeInfoAPI = {
   title: `Warframe API | ${WebTitle}`,
   description: 'Warframe Info. API provides access to all Warframe items.',

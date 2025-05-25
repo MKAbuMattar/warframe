@@ -22,6 +22,7 @@ import QuestIcon from '../../Icons/QuestIcon';
 import GearIcon from '../../Icons/GearIcon';
 import GlyphIcon from '../../Icons/GlyphIcon';
 import FishIcon from '../../Icons/FishIcon';
+import RailjackIcon from '../../Icons/RailjackIcon';
 import SkinIcon from '../../Icons/SkinIcon';
 import RightIcon from '../../Icons/RightIcon';
 import LeftIcon from '../../Icons/LeftIcon';
@@ -49,6 +50,7 @@ export const ICONS = {
   GEAR: GearIcon,
   GLYPH: GlyphIcon,
   FISH: FishIcon,
+  RAILJACK: RailjackIcon,
   SKIN: SkinIcon,
   RIGHT: RightIcon,
   LEFT: LeftIcon,
@@ -77,6 +79,12 @@ export const MENU_CONFIG = {
         rightIcon: 'RIGHT',
         goToMenu: 'archwing',
         type: ITEM_TYPES.SUBMENU,
+      },
+      {
+        label: 'Railjack',
+        leftIcon: 'RAILJACK',
+        url: '/railjack',
+        type: ITEM_TYPES.LINK,
       },
       {
         label: 'Quest',
