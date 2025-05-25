@@ -20,6 +20,7 @@ import Sentinel from '../models/Sentinel.model';
 import SentinelWeapon from '../models/SentinelWeapon.model';
 import Skin from '../models/Skin.model';
 import Warframe from '../models/Warframe.model';
+import Railjack from '../models/Railjack.model';
 
 // Import filter utilities
 import {
@@ -200,6 +201,13 @@ export const DATA_CONFIGS = {
     ModelClass: Warframe,
     filters: [createPropertyFilter('stamina', 5, '<=')],
     deduplicationStrategy: 'basic',
+  },
+
+  railjack: {
+    endpoint: 'Railjack',
+    ModelClass: Railjack,
+    filters: [createExcludeFilter(['[hc]', '[Ph]'])],
+    deduplicationStrategy: 'name',
   },
 };
 
