@@ -1,24 +1,31 @@
 import {useState, useEffect, useCallback} from 'react';
 import FilterIt from '../util/FilterIt/FilterIt';
 
-// Import hooks for string mapping
-import useGetQuest from './useGetQuest';
-import useGetResource from './useGetResource';
-import useGetFish from './useGetFish';
-import useGetPet from './useGetPet';
-import useGetGear from './useGetGear';
-import useGetGlyph from './useGetGlyph';
-import useGetMiscellaneous from './useGetMiscellaneous';
-import useGetArcane from './useGetArcane';
-import useGetMod from './useGetMod';
-import useGetNecramech from './useGetNecramech';
-import useGetArchwing from './useGetArchwing';
-import useGetArchGun from './useGetArchGun';
-import useGetArchMelee from './useGetArchMelee';
-import useGetSentinel from './useGetSentinel';
-import useGetSentinelWeapon from './useGetSentinelWeapon';
-import useGetSkin from './useGetSkin';
-import useGetRailjack from './useGetRailjack';
+// Import all hooks from centralized index
+import {
+  useGetQuest,
+  useGetResource,
+  useGetFish,
+  useGetPet,
+  useGetGear,
+  useGetGlyph,
+  useGetMiscellaneous,
+  useGetArcane,
+  useGetMod,
+  useGetNecramech,
+  useGetArchwing,
+  useGetArchGun,
+  useGetArchMelee,
+  useGetSentinel,
+  useGetSentinelWeapon,
+  useGetSkin,
+  useGetRailjack,
+  useGetEnemy,
+  useGetPrimary,
+  useGetSecondary,
+  useGetMelee,
+  useGetWarframe,
+} from './index';
 
 // Map string entity names to hooks
 const HOOK_MAP = {
@@ -39,6 +46,11 @@ const HOOK_MAP = {
   sentinelWeapon: useGetSentinelWeapon,
   skin: useGetSkin,
   railjack: useGetRailjack,
+  enemy: useGetEnemy,
+  primary: useGetPrimary,
+  secondary: useGetSecondary,
+  melee: useGetMelee,
+  warframe: useGetWarframe,
 };
 
 /**

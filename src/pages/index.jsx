@@ -2,25 +2,29 @@ import {Fragment} from 'react';
 import PageSEO from '../components/PageTemplate/PageSEO';
 import {HomePageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
 
-import WarframeCard from '../components/WarframeCard/WarframeCard';
-import ArchwingCard from '../components/ArchwingCard/ArchwingCard';
-import PrimaryCard from '../components/PrimaryCard/PrimaryCard';
-import SecondaryCard from '../components/SecondaryCard/SecondaryCard';
-import MeleeCard from '../components/MeleeCard/MeleeCard';
-import ArchGunCard from '../components/ArchGunCard/ArchGunCard';
-import ArchMeleeCard from '../components/ArchMeleeCard/ArchMeleeCard';
-import SentinelCard from '../components/SentinelCard/SentinelCard';
-import SentinelWeaponCard from '../components/SentinelWeaponCard/SentinelWeaponCard';
+import {
+  WarframeCard,
+  ArchwingCard,
+  PrimaryCard,
+  SecondaryCard,
+  MeleeCard,
+  ArchGunCard,
+  ArchMeleeCard,
+  SentinelCard,
+  SentinelWeaponCard,
+} from '../components/CardFactory';
 
-import useGetWarframe from '../hooks/useGetWarframe';
-import useGetArchwing from '../hooks/useGetArchwing';
-import useGetPrimary from '../hooks/useGetPrimary';
-import useGetSecondary from '../hooks/useGetSecondary';
-import useGetMelee from '../hooks/useGetMelee';
-import useGetArchGun from '../hooks/useGetArchGun';
-import useGetArchMelee from '../hooks/useGetArchMelee';
-import useGetSentinel from '../hooks/useGetSentinel';
-import useGetSentinelWeapon from '../hooks/useGetSentinelWeapon';
+import {
+  useGetWarframe,
+  useGetArchwing,
+  useGetPrimary,
+  useGetSecondary,
+  useGetMelee,
+  useGetArchGun,
+  useGetArchMelee,
+  useGetSentinel,
+  useGetSentinelWeapon,
+} from '../hooks';
 
 import Loader from '../util/Loader/Loader';
 import data from '../data/data.json';

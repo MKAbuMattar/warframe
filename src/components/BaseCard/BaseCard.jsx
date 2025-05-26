@@ -168,9 +168,14 @@ const BaseCard = React.memo(
 
               <ModalInfoContainer>
                 <ModalInfoImg
-                  src={customImageLoader ? 
-                    customImageLoader({src: imageSource, width: 300, quality: 75}) : 
-                    `${CDN_IMG_URL}/${imageSource}`
+                  src={
+                    customImageLoader
+                      ? customImageLoader({
+                          src: imageSource,
+                          width: 300,
+                          quality: 75,
+                        })
+                      : `${CDN_IMG_URL}/${imageSource}`
                   }
                   alt={displayTitle}
                   title={displayTitle}
