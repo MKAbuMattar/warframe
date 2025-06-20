@@ -12,8 +12,8 @@
     "fmt:fix": "prettier --config prettier.config.mjs --write ./src"
   },
   "dependencies": {
-    "axios": "1.9.0",
-    "next": "15.3.3",
+    "axios": "1.10.0",
+    "next": "15.3.4",
     "next-pwa": "5.6.0",
     "next-seo": "6.8.0",
     "react": "19.1.0",
@@ -21,13 +21,13 @@
     "react-modal": "3.16.3",
     "react-tabs": "6.1.0",
     "sitemap": "8.0.0",
-    "styled-components": "6.1.18",
+    "styled-components": "6.1.19",
     "webpack": "5.99.9"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
-    "eslint": "9.28.0",
-    "eslint-config-next": "15.3.3",
+    "eslint": "9.29.0",
+    "eslint-config-next": "15.3.4",
     "prettier": "3.5.3",
     "winston": "3.17.0"
   },
