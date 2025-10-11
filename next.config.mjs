@@ -4,11 +4,8 @@ import generateRobotsTxt from './src/scripts/generate-robots-txt.script.cjs';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
   compiler: {
     styledComponents: true,
   },
@@ -17,6 +14,9 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
   },
   webpack(config, { isServer }) {
     if (isServer) {
