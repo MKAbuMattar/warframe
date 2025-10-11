@@ -22,7 +22,7 @@
     "react-tabs": "6.1.0",
     "sitemap": "8.0.0",
     "styled-components": "6.1.19",
-    "webpack": "5.102.0"
+    "webpack": "5.102.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
