@@ -1,6 +1,5 @@
 import React, {useState, useCallback, useMemo} from 'react';
 import Modal from 'react-modal';
-import Image from 'next/image';
 import XIcon from '../../Icons/XIcon';
 import {Card, CardImg, CardTitle, CardBtn} from '../../style/Style';
 import {
@@ -24,7 +23,6 @@ import {
  * @param {boolean} props.showModal - Whether to show modal on button click (default: true)
  * @param {string} props.buttonText - Custom button text (default: "Info")
  * @param {Object} props.customStyles - Custom styles for card elements (optional)
- * @param {Function} props.imageLoader - Custom image loader function (optional)
  * @param {string} props.imageSrc - Custom image source (optional)
  * @param {string} props.title - Custom title (optional)
  * @param {string} props.altText - Custom alt text (optional)
@@ -41,7 +39,6 @@ const BaseCard = React.memo(
     buttonText = 'Info',
     customStyles = {},
     ariaLabel,
-    imageLoader: customImageLoader,
     imageSrc,
     title,
     altText: customAltText,
@@ -50,19 +47,15 @@ const BaseCard = React.memo(
     const CDN_IMG_URL = process.env.NEXT_PUBLIC_CDN_IMG_URL;
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [imageError, setImageError] = useState(false);
-    const [imageLoading, setImageLoading] = useState(true);
 
-    // Memoized image loader - use custom loader if provided, otherwise default
-    const imageLoader = useMemo(() => {
-      if (customImageLoader) {
-        return customImageLoader;
+    // Determine image source - use custom imageSrc if provided, otherwise construct from CDN
+    const imageSource = useMemo(() => {
+      if (imageSrc) {
+        return imageSrc;
       }
-      return ({src, width, quality}) =>
-        `${CDN_IMG_URL}/${src}?w=${width}&q=${quality || 75}`;
-    }, [customImageLoader, CDN_IMG_URL]);
-
-    // Determine image source - use custom imageSrc if provided, otherwise item.imageName
-    const imageSource = imageSrc || item.imageName;
+      const itemImageName = item.imageName || '';
+      return CDN_IMG_URL ? `${CDN_IMG_URL}/${itemImageName}` : itemImageName;
+    }, [imageSrc, item.imageName, CDN_IMG_URL]);
 
     // Determine title - use custom title if provided, otherwise item.name
     const displayTitle = title || item.name;
@@ -104,13 +97,8 @@ const BaseCard = React.memo(
       [openModal],
     );
 
-    const handleImageLoad = useCallback(() => {
-      setImageLoading(false);
-    }, []);
-
     const handleImageError = useCallback(() => {
       setImageError(true);
-      setImageLoading(false);
     }, []);
 
     return (
@@ -124,19 +112,15 @@ const BaseCard = React.memo(
           onKeyPress={handleKeyPress}
           {...props}
         >
-          {/* Image with loading state and error handling */}
+          {/* Image with error handling */}
           <CardImg
-            loader={imageLoader}
             src={imageError ? fallbackImageSrc : imageSource}
             title={displayTitle}
             alt={altText}
             width={300}
             height={300}
-            objectFit="contain"
             style={customStyles.image}
-            onLoad={handleImageLoad}
             onError={handleImageError}
-            priority={index < 4} // Prioritize first 4 images
           />
 
           <CardTitle style={customStyles.title}>{displayTitle}</CardTitle>
@@ -168,15 +152,7 @@ const BaseCard = React.memo(
 
               <ModalInfoContainer>
                 <ModalInfoImg
-                  src={
-                    customImageLoader
-                      ? customImageLoader({
-                          src: imageSource,
-                          width: 300,
-                          quality: 75,
-                        })
-                      : `${CDN_IMG_URL}/${imageSource}`
-                  }
+                  src={imageSource}
                   alt={displayTitle}
                   title={displayTitle}
                 />
