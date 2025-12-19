@@ -1,7 +1,7 @@
 import React, {useState, useCallback, useMemo} from 'react';
 import Modal from 'react-modal';
 import XIcon from '../../Icons/XIcon';
-import {Card, CardImg, CardTitle, CardBtn} from '../../style/Style';
+import {Card, CardImg, CardTitle, CardBtn} from '@/styles/Style';
 import {
   ModalBtnContainer,
   ModalBtn,
@@ -9,7 +9,7 @@ import {
   ModalInfoImg,
   ModalInfoTite,
   ModalInfoSubtite,
-} from '../../style/Style';
+} from '@/styles/Style';
 
 /**
  * Reusable base card component that handles common card functionality

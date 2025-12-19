@@ -6,7 +6,7 @@ import {
   ModalInfoSubtiteAbilitie,
   ModalInfoAbilities,
   ModalInfoAbilitie,
-} from '../../style/Style';
+} from '@/styles/Style';
 import DamageIcons from '../DamageIcons/DamageIcons';
 import AbilitieIcons from '../AbilitieIcons/AbilitieIcons';
 import {Capitalize} from '../../util/Capitalize/Capitalize';

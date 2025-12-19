@@ -1,5 +1,4 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
 const ColdIcon = (props) => {
   const {color, size, ...otherProps} = props;
@@ -25,11 +24,6 @@ const ColdIcon = (props) => {
       }),
     ),
   );
-};
-
-ColdIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ColdIcon.defaultProps = {

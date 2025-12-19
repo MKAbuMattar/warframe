@@ -5,7 +5,7 @@ import {
   SearchInput,
   PageCounter,
   Cards,
-} from '../../style/Style';
+} from '@/styles/Style';
 
 /**
  * Reusable template for list pages

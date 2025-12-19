@@ -1,5 +1,4 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
 const ToxinIcon = (props) => {
   const {color, size, ...otherProps} = props;
@@ -34,11 +33,6 @@ const ToxinIcon = (props) => {
       }),
     ),
   );
-};
-
-ToxinIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ToxinIcon.defaultProps = {

@@ -1,5 +1,4 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
 const CorrosiveIcon = (props) => {
   const {color, size, ...otherProps} = props;
@@ -28,11 +27,6 @@ const CorrosiveIcon = (props) => {
       }),
     ),
   );
-};
-
-CorrosiveIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 CorrosiveIcon.defaultProps = {

@@ -1,5 +1,4 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
 const MagneticIcon = (props) => {
   const {color, size, ...otherProps} = props;
@@ -34,11 +33,6 @@ const MagneticIcon = (props) => {
       }),
     ),
   );
-};
-
-MagneticIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 MagneticIcon.defaultProps = {
