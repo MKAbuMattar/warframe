@@ -1,6 +1,6 @@
 {
   "name": "warframe",
-  "version": "1.0.0-warframe.40",
+  "version": "1.0.0-warframe.41",
   "private": false,
   "scripts": {
     "dev": "next dev",
