@@ -1,5 +1,4 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
 const ImpactIcon = (props) => {
   const {color, size, ...otherProps} = props;
@@ -22,11 +21,6 @@ const ImpactIcon = (props) => {
       }),
     ),
   );
-};
-
-ImpactIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ImpactIcon.defaultProps = {

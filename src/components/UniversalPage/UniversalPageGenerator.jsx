@@ -1,5 +1,4 @@
 import React from 'react';
-import PageSEO from '../PageTemplate/PageSEO';
 import ListPageTemplate from '../PageTemplate/ListPageTemplate';
 import useListPage from '../../hooks/useListPage';
 import {createCard} from '../CardFactory';
@@ -26,20 +25,15 @@ const createUniversalPage = (entityName) => {
     const {items, loading, filterList} = useListPage(config.dataSource);
 
     return (
-      <PageSEO
-        title={config.seoMeta.title}
-        description={config.seoMeta.description}
-      >
-        <ListPageTemplate
-          items={items}
-          loading={loading}
-          filterList={filterList}
-          Icon={config.Icon}
-          Card={Card}
-          entityName={config.entityName}
-          entityNamePlural={config.entityNamePlural}
-        />
-      </PageSEO>
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={config.Icon}
+        Card={Card}
+        entityName={config.entityName}
+        entityNamePlural={config.entityNamePlural}
+      />
     );
   };
 

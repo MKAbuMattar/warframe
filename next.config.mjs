@@ -1,43 +1,12 @@
-import nextPWAInit from 'next-pwa';
-import runtimeCachingConfig from './runtime-caching.config.mjs';
-import generateRobotsTxt from './src/scripts/generate-robots-txt.script.cjs';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  /* config options here */
   reactStrictMode: true,
-  compiler: {
-    styledComponents: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  output: "export",
   images: {
     unoptimized: true,
   },
-  webpack(config, { isServer }) {
-    if (isServer) {
-      generateRobotsTxt()
-    }
-    return config
-  },
+  allowedDevOrigins: ["192.168.1.48"],
 };
 
-const nextPWAConfig = nextPWAInit({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  runtimeCaching: runtimeCachingConfig,
-  publicExcludes: [
-    '!robots.txt',
-    '!sitemap.xml',
-    '!sitemap.*.xml',
-    '!app-build-manifest.json',
-  ],
-  buildExcludes: ['app-build-manifest.json'],
-});
-
-export default nextPWAConfig(nextConfig);
+export default nextConfig;

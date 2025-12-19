@@ -1,5 +1,4 @@
 import {createElement} from 'react';
-import PropTypes from 'prop-types';
 
 const ViralIcon = (props) => {
   const {color, size, ...otherProps} = props;
@@ -25,11 +24,6 @@ const ViralIcon = (props) => {
       }),
     ),
   );
-};
-
-ViralIcon.propTypes = {
-  color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ViralIcon.defaultProps = {

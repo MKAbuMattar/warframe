@@ -1,5 +1,4 @@
 import React from 'react';
-import PageSEO from '../PageTemplate/PageSEO';
 import ListPageTemplate from '../PageTemplate/ListPageTemplate';
 import useListPage from '../../hooks/useListPage';
 
@@ -22,17 +21,15 @@ const createListPage = (config) => {
     const {items, loading, filterList} = useListPage(dataSource);
 
     return (
-      <PageSEO title={seoMeta.title} description={seoMeta.description}>
-        <ListPageTemplate
-          items={items}
-          loading={loading}
-          filterList={filterList}
-          Icon={Icon}
-          Card={Card}
-          entityName={entityName}
-          entityNamePlural={entityNamePlural}
-        />
-      </PageSEO>
+      <ListPageTemplate
+        items={items}
+        loading={loading}
+        filterList={filterList}
+        Icon={Icon}
+        Card={Card}
+        entityName={entityName}
+        entityNamePlural={entityNamePlural}
+      />
     );
   };
 

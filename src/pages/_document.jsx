@@ -25,8 +25,16 @@ export default class MyDocument extends Document {
           </>
         ),
       };
+    } catch (error) {
+      console.error('Error in document rendering:', error);
+      const initialProps = await Document.getInitialProps(ctx);
+      return initialProps;
     } finally {
-      sheet.seal();
+      try {
+        sheet.seal();
+      } catch (e) {
+        // Ignore seal errors with React 19
+      }
     }
   }
 

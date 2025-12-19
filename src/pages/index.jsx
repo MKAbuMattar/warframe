@@ -1,6 +1,4 @@
 import {Fragment} from 'react';
-import PageSEO from '../components/PageTemplate/PageSEO';
-import {HomePageMeatDecorator} from '../util/MeatDecoratorList/MeatDecoratorList';
 
 import {
   WarframeCard,
@@ -30,10 +28,10 @@ import Loader from '../util/Loader/Loader';
 import data from '../data/data.json';
 import {Capitalize} from '../util/Capitalize/Capitalize';
 import {generateUniqueKey} from '../util/generateUniqueKey/index';
-import {Cards} from '../style/Style';
+import {Cards} from '@/styles/Style';
 
 // Import Home styles
-import {Container, SubTitle} from '../style/Style';
+import {Container, SubTitle} from '@/styles/Style';
 
 const HomePage = () => {
   const {getWarframe, getWarframeLoading} = useGetWarframe();
@@ -66,10 +64,7 @@ const HomePage = () => {
   };
 
   return (
-    <PageSEO
-      title={HomePageMeatDecorator.title}
-      description={HomePageMeatDecorator.description}
-    >
+    <>
       {isLoading ? (
         <Loader />
       ) : (
@@ -100,7 +95,7 @@ const HomePage = () => {
           ))}
         </section>
       )}
-    </PageSEO>
+    </>
   );
 };
 
